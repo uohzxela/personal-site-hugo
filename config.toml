@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://uohzxela.github.io"
 title = "Alex Jiao"
 author = "Alex Jiao"
 canonifyurls = true
@@ -8,7 +8,7 @@ theme = "hugo-goa"
 pygmentsstyle       = "autumn"
 pygmentscodefences  = true
 
-disqusShortname = "alex-jiao" # Comment out to disable Disqus.
+disqusShortname = "alexjiao" # Comment out to disable Disqus.
 googleAnalytics = "XYZ"
 enableRobotsTXT = true
 
