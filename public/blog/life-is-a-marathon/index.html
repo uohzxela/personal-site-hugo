@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Life&#39;s a marathon</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUL 21, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/software-engineering">SOFTWARE ENGINEERING</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>Two months ago, I was a complete tech newbie. I tried to create a chat app with NodeJS, I succeeded in making it but I didn’t succeed in understanding it. Save for some half-baked web apps, I was barely literate in web programming.</p>
+
+<p>My stint at Favorite Medium is a fulfilling one that exposed me to real-world programming. Huge databases. RESTful APIs. In-house apps. I learnt a lot and had the opportunity to work on a non-trivial in-house app named as  Marathon, a clone of 10,000ft.</p>
+
+<h2 id="things-i-learned-from-marathon">Things I learned from Marathon</h2>
+
+<p>They say writing a full-scale software is like writing a novel. Using that analogy, I’m very used to writing short stories, but it is very different from writing a novel. For the latter, you have to start with a plot, conceptualise the characters, flesh them out with details and weave a convincing story around them. Similarly for software, you have to start with an architecture, design the features, flesh them out with code and build a pleasant user experience around them.</p>
+
+<p>While Marathon wouldn’t be considered a novel, it wouldn’t be considered as a short story either. I would classify it as a novella; it’s not that ambitious of a project, but it is also not trivial (at least to me).</p>
+
+<p>Hence I’d like to document three things I learnt about Marathon.</p>
+
+<h3 id="the-genius-lies-in-the-details">The genius lies in the details</h3>
+
+<p>As a product grows, more and more time will be invested in hair-splitting. Maybe you can say that software engineers are professional hair-splitters. They take a subset of a feature so miniscule, and spend a great deal of time improving it. For example, engineers at Google spend an inordinate amount of tweaking the search algorithm to shave milliseconds off the loading time. On the front-end, those pedantic engineers obsess about kerning the Google logo to make it more visually pleasing. As the casual user, you may scoff and wonder about the futility of such detail-oriented investments, given that in isolation, they make no significance whatsoever.</p>
+
+<p>But software is a sum of its parts, a totality of its features (which is a totality of its sub-features and so on and so forth, recursion ftw). To discount the kerning of Google logo is to discount the placement of the lightning scar that so greatly characterized Harry Potter. To discount the pedantic improvements of Google’s search algorithm is to discount the numerous edits that your favorite Harry Potter books have gone through.</p>
+
+<p>Why am I referencing Rowling’s books here? Beats me, but you get the idea.</p>
+
+<p>Hair-splitting may carry with it a negative connotation, but at the end of the day it is the details that make a product great.</p>
+
+<p>Marathon is not great; in fact, it is crap compared to industrial-grade apps as it is only a prototype. Split the hair like the pendant you are, don’t settle.</p>
+
+<h3 id="don-t-get-mired-in-petty-bugs">Don’t get mired in petty bugs</h3>
+
+<p>I’m a lazy person. Sometimes, when my work gets interrupted, I find it hard to go back to the ‘zone’ again. Or the ‘flow’ or whatever you call it. This is why I try my best to block out long periods of time for work.</p>
+
+<p>When you are in the ‘zone’, it feels uneasy to leave something hanging. That’s the power of the ‘zone’. I have used it for great effect by working on a bug for hours. It feels good when you are in the ‘zone’; you want to revel in it forever, but it has a danger of becoming a timesink.</p>
+
+<p>When you are debugging an inscrutable bug, time flies. In that period of time when your mind is ensnarled by buggy logic, you are essentially doing nothing except to mollify your butt-hurt ego by removing mistakes from your code. Unless of course when the code is critical to the software infrastructure, it’s a different story altogether and this is one good excuse to be in the ‘flow’.</p>
+
+<p>What I’m talking about is those minor bugs that you can probably live with as a software developer, those that only bring about marginal benefits upon elimination yet require an inordinate amount of time to debug.</p>
+
+<p>When you are creating a prototype, your main goal is to flesh out the features into a coherent whole instead of squashing every single bug to make the app bug-free. Marathon is a prototype and it undeniably has bugs, but they are pretty minor and don’t break the app.</p>
+
+<h3 id="learning-by-doing-takes-precedence">Learning by doing takes precedence</h3>
+
+<p>Aside from being professional hair-splitters, software engineers are professional learners. They learn new technologies, apply it to a project (personal or work-related) and the cycle repeats. It makes sense to optimize this workflow, to learn how to learn. That’s pretty meta.</p>
+
+<p>I need to learn AngularJS for Marathon. Being a theory-centric learner, I devoured a significant chunk of AngularJS text only to find out nothing really sticks.</p>
+
+<p>The trick is to read cursorily to construct a mental model of where the essential topics lie, start building the actual app and refer to the text only when you get stuck.</p>
+
+<p>Rather than drinking from a firehose at the start, why not just delve straight into the nitty-gritty of building the actual app and consult the documentation when you actually need it? I used to make the mistake of procuring all the necessary knowledge before I start to build the app, but it is an idealistic pursuit. Firstly, learning by reading sucks for memory retention (no wonder I’m struggling in college). Secondly, nothing ever gets done when you are busy trying to grok a non-trivial concept from the text. Lastly, you will lose motivation because nothing ever gets done.</p>
+
+<p>By building your app incrementally and consulting the docs whenever you get stuck, it makes your learning process requirement-driven. You retain what you learnt easily because it’s learning by doing (duh). You are able to conceive tangible results with your WIP build. Your motivation will be all-time high as you have something to show after a day of work.</p>
+
+<hr>
+
+<p>Building Marathon has been a fruitful journey. I can’t wait to start on my next project, hope it will be a even better experience by applying the aforementioned lessons.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/life-is-a-marathon\/';
+    var disqus_title = 'Life\x27s a marathon';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/life-is-a-marathon\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-rails-image-upload/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-rails-auth/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/algorithms/index.xml</link>
+    <description>Recent content in Algorithms on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>UVA 10920 Spiral Tap</title>
+      <link>https://www.alexjiao.com/blog/uva-10920-spiral-tap/</link>
+      <pubDate>Fri, 04 Jul 2014 10:17:55 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/uva-10920-spiral-tap/</guid>
+      <description>&lt;p&gt;A week gone by without tackling an algorithm problem makes Jack a dull software engineer.&lt;/p&gt;
+
+&lt;p&gt;Lately, I’ve been working on an inhouse app which requires intermediate Javascript and CSS skills. Being the greenhorn I am at these technologies, I struggled and the process became a timesink. Hence I didn’t manage to set aside time for my regular algorithm coding session.&lt;/p&gt;
+
+&lt;p&gt;Prior to this busy week, I encountered the &lt;a href=&#34;http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;amp;Itemid=8&amp;amp;page=show_problem&amp;amp;problem=1861&#34;&gt;eponymous algorithm problem&lt;/a&gt; on UVa. Yes, I’m back on Uva OJ again. I found out that the slow response times of UVa OJ previously was due to problems with my browser cache. I am able to access the site using Incognito Mode on Chrome, since the browswer loads the site from a clean slate. There is truly no good subsitute for the problem classifier on UVa. CodeChef has its upsides – good community and support for more languages, but when it comes to finding questions by topic, it has nil support for that.&lt;/p&gt;
+
+&lt;p&gt;Spiral Tap is an interesting ad-hoc problem. The premise is quite straight-forward: the numbering sequence in the grid follows a spiral pattern that originates from the center square, and given a square number, you are required to find out the coordinates of that square. The &lt;a href=&#34;http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;amp;Itemid=8&amp;amp;page=show_problem&amp;amp;problem=1861&#34;&gt;problem statement&lt;/a&gt; has a diagram to illustrate the spiral-patterned grid.&lt;/p&gt;
+
+&lt;p&gt;It isn’t hard to visualize the solution through the naive approach. What you can do is to construct a 2D array first. Starting from the center square, you number each square from 1 to N using the spiral pattern. Given a square number from the input, you then find the coordinates of that square (note that the coordinates specified in the question is a bit special) and output it as the answer.&lt;/p&gt;
+
+&lt;p&gt;So the naive me, prior to this busy week, coded the naive solution and found out that my program sputtered and stopped upon using test cases of extremely large grids. Grids of size 10000x10000. Mind you. Upon realising that the naive solution is useless, I was quite disheartened at the prospect of finding a mathematical formula to solve the problem and decided to shelve the problem for the next week.&lt;/p&gt;
+
+&lt;p&gt;Luckily I chanced upon a hint given by a kind dude on the UVa discussion forum, it was just a hint and no more (not to the extent of spoonfeeding). I couldn’t say it better, so you can check out the hint &lt;a href=&#34;http://acm.uva.es/board/viewtopic.php?p=50676&amp;amp;sid=03fc5df83f88ad1a3077f6abddf28fcc#p50676&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I managed to squeeze out some time this week to code up the solution. It wasn’t easy, because while his hint describes the solution in layman terms, I couldn’t nail down the programmatic version. The hard part is, how do you find out which of the four lines the square is in? And more importantly, how do you find the coordinates based on the square’s position along the line?&lt;/p&gt;
+
+&lt;p&gt;So after quite some time thinking and doodling on paper, I managed to find a pattern. Supposed we want to find the coordinates of square number 15 in a 5x5 grid. Based on his hint, 15 falls in between 9 and 25, four lines connects square 9 and square 25. Which line contains square 15 and exactly where in the line is 15?&lt;/p&gt;
+
+&lt;p&gt;Fret not. First, we enumerate all the square numbers and their coordinates between square 9 and square 25:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;9 (5,5)
+
+10 (6,5)
+11 (6,4)
+12 (6,3)
+13 (6,2)
+
+14 (5,2)
+15 (4,2)
+16 (3,2)
+17 (2,2)
+
+18 (2,3)
+19 (2,4)
+20 (2,5)
+21 (2,6)
+
+22 (3,6)
+23 (4,6)
+24 (5,6)
+25 (6,6)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here’s the thing. Clearly there are four lines, the squares in each line has a fixed coordinate on either the X or Y side. For the other side of the coordinates that is not fixed, it follows a incremental/decremental pattern as the square number increases.&lt;/p&gt;
+
+&lt;p&gt;So the algorithm is becoming much clearer now. We need to find the square numbers that mark the start of each line segment, in this case, they are squares 10, 14, 18 and 22. It’s trivial to calculate that 15 falls between 14 and 18. Based on the pattern that the second line segment’s x-coordinate follows a decremental pattern and that it has a fixed y-coordinate of 2, we start at (5, 2) at square 14 and logically we conclude that (4, 2) is the coordinate of square 15.&lt;/p&gt;
+
+&lt;p&gt;Having known the pattern, the solution is pretty much easier to visualize and program now.&lt;/p&gt;
+
+&lt;p&gt;Since this is an ad-hoc problem, the solution can’t really be generalized to solve other types of 2D array problems. But what I learnt from this coding session is that finding patterns can be a viable way to generate algorithms to solve a problem. Sometimes you just have to do it the hard way, to enumerate the steps so as to glean the pattern from the details.&lt;/p&gt;
+
+&lt;p&gt;My solution (AC):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.*&lt;/span&gt;;
+
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * @author Alex Jiao Ziheng&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * UVa 10920 Spiral Tap&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Main&lt;/span&gt; {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;main&lt;/span&gt;(String args[]) {
+      DataReader in = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; DataReader(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt;);
+      PrintWriter out = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; PrintWriter(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;out&lt;/span&gt;);
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; size, pos;
+      &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; {
+          size = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          pos = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; size==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              &lt;span style=&#34;color: #0000aa&#34;&gt;break&lt;/span&gt;;
+          }
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseCoord = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;) Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;ceil&lt;/span&gt;(size/&lt;span style=&#34;color: #009999&#34;&gt;2.0&lt;/span&gt;);
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseSqrt = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;) Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;sqrt&lt;/span&gt;(pos);
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (baseSqrt%&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              baseSqrt -= &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          }
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; nextSqrt = baseSqrt + &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; nextSq = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;)Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;pow&lt;/span&gt;(nextSqrt,&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;);
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseSq = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;)Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;pow&lt;/span&gt;(baseSqrt,&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;);
+          baseCoord += (baseSqrt-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)/&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; maxCoord = baseCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; minCoord = baseCoord - baseSqrt;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; x, y, secSegMarker,thirdSegMarker, fourthSegMarker;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; segLength = (nextSq-baseSq)/&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;;
+          secSegMarker = baseSq + segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          thirdSegMarker = baseSq + &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt; * segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          fourthSegMarker = baseSq + &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt; * segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos &amp;gt; baseSq &amp;amp;&amp;amp; pos &amp;lt; secSegMarker) {
+              x = maxCoord;
+              y = (maxCoord-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) - (pos - (baseSq + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;));
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;= secSegMarker &amp;amp;&amp;amp; pos &amp;lt; thirdSegMarker) {
+              y = minCoord;
+              x = (maxCoord-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) - (pos - secSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;=thirdSegMarker &amp;amp;&amp;amp; pos &amp;lt; fourthSegMarker) {
+              x = minCoord;
+              y = minCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt; + (pos - thirdSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;=fourthSegMarker &amp;amp;&amp;amp; pos &amp;lt;= nextSq) {
+              y = maxCoord;
+              x = minCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt; + (pos - fourthSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; {
+              x = baseCoord;
+              y = baseCoord;
+          }    
+          out.&lt;span style=&#34;color: #1e90ff&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Line = %d, column = %d.\n&amp;quot;&lt;/span&gt;, x, y);
+      } &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt;(&lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;);
+      out.&lt;span style=&#34;color: #1e90ff&#34;&gt;close&lt;/span&gt;();
+  }
+  
+  &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;DataReader&lt;/span&gt; {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; InputStream in = &lt;span style=&#34;color: #0000aa&#34;&gt;null&lt;/span&gt;;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; pos, count;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[] buf = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;64&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt;];
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;DataReader&lt;/span&gt;(InputStream in) {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt; = in;
+            pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+            count = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;nextInt&lt;/span&gt;() {
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c, sign = &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isWhitespace&lt;/span&gt;(c = read())) ;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (c == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;) {
+                sign = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+                c = read();
+            }
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; n = c - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read() - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &amp;gt;= &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;)
+                n = n * &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; + c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; n * sign;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;next&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (!Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isSpaceChar&lt;/span&gt;(c = read()))
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;nextLine&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read()) != &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;read&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos == count)
+                fillBuffer();
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; buf[pos++];
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;fillBuffer&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;try&lt;/span&gt; {
+                count = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;read&lt;/span&gt;(buf, pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, buf.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;);
+                &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (count == -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)
+                    buf[&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;] = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            } &lt;span style=&#34;color: #0000aa&#34;&gt;catch&lt;/span&gt; (Exception ignore) {
+            }
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CodeChef - SUMTRIAN</title>
+      <link>https://www.alexjiao.com/blog/codechef-sumtrian/</link>
+      <pubDate>Sat, 21 Jun 2014 10:07:42 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/codechef-sumtrian/</guid>
+      <description>&lt;p&gt;I’ve been doing some algorithm problems lately. It helps to keep you sharp between the ears and makes you a better engineer overall. The only downside is the time-consuming nature of this pursuit, as I am not too proficient in churning out optimized solutions.&lt;/p&gt;
+
+&lt;p&gt;I started by doing problems using UVa Online Judge, the good thing about this site is the immense archive of problems and the &lt;a href=&#34;http://uhunt.onlinejudge.org/&#34;&gt;problem classifier&lt;/a&gt; maintained by Felix Halim. But there’s really one bad thing about UVa, its site is so slow and unstable.&lt;/p&gt;
+
+&lt;p&gt;Hence I switched over to CodeChef. It has a better community and support for more languages (you can even code in Scala!), most importantly, the judging process is really fast. No more waiting over 5 minutes to get your verdict.&lt;/p&gt;
+
+&lt;p&gt;Today I decided to tackle my first problem on CodeChef. I chose a DP-related problem in the Easy category because I’ve been hearing about dynamic programming for a long time and I don’t really know what it is.&lt;/p&gt;
+
+&lt;p&gt;Turns out it is just recursion + memoization (caching of results).&lt;/p&gt;
+
+&lt;p&gt;I know my understanding of DP is overly-simplistic, but it is a good enough mental model to solve additional DP-related problems.&lt;/p&gt;
+
+&lt;p&gt;Problem statement: &lt;a href=&#34;http://www.codechef.com/problems/SUMTRIAN&#34;&gt;http://www.codechef.com/problems/SUMTRIAN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For this problem, it is about obtaining the max sum by summing a value on each of the triangle’s levels. To sum the values, you have to traverse from the apex to the base; during the traversal, you can only go down and down-right.&lt;/p&gt;
+
+&lt;p&gt;I submitted a recursive-only solution and got back a TLE (Time Limit Exceeded) result, but when I used memoization to cache the results of the recursive calls, my solution was accepted.&lt;/p&gt;
+
+&lt;p&gt;Turns out the number of recursive calls to find the max sums at each level of the triangle grows at an exponential rate when the input is large. That’s why my recursive-only solution exceeded the time limit.&lt;/p&gt;
+
+&lt;p&gt;But when you cache the results of the previous recursive calls in a 2D array, you can access the previous results at O(1) time without calling the same recursive function again. This technique is called memoization and it makes your algorithm really fast.&lt;/p&gt;
+
+&lt;p&gt;That’s why today’s coding session is really fruitful, I learnt what it means by dynamic programming – approaching a problem by implementing it as a normal recursive solution, and then to add the caching part.&lt;/p&gt;
+
+&lt;p&gt;Recursive + caching solution (AC):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.IOException&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.InputStream&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.PrintWriter&lt;/span&gt;;
+
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * @author Alex Jiao Ziheng&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;SUMTRIAN&lt;/span&gt; {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;main&lt;/span&gt;(String args[]) &lt;span style=&#34;color: #0000aa&#34;&gt;throws&lt;/span&gt; NumberFormatException, IOException {
+      DataReader in = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; DataReader(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt;);
+      PrintWriter out = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; PrintWriter(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;out&lt;/span&gt;);
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; numTests = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+      &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (numTests &amp;gt; &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[height][];
+          &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; i=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; i&amp;lt;height; i++) {
+              triangle[i] = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[i + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+              &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; j=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; j&amp;lt;=i; j++) {
+                  triangle[i][j] = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+              }
+          }
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// cache used for memoization&lt;/span&gt;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] maxSums = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;][&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;];
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; ans = findMaxSum(triangle, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, maxSums);
+          out.&lt;span style=&#34;color: #1e90ff&#34;&gt;println&lt;/span&gt;(ans);
+          numTests--;
+      }
+      out.&lt;span style=&#34;color: #1e90ff&#34;&gt;close&lt;/span&gt;();
+  }
+  
+    &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;findMaxSum&lt;/span&gt;(&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; index, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][]maxSums) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (height == triangle.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index];
+      }
+      &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; max1, max2;
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// caching of max sums&lt;/span&gt;
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index, maxSums);
+          }
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, maxSums);
+          }
+          
+          max1 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index];
+          max2 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+          
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index] +
+                  Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;max&lt;/span&gt;(max1, max2);
+      }
+  }
+    &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// custom-made input reader which is really fast (not coded by me)&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;DataReader&lt;/span&gt; {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; InputStream in = &lt;span style=&#34;color: #0000aa&#34;&gt;null&lt;/span&gt;;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; pos, count;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[] buf = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;64&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt;];
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;DataReader&lt;/span&gt;(InputStream in) {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt; = in;
+            pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+            count = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;nextInt&lt;/span&gt;() {
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c, sign = &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isWhitespace&lt;/span&gt;(c = read())) ;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (c == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;) {
+                sign = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+                c = read();
+            }
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; n = c - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read() - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &amp;gt;= &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;)
+                n = n * &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; + c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; n * sign;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;next&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (!Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isSpaceChar&lt;/span&gt;(c = read()))
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;nextLine&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read()) != &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;read&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos == count)
+                fillBuffer();
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; buf[pos++];
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;fillBuffer&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;try&lt;/span&gt; {
+                count = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;read&lt;/span&gt;(buf, pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, buf.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;);
+                &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (count == -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)
+                    buf[&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;] = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            } &lt;span style=&#34;color: #0000aa&#34;&gt;catch&lt;/span&gt; (Exception ignore) {
+            }
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Rolling your own simple token-based authentication in AngularJS with Rails</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON AUG 1, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/angularjs">ANGULARJS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/authentication">AUTHENTICATION</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/rails">RAILS</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>Recently I was interested in implementing token-based authentication with a decoupled frontend and backend. I googled about ways to do it the Angular-Rails way. Turns out it is not that simple and straightfoward. After a couple of days of reading fragmented sources of information on the web, I finally rolled my own authentication system.</p>
+
+<p>Granted that one could easily use Devise gem for their authentication needs, however there’s too much cruft associated with it and I want to implement authentication from the bottom-up to solidify my understanding.</p>
+
+<p>Given that the resources are scattered out there, I thought I’d write a tutorial to synthesize them into a coherent whole for the benefit of the reader. A large chunk of my tutorial (the Rails backend) is adapted from Michael Hartl’s famous RoR Tutorial, with the rest culled from various resources like StackOverflow and other blogs.</p>
+
+<p>This tutorial is for those who want to understand how token-based authentication works. We’ll be rolling a simple solution that authenticates users based on their email and password. Log-ins, sign-outs and simple authorization are included as well. I stress that the auth system in this tutorial is definitely not industrial-grade but it won’t be prone to easy hack-ins either.</p>
+
+<p>You may want to read this article for a rundown of the evolution of API authentication and this article to understand how token-based auth compares with the traditional cookie-based auth.</p>
+
+<p>We’ll be using token-based auth in this tutorial because it is more conventional and confers more advantages compared to cookie-based auth.</p>
+
+<p>Even though this tutorial is mainly for developers using Angular and Rails, the process of token-based authentication is generic enough such that a framework-agnostic flow can be gleaned from it:</p>
+
+<ol>
+<li>Client sends the user provided login credentials to the server.</li>
+<li>Server authenticates credentials and responds with a generated token.</li>
+<li>Client stores the token somewhere (local storage, cookies, or just in memory).</li>
+<li>Client sends the token as an authorization header on every request to the server.</li>
+<li>Server verifies the token and acts accordingly with either sending the requested &gt; resource, or an 401 (or something alike).</li>
+</ol>
+
+<p>Without further ado, let’s get started.</p>
+
+<h3 id="rails-api-setup">Rails API setup</h3>
+
+<p>We will be starting a Rails API server from scratch. Run <code>rails new sample-api</code> in terminal.</p>
+
+<p>We will be using bcrypt gem as the backbone of our auth machinery. Hence we have to uncomment bcrypt-ruby gem in Gemfile and then do <code>bundle install</code>.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>gem <span style="color: #aa5500">&#39;bcrypt-ruby&#39;</span>, <span style="color: #aa5500">&#39;~&gt; 3.1.2&#39;</span>
+</pre></div>
+
+<p>Next, we create our User model. It will have these attributes: name, email, password digest and remember token. We will not be storing passwords in plaintext as hackers can easily retrieve user login credentials through the database. Create the User model by running this command:</p>
+
+<p><code>rails g model User name:string email:string password_digest:string remember_token:string</code></p>
+
+<p>In the database migration file auto-generated by the last command, add in a remember token index for easy retrieval since we will be accessing users by their token often.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">CreateUsers</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Migration</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">change</span>
+    create_table <span style="color: #0000aa">:users</span> <span style="color: #0000aa">do</span> |t|
+      t.string <span style="color: #0000aa">:name</span>
+      t.string <span style="color: #0000aa">:email</span>
+      t.string <span style="color: #0000aa">:password_digest</span>
+      t.string <span style="color: #0000aa">:remember_token</span>
+
+      t.timestamps
+    <span style="color: #0000aa">end</span>
+    add_index <span style="color: #0000aa">:users</span>, <span style="color: #0000aa">:remember_token</span>
+  <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>Run <code>rake db:migrate</code> to update the database schema. Your schema should now look like this:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Schema</span>.define(<span style="color: #0000aa">version</span>: <span style="color: #009999">20140801074722</span>) <span style="color: #0000aa">do</span>
+  create_table <span style="color: #aa5500">&quot;users&quot;</span>, <span style="color: #0000aa">force</span>: <span style="color: #0000aa">true</span> <span style="color: #0000aa">do</span> |t|
+    t.string   <span style="color: #aa5500">&quot;name&quot;</span>
+    t.string   <span style="color: #aa5500">&quot;email&quot;</span>
+    t.string   <span style="color: #aa5500">&quot;password_digest&quot;</span>
+    t.string   <span style="color: #aa5500">&quot;remember_token&quot;</span>
+    t.datetime <span style="color: #aa5500">&quot;created_at&quot;</span>
+    t.datetime <span style="color: #aa5500">&quot;updated_at&quot;</span>
+  <span style="color: #0000aa">end</span>
+
+  add_index <span style="color: #aa5500">&quot;users&quot;</span>, [<span style="color: #aa5500">&quot;remember_token&quot;</span>], <span style="color: #00aaaa">name</span>: <span style="color: #aa5500">&quot;index_users_on_remember_token&quot;</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>Next, we modify our User model class in <code>models/user.rb</code> to utilise the bcrypt gem by adding <code>has_secure_password</code>. We will also use some boilerplate from Michael Hartl’s Rails Tutorial (thanks Michael) to validate user’s credentials. Class-level methods used to generate and digest tokens are added as well. Finally, we define a private instance-level method to assign the newly generated token to the <code>remember_token</code> field of <code>User</code> model.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">User</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_secure_password <span style="color: #aaaaaa; font-style: italic"># using bcrypt</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># boilerplate from Hartl&#39;s tutorial to validate user input</span>
+  before_save { <span style="color: #00aaaa">self</span>.email = email.downcase }
+  validates <span style="color: #0000aa">:name</span>, <span style="color: #0000aa">presence</span>: <span style="color: #0000aa">true</span>, <span style="color: #0000aa">length</span>: { <span style="color: #0000aa">maximum</span>: <span style="color: #009999">50</span> }
+  <span style="color: #aa0000">VALID_EMAIL_REGEX</span> = <span style="color: #009999">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span>
+  validates <span style="color: #0000aa">:email</span>, <span style="color: #0000aa">presence</span>:   <span style="color: #0000aa">true</span>,
+                    <span style="color: #00aaaa">format</span>:     { <span style="color: #0000aa">with</span>: <span style="color: #aa0000">VALID_EMAIL_REGEX</span> },
+                    <span style="color: #0000aa">uniqueness</span>: { <span style="color: #0000aa">case_sensitive</span>: <span style="color: #0000aa">false</span> }
+
+  validates <span style="color: #0000aa">:password</span>, <span style="color: #0000aa">length</span>: { <span style="color: #0000aa">minimum</span>: <span style="color: #009999">6</span> }
+  before_create <span style="color: #0000aa">:create_remember_token</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># class-level methods to generate and digest tokens</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00; text-decoration: underline">User</span>.<span style="color: #00aa00">new_remember_token</span>
+    <span style="color: #aa0000">SecureRandom</span>.urlsafe_base64
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00; text-decoration: underline">User</span>.<span style="color: #00aa00">digest</span>(token)
+    <span style="color: #aa0000">Digest</span>::<span style="color: #aa0000">SHA1</span>.hexdigest(token.to_s)
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># private instance-level method to assign token</span>
+  <span style="color: #0000aa">private</span>
+    <span style="color: #0000aa">def</span> <span style="color: #00aa00">create_remember_token</span>
+      <span style="color: #00aaaa">self</span>.remember_token = <span style="color: #aa0000">User</span>.digest(<span style="color: #aa0000">User</span>.new_remember_token)
+    <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>Next, we move on to the controllers. Before creating the users controller, we have to configure the application controller. Since we are decoupling the frontend and the backend, each of them lives in a separate domain. Hence the frontend app have to make cross-domain requests to the Rails backend. Such requests will not be acknowledged unless the server is configured to implement cross-origin resource sharing (CORS).</p>
+
+<p>As the application controller is the main controller, changes made to it affect the rest of the controllers which inherit from it. Hence it makes sense to implement CORS in application controller.</p>
+
+<p>Since we are not sending the auth token on the client side through the custom X-CSRF-Token header, we have to change <code>protect_from_forgery</code> to use <code>:null_session</code> along with a guard to handle CSRF token verification issue. We included respond_to :json as the Rails API will be mainly serving JSON responses.</p>
+
+<p>We have also included <code>SessionsHelper</code> which contains helper methods (to be implemented later) for sign-ins and sign-outs. Finally, there is a callback method used to restrict access to unauthorized users.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">ApplicationController</span> &lt; <span style="color: #aa0000">ActionController</span>::<span style="color: #aa0000">Base</span>
+  <span style="color: #aaaaaa; font-style: italic"># Prevent CSRF attacks by raising an exception.</span>
+  <span style="color: #aaaaaa; font-style: italic"># For APIs, you may want to use :null_session instead.</span>
+  protect_from_forgery <span style="color: #0000aa">with</span>: <span style="color: #0000aa">:null_session</span>, <span style="color: #0000aa">if</span>: <span style="color: #aa0000">Proc</span>.new { |c| c.request.format == <span style="color: #aa5500">&#39;application/json&#39;</span> }
+  <span style="color: #0000aa">include</span> <span style="color: #aa0000">SessionsHelper</span> <span style="color: #aaaaaa; font-style: italic"># include helper methods used for sign in and sign out</span>
+  respond_to <span style="color: #0000aa">:json</span>
+
+  before_filter <span style="color: #0000aa">:set_cors_headers</span>
+  before_filter <span style="color: #0000aa">:cors_preflight</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">set_cors_headers</span>
+    headers[<span style="color: #aa5500">&#39;Access-Control-Allow-Origin&#39;</span>] = <span style="color: #aa5500">&#39;*&#39;</span>
+    headers[<span style="color: #aa5500">&#39;Access-Control-Allow-Methods&#39;</span>] = <span style="color: #aa5500">&#39;GET, POST, PUT, DELETE, OPTIONS&#39;</span>
+    headers[<span style="color: #aa5500">&#39;Access-Control-Allow-Headers&#39;</span>] = <span style="color: #aa5500">&#39;Origin, X-Requested-With, Content-Type, Accept, Authorization&#39;</span>
+    headers[<span style="color: #aa5500">&#39;Access-Control-Max-Age&#39;</span>] = <span style="color: #aa5500">&#39;3628800&#39;</span>
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># before every actual request, the browser sends a OPTIONS request </span>
+  <span style="color: #aaaaaa; font-style: italic"># to check if the server implements CORS</span>
+  <span style="color: #aaaaaa; font-style: italic"># for such requests, send an empty response with 200 status</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">cors_preflight</span>
+    head <span style="color: #0000aa">:ok</span> <span style="color: #0000aa">if</span> request.method == <span style="color: #aa5500">&#39;OPTIONS&#39;</span>
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># callback method used for authorization </span>
+  <span style="color: #0000aa">private</span>
+    <span style="color: #0000aa">def</span> <span style="color: #00aa00">restrict_access</span>
+      <span style="color: #0000aa">if</span> request.headers[<span style="color: #aa5500">&#39;HTTP_AUTHORIZATION&#39;</span>]
+        token = request.headers[<span style="color: #aa5500">&#39;HTTP_AUTHORIZATION&#39;</span>].split(<span style="color: #aa5500">&quot; &quot;</span>).second
+        user = <span style="color: #aa0000">User</span>.find_by(<span style="color: #0000aa">remember_token</span>: <span style="color: #aa0000">User</span>.digest(token))
+      <span style="color: #0000aa">end</span>
+      head <span style="color: #0000aa">:unauthorized</span> <span style="color: #0000aa">unless</span> user <span style="color: #aaaaaa; font-style: italic"># send 401 response unless user is authorized</span>
+    <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<h3 id="sign-up-sign-in-and-sign-out">Sign-up, sign-in and sign-out</h3>
+
+<p>To implement sign-up, we have to create a Users controller first as this is where we define the creation of new users. Run <code>rails g controller Users</code> in terminal.</p>
+
+<p>Define the <code>create</code> method in <code>controllers/users_controller.rb</code> as shown below:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">UsersController</span> &lt; <span style="color: #aa0000">ApplicationController</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">create</span>
+    user = <span style="color: #aa0000">User</span>.new(user_params)
+    <span style="color: #0000aa">if</span> user.save
+      token = sign_in user
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+        <span style="color: #0000aa">json</span>: {
+          <span style="color: #0000aa">success</span>: <span style="color: #0000aa">true</span>,
+          <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Signed up successfully&quot;</span>,
+          <span style="color: #0000aa">data</span>: {
+            <span style="color: #0000aa">auth_token</span>: token
+          }
+        }
+    <span style="color: #0000aa">else</span>
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+        <span style="color: #0000aa">json</span>: {
+          <span style="color: #0000aa">success</span>: <span style="color: #0000aa">false</span>,
+          <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Signed up failed, user exists&quot;</span>,
+          <span style="color: #0000aa">data</span>: {}
+        }
+    <span style="color: #0000aa">end</span>
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">private</span>
+    <span style="color: #0000aa">def</span> <span style="color: #00aa00">user_params</span>
+      params.require(<span style="color: #0000aa">:user</span>).permit!
+    <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>The alert reader can see that <code>sign_in</code> method is not defined in this class; it is defined in <code>SessionsHelper</code> module instead. Since we want the user to be automatically signed in after registration, we have to proceed with the implementation of sign-in process, and followed by sign-out. This is done with sessions. A session is considered as a resource in the server, hence we have to create a controller for it.</p>
+
+<p>Run <code>rails g controller Sessions</code> to create the <code>SessionsController</code>. As a side-effect, <code>SessionsHelper</code> is automatically created too.</p>
+
+<p>Let’s define the <code>create</code> and <code>destroy</code> methods in <code>controllers/sessions_controller.rb</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">SessionsController</span> &lt; <span style="color: #aa0000">ApplicationController</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">create</span>
+    user = <span style="color: #aa0000">User</span>.find_by(<span style="color: #0000aa">email</span>: params[<span style="color: #0000aa">:user</span>][<span style="color: #0000aa">:email</span>].downcase)
+    <span style="color: #0000aa">if</span> user &amp;&amp; user.authenticate(params[<span style="color: #0000aa">:user</span>][<span style="color: #0000aa">:password</span>])
+      <span style="color: #aaaaaa; font-style: italic">#sign_in helper method from SessionsHelper</span>
+      token = sign_in user
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+        <span style="color: #0000aa">json</span>: {
+          <span style="color: #0000aa">success</span>: <span style="color: #0000aa">true</span>,
+          <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Logged in successfully&quot;</span>,
+          <span style="color: #0000aa">data</span>: {
+            <span style="color: #0000aa">auth_token</span>: token
+          }
+        }
+    <span style="color: #0000aa">else</span>
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+      <span style="color: #0000aa">json</span>: {
+        <span style="color: #0000aa">success</span>: <span style="color: #0000aa">false</span>,
+        <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Log in failed&quot;</span>,
+        <span style="color: #0000aa">data</span>: {}
+      }
+    <span style="color: #0000aa">end</span>
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">destroy</span>
+    <span style="color: #0000aa">if</span> request.headers[<span style="color: #aa5500">&#39;HTTP_AUTHORIZATION&#39;</span>]
+      token = request.headers[<span style="color: #aa5500">&#39;HTTP_AUTHORIZATION&#39;</span>].split(<span style="color: #aa5500">&quot; &quot;</span>).second
+      user = <span style="color: #aa0000">User</span>.find_by(<span style="color: #0000aa">remember_token</span>: <span style="color: #aa0000">User</span>.digest(token))
+    <span style="color: #0000aa">end</span>
+    <span style="color: #0000aa">if</span> user
+      <span style="color: #aaaaaa; font-style: italic">#sign_out helper method from SessionsHelper</span>
+      sign_out user
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+        <span style="color: #0000aa">json</span>: {
+          <span style="color: #0000aa">success</span>: <span style="color: #0000aa">true</span>,
+          <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Signed out successfully&quot;</span>,
+          <span style="color: #0000aa">data</span>: {}
+        }
+    <span style="color: #0000aa">else</span>
+      render <span style="color: #0000aa">status</span>: <span style="color: #009999">200</span>,
+      <span style="color: #0000aa">json</span>: {
+        <span style="color: #0000aa">success</span>: <span style="color: #0000aa">false</span>,
+        <span style="color: #0000aa">info</span>: <span style="color: #aa5500">&quot;Signed out failed, no such user&quot;</span>,
+        <span style="color: #0000aa">data</span>: {}
+      }
+    <span style="color: #0000aa">end</span>
+  <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>Looking at the above code, there’s nothing out of the ordinary except for this snippet <code>user.authenticate(params[:user][:password])</code>. The <code>authenticate()</code> method is part of the bcrypt gem, and is used to digest the given password to compare it with the stored password digest in the users database, returning a boolean value.</p>
+
+<p>We also observe that we invoke the helper methods from the <code>SessionsHelper</code> module in <code>helpers/sessions_helper.rb</code>. Without further ado, let’s flesh the module out.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">module</span> <span style="color: #00aaaa; text-decoration: underline">SessionsHelper</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">sign_in</span>(user)
+    remember_token = <span style="color: #aa0000">User</span>.new_remember_token
+    user.update_attribute(<span style="color: #0000aa">:remember_token</span>, <span style="color: #aa0000">User</span>.digest(remember_token))
+    remember_token
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">sign_out</span>(user)
+    user.update_attribute(<span style="color: #0000aa">:remember_token</span>, <span style="color: #aa0000">User</span>.digest(<span style="color: #aa0000">User</span>.new_remember_token))
+  <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<h3 id="simple-authorization">Simple authorization</h3>
+
+<p>Let’s define a restricted API call to illustrate the authorization concept. We make it such that only logged-in users can access the index of all users from the API.</p>
+
+<p>We return to <code>controllers/users_controller.rb</code> to effect this change by defining the index method and using a <code>before_action</code> callback hook to restrict access to it.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">UsersController</span> &lt; <span style="color: #aa0000">ApplicationController</span>
+  before_action <span style="color: #0000aa">:restrict_access</span>, <span style="color: #0000aa">only</span>: <span style="color: #0000aa">:index</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">index</span>
+    respond_with <span style="color: #aa0000">User</span>.all
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #aaaaaa; font-style: italic"># rest of the code here</span>
+</pre></div>
+
+<p>The <code>restrict_access</code> method is defined in <code>ApplicationController</code> and <code>UsersController</code> is a subclass of it. That’s why we are able to invoke <code>restrict_access</code> method here.</p>
+
+<p>The <code>index</code> method will respond with a JSON containing all users, this is made possible by the <code>respond_to :json</code> method in <code>ApplicationController</code>.</p>
+
+<h3 id="routings">Routings</h3>
+
+<p>This is the final part of our Rails API. We have to tie up the loose ends by connecting the methods in our controllers to the API endpoints – the URLs.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #aa0000">Rails</span>.application.routes.draw <span style="color: #0000aa">do</span>
+  resources <span style="color: #0000aa">:users</span>, <span style="color: #0000aa">defaults</span>: {<span style="color: #00aaaa">format</span>: <span style="color: #aa5500">&#39;json&#39;</span>}
+  match <span style="color: #aa5500">&#39;/users&#39;</span>, <span style="color: #0000aa">to</span>: <span style="color: #aa5500">&#39;users#set_cors_headers&#39;</span>, <span style="color: #0000aa">via</span>: <span style="color: #0000aa">:options</span>
+  resources <span style="color: #0000aa">:sessions</span>
+  match <span style="color: #aa5500">&#39;/signin&#39;</span>,    <span style="color: #0000aa">to</span>: <span style="color: #aa5500">&#39;sessions#create&#39;</span>,    <span style="color: #0000aa">via</span>: [<span style="color: #0000aa">:post</span>, <span style="color: #0000aa">:options</span>]
+  match <span style="color: #aa5500">&#39;/signout&#39;</span>,   <span style="color: #0000aa">to</span>: <span style="color: #aa5500">&#39;sessions#destroy&#39;</span>,   <span style="color: #0000aa">via</span>: [<span style="color: #0000aa">:delete</span>, <span style="color: #0000aa">:options</span>]
+  match <span style="color: #aa5500">&#39;/signup&#39;</span>,    <span style="color: #0000aa">to</span>: <span style="color: #aa5500">&#39;users#create&#39;</span>,       <span style="color: #0000aa">via</span>: [<span style="color: #0000aa">:post</span>, <span style="color: #0000aa">:options</span>]
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>We have to take care of CORs preflight by specifying that the API endpoints can respond to OPTIONS request.</p>
+
+<p>Notice that even though we defined every possible RESTful endpoints for <code>/users</code> using <code>resources :users, defaults: {format: 'json'}</code>, we still have to handle the OPTION request for <code>/users</code> by directing it to <code>set_cors_headers</code> method defined in <code>ApplicationController</code>.</p>
+
+<p>To be honest, I’m not sure whether my approach is considered best practice or not. Either way, it doesn’t look elegant. If you have any better solutions, do let me know!</p>
+
+<p>This concludes the set-up for Rails API.</p>
+
+<h3 id="setting-up-the-angular-frontend">Setting up the Angular frontend</h3>
+
+<p>We will be creating a sample app using Angular framework. I’ll assume that the reader has already scaffolded the app with Yeoman.</p>
+
+<p>If you haven’t already, please follow this <a href="http://yeoman.io/codelab/index.html">codelab</a> until Step 5.</p>
+
+<p>We will need to configure our Angular app by adding a dependency to store auth tokens on the client side.</p>
+
+<p>First, we run <code>bower install --save angular-local-storage</code> in terminal to install the local storage module.</p>
+
+<p>We then have to edit the application module in <code>scripts/app.js</code> to include the local storage module:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">var</span> app = angular
+  .module(<span style="color: #aa5500">&#39;sampleAppApp&#39;</span>, [
+    <span style="color: #aa5500">&#39;ngAnimate&#39;</span>,
+    <span style="color: #aa5500">&#39;ngCookies&#39;</span>,
+    <span style="color: #aa5500">&#39;ngResource&#39;</span>,
+    <span style="color: #aa5500">&#39;ngRoute&#39;</span>,
+    <span style="color: #aa5500">&#39;ngSanitize&#39;</span>,
+    <span style="color: #aa5500">&#39;ngTouch&#39;</span>,
+    <span style="color: #aa5500">&#39;LocalStorageModule&#39;</span>
+  ]);
+  app.config([<span style="color: #aa5500">&#39;localStorageServiceProvider&#39;</span>, <span style="color: #0000aa">function</span>(localStorageServiceProvider){
+    localStorageServiceProvider.setPrefix(<span style="color: #aa5500">&#39;ls&#39;</span>);
+  }]);
+</pre></div>
+
+<p>Just a caveat: Yeoman named my app as <code>sampleAppApp</code> because I ran <code>yo angular</code> in a folder named <code>sample-app</code>. Please replace <code>sampleAppApp</code> with the name that Yeoman generated for you.</p>
+
+<p>Notice that we assigned the application module to a variable app. This is used to easily refer to the application module later on.</p>
+
+<p>We also have to configure the local storage module by setting its prefix to avoid namespace conflicts.</p>
+
+<p>Moving on, we lay out the routings in the application module:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span> app.config(<span style="color: #0000aa">function</span> ($routeProvider) {
+  $routeProvider
+    .when(<span style="color: #aa5500">&#39;/&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/main.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;MainCtrl&#39;</span>
+    })
+    .when(<span style="color: #aa5500">&#39;/about&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/about.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;AboutCtrl&#39;</span>
+    })
+    .when(<span style="color: #aa5500">&#39;/login&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/login.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;LoginCtrl&#39;</span>
+    })
+    .when(<span style="color: #aa5500">&#39;/signup&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/signup.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;SignupCtrl&#39;</span>
+    })
+    .when(<span style="color: #aa5500">&#39;/signout&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/signout.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;SignoutCtrl&#39;</span>
+    })
+    .when(<span style="color: #aa5500">&#39;/restricted&#39;</span>, {
+      templateUrl: <span style="color: #aa5500">&#39;views/users.html&#39;</span>,
+      controller: <span style="color: #aa5500">&#39;UsersCtrl&#39;</span>
+    })
+    .otherwise({
+      redirectTo: <span style="color: #aa5500">&#39;/&#39;</span>
+    });
+  })
+</pre></div>
+
+<p>In addition to the two default routes created by Yeoman, we now have four routes, with one route being restricted only to authorized users.</p>
+
+<p>Having defined the routings, we proceed to flesh out the rest of the app by creating the controllers and the views.</p>
+
+<p>We start with the sign-up controller by creating a new file in <code>scripts/controllers/signup.js</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>app.controller(<span style="color: #aa5500">&#39;SignupCtrl&#39;</span>, <span style="color: #0000aa">function</span>($location, $scope, $http, localStorageService) {
+  $scope.user = {};
+  <span style="color: #0000aa">if</span> (localStorageService.get(<span style="color: #aa5500">&#39;token&#39;</span>)) {
+      $scope.info = <span style="color: #aa5500">&quot;Logged in&quot;</span> ;
+  }
+  $scope.signup = <span style="color: #0000aa">function</span>() {
+      console.log($scope.user);
+      $http({
+          url: <span style="color: #aa5500">&#39;http://localhost:3000/signup&#39;</span>,
+          method: <span style="color: #aa5500">&#39;POST&#39;</span>,
+          data: {
+              user: $scope.user
+          }
+      }).success(<span style="color: #0000aa">function</span>(response){
+          $scope.info = response.info;
+          localStorageService.set(<span style="color: #aa5500">&#39;token&#39;</span>, response.data.auth_token)
+      });
+  };
+});
+</pre></div>
+
+<p>In this controller, we make a POST request containing user credentials to the Rails API (port number 3000). If successful, the API will return an auth token which will be stored in the local storage. We also display the relevant information in the API response so that we know whether the sign-up is successful or not.</p>
+
+<p>Now we need to create a sign-up form to carry out form-based authentication. Let’s create a new file in <code>views/signup.html</code> and add the HTML as follows:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">form</span> <span style="color: #1e90ff">ng-submit</span>=<span style="color: #aa5500">&quot;signup()&quot;</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&quot;well&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">h3</span>&gt;Sign up&lt;/<span style="color: #1e90ff; font-weight: bold">h3</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.name&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;text&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Name&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.email&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;text&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Email&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.password&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;password&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Password&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.password_confirmation&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;password&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Confirm password&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">button</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;submit&quot;</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&quot;btn&quot;</span>&gt;Sign up&lt;/<span style="color: #1e90ff; font-weight: bold">button</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">form</span>&gt;
+
+&lt;<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+  { { info } }
+  <span style="color: #aaaaaa; font-style: italic">&lt;!-- please remove spacing between curly brackets! --&gt;</span>
+&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+</pre></div>
+
+<p>Our user credentials consist of four parameters: name, email, password and password confirmation. The last parameter may seem optional, but it is required by bcrypt to generate a password digest.</p>
+
+<p>We have also included a string interpolation enclosed in a div block to display result of the log-in process. As Markdown is unable to escape double curly brackets, I deliberately added a space between them. You have to remove the spacing to make Angular’s string interpolation work.</p>
+
+<p>At this point you may wish to test out the app and API by running <code>grunt serve</code> and <code>rails s</code> respectively. But don’t forget to include the <code>signup.js</code> file in the index.html.</p>
+
+<p>If there’s no problem, perfect! Moving on, we will create the log-in controller (<code>scripts/controllers/login.js</code>):</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>app.controller(<span style="color: #aa5500">&#39;LoginCtrl&#39;</span>, <span style="color: #0000aa">function</span>($location, $scope, $http, localStorageService) {
+  <span style="color: #0000aa">if</span> (localStorageService.get(<span style="color: #aa5500">&#39;token&#39;</span>)) {
+    $scope.info = <span style="color: #aa5500">&quot;Logged in&quot;</span>;
+  }
+  $scope.login = <span style="color: #0000aa">function</span>() {
+    $http({
+      url: <span style="color: #aa5500">&#39;http://localhost:3000/signin&#39;</span>,
+      method: <span style="color: #aa5500">&#39;POST&#39;</span>,
+      data: {
+        user: $scope.user
+      }
+    }).success(<span style="color: #0000aa">function</span>(response){
+      $scope.info = response.info;
+      localStorageService.set(<span style="color: #aa5500">&#39;token&#39;</span>, response.data.auth_token)
+    });
+  };
+});
+</pre></div>
+
+<p>The log-in controller is more or less the same as sign-up controller. The difference lies in the parameters passed to API. Log-in process is simpler, requiring only two parameters: email and password. The email is used to find the user, and the password is used for authentication. Let’s flesh out the form used to input the log-in parameters in <code>views/login.html</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">form</span> <span style="color: #1e90ff">ng-submit</span>=<span style="color: #aa5500">&quot;login()&quot;</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&quot;well form-inline&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">h3</span>&gt;Login&lt;/<span style="color: #1e90ff; font-weight: bold">h3</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.email&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;text&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Email&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">ng-model</span>=<span style="color: #aa5500">&quot;user.password&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;password&quot;</span> <span style="color: #1e90ff">placeholder</span>=<span style="color: #aa5500">&quot;Password&quot;</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">button</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;submit&quot;</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&quot;btn&quot;</span>&gt;Log in&lt;/<span style="color: #1e90ff; font-weight: bold">button</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">button</span> <span style="color: #1e90ff">ng-click</span>=<span style="color: #aa5500">&quot;signup()&quot;</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&quot;btn&quot;</span>&gt;Sign up&lt;/<span style="color: #1e90ff; font-weight: bold">button</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">form</span>&gt;
+
+&lt;<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+  { { info } }
+  <span style="color: #aaaaaa; font-style: italic">&lt;!-- please remove spacing between curly brackets! --&gt;</span>
+&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+</pre></div>
+
+<p>Finally, we complete the authentication cycle by fleshing out the sign-out controller in <code>scripts/controllers/signout.js</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>app.controller(<span style="color: #aa5500">&#39;SignoutCtrl&#39;</span>, <span style="color: #0000aa">function</span>($location, $scope, $http, localStorageService) {
+  $scope.signout = <span style="color: #0000aa">function</span>() {
+    $http({
+      url: <span style="color: #aa5500">&#39;http://localhost:3000/signout&#39;</span>,
+      method: <span style="color: #aa5500">&#39;DELETE&#39;</span>,
+      data: {}
+    }).success(<span style="color: #0000aa">function</span>(response){
+      $scope.info = response.info;
+      localStorageService.remove(<span style="color: #aa5500">&#39;token&#39;</span>)
+    });
+  };
+  $scope.signout();
+});
+</pre></div>
+
+<p>Here, we make a DELETE request to the API, if successful, we clear the token in local storage and return the relevant information to be displayed.</p>
+
+<p>The sign-out view (<code>views/signout.html</code>) is a just a HTML file to display the result:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+  { { info } }
+  <span style="color: #aaaaaa; font-style: italic">&lt;!-- please remove spacing between curly brackets! --&gt;</span>
+&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+</pre></div>
+
+<h3 id="http-interceptors-and-authorization">HTTP interceptors and authorization</h3>
+
+<p>The alert reader may notice that we didn’t pass anything to the body of the DELETE request. So how do the API know which user to delete the session for?</p>
+
+<p>Even though the authentication cycle is compete, we still have to construct the underlying pipes of our Angular app to make it work.</p>
+
+<p>The idea is that the HTTP request headers should contain the token every time we make a request. How do we do that?</p>
+
+<p>Turns out Angular has a built-in service to modify the HTTP request message before it is being sent to the server. We shall use a subset of the <code>$http service</code> – HTTP interceptors – for this purpose.</p>
+
+<p>Let’s create a file named <code>auth-interceptor.js</code> in <code>scripts/services</code> folder (create the folder if you haven’t) and add the code as shown below:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>app.factory(<span style="color: #aa5500">&#39;AuthInterceptor&#39;</span>, <span style="color: #0000aa">function</span>(localStorageService, $q, $location) {
+  <span style="color: #0000aa">return</span> {
+      request: <span style="color: #0000aa">function</span>(config) {
+          config.headers = config.headers || {};
+          <span style="color: #0000aa">if</span> (localStorageService.get(<span style="color: #aa5500">&#39;token&#39;</span>)) {
+              config.headers.Authorization = <span style="color: #aa5500">&#39;Bearer &#39;</span> + localStorageService.get(<span style="color: #aa5500">&#39;token&#39;</span>);
+          }
+          <span style="color: #0000aa">return</span> config || $q.when(config);
+      },
+      response: <span style="color: #0000aa">function</span>(response) {
+          <span style="color: #0000aa">return</span> response || $q.when(response);
+      },
+      responseError: <span style="color: #0000aa">function</span>(rejection) {
+          <span style="color: #0000aa">if</span> (rejection.status == <span style="color: #009999">401</span>) {
+              $location.path(<span style="color: #aa5500">&quot;/login&quot;</span>);
+          }
+          <span style="color: #0000aa">return</span> $q.reject(rejection);
+      }
+  };
+});
+
+app.config(<span style="color: #0000aa">function</span> ($httpProvider) {
+  $httpProvider.interceptors.push(<span style="color: #aa5500">&#39;AuthInterceptor&#39;</span>);
+});
+</pre></div>
+
+<p>The idea is simple. For every HTTP request, if the token exists in local storage, we set the token in the HTTP Authorization header. Otherwise the header would not be set and a 401 response will be expected when we tried to access a restricted page.</p>
+
+<p>We also deal with intercepting responses here. For every responses with status 401 (meaning unauthorized), we direct the user to the login page.</p>
+
+<p>All in all, <code>auth-interceptor.js</code> essentially takes care of the authorization process for you.</p>
+
+<p>Having done the necessary plumbing to make authentication work. We will create a restricted view that only logged-in users can access. The restricted view will contain a raw JSON response of all the user data.</p>
+
+<p>First, we create a controller to fetch the user data from the API in <code>scripts/controllers/users.js</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>app.controller(<span style="color: #aa5500">&#39;UsersCtrl&#39;</span>, <span style="color: #0000aa">function</span>($scope, $http) {
+  $http.get(<span style="color: #aa5500">&#39;http://localhost:3000/users&#39;</span>).success(<span style="color: #0000aa">function</span>(data) {
+    $scope.users = data;
+  });
+});
+</pre></div>
+
+<p>We are calling the restricted API endpoint here. If the user is authorized, display the data, otherwise the user will be redirected to the log-in page by <code>auth-interceptor.js</code>.</p>
+
+<p>To finally create the restricted view (<code>views/users.html</code>) is very simple. Just add the string interpolations as shown below:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+  { { users } }
+  <span style="color: #aaaaaa; font-style: italic">&lt;!-- please remove spacing between curly brackets! --&gt;</span>
+&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+</pre></div>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>You may notice that we didn’t create any links for our routes; we have to type in the URL path manually in the address bar every time we want to test the auth. Implementing the links is left as an exercise for the diligent reader.</p>
+
+<p>There is one more thing though. We have to tell Angular where to load up our controllers and services by adding those dependencies in <code>index.html</code>:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>    <span style="color: #aaaaaa; font-style: italic">&lt;!-- build:js({.tmp,app}) scripts/scripts.js --&gt;</span>
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/app.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/main.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/about.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/login.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/signup.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/signout.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/controllers/users.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">script</span> <span style="color: #1e90ff">src</span>=<span style="color: #aa5500">&quot;scripts/services/auth-interceptor.js&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">script</span>&gt;
+    <span style="color: #aaaaaa; font-style: italic">&lt;!-- endbuild --&gt;</span>
+&lt;/<span style="color: #1e90ff; font-weight: bold">body</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">html</span>&gt;
+</pre></div>
+
+<p>This concludes my tutorial finally.</p>
+
+<p>To play with the auth, start the frontend and backend servers with grunt serve and rails s respectively and type any of the URLs in the address bar:</p>
+
+<ul>
+<li><code>/signup</code></li>
+<li><code>/login</code></li>
+<li><code>/signout</code></li>
+<li><code>/restricted</code></li>
+</ul>
+
+<p>Have fun!</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/angular-rails-auth\/';
+    var disqus_title = 'Rolling your own simple token-based authentication in AngularJS with Rails';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/angular-rails-auth\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/life-is-a-marathon/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-app-google-compute/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

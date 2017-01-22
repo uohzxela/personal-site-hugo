@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional Programming on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/functional-programming/index.xml</link>
+    <description>Recent content in Functional Programming on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Getting functional in Ruby</title>
+      <link>https://www.alexjiao.com/blog/functional-ruby/</link>
+      <pubDate>Fri, 09 May 2014 11:44:16 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/functional-ruby/</guid>
+      <description>
+
+&lt;p&gt;Treading the waters of functional programming in Ruby makes me feel poignant that I didn’t take CS1101S. Functional programming is a totally different programming paradigm, one that is declarative instead of imperative. You seek to describe what you want done instead of specifying how you want something done. As a result, the code is more concise, leading to easier maintainability in large-scale systems. This is one of the big pluses of FP, along with the fact that it is more amenable to concurrency than its imperative cousin.&lt;/p&gt;
+
+&lt;p&gt;Ruby is a functional-hybrid, as such concepts of blocks and lambdas exist, along with the idiomatic concept: Proc.&lt;/p&gt;
+
+&lt;h3 id=&#34;differences-between-functional-and-imperative-programming-in-ruby&#34;&gt;Differences between functional and imperative programming in Ruby&lt;/h3&gt;
+
+&lt;p&gt;Suppose we want to make a simple calculator. To do that we have to define add and subtract methods.&lt;/p&gt;
+
+&lt;p&gt;Here’s how you do it the imperative way:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate_add&lt;/span&gt;(a, b)
+  a + b
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate_subtract&lt;/span&gt;(a, b)
+  a - b
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate_add(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;)
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate_subtract(&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s how you do it the functional way:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b)
+  &lt;span style=&#34;color: #0000aa&#34;&gt;yield&lt;/span&gt;(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;) { |a, b| a + b }
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;) { |a, b| a - b }
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;See the difference? The code is shortened by almost half! It’s easier to read and understand what the method calculation is doing, as the logic is exposed in the form of blocks, instead of being abstracted away from the programmer in the imperative example. No doubt, code readability and brevity is increased through the functional approach.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-a-block&#34;&gt;What is a block?&lt;/h3&gt;
+
+&lt;p&gt;In Ruby, everything is an object. There are some exceptions to this rule.&lt;/p&gt;
+
+&lt;p&gt;Block is not an object. Its definition from Wikipedia is as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;In computer programming, a block is a section of code which is grouped together.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the functional example shown above, &lt;code&gt;{ |a, b| a + b }&lt;/code&gt; is a block, a bunch of code enclosed by curly brackets. It is stand-alone, not associated with any objects. I prefer to think of it as an external code snippet which is exposed to the programmer, as compared to the internal code snippet &lt;code&gt;a + b&lt;/code&gt; in the imperative example.&lt;/p&gt;
+
+&lt;p&gt;Blocks are not methods (or functions as you call it); they are just a bunch of code. They are not objects too. As faithful Rubyists, how do we transform blocks into objects the Ruby way?&lt;/p&gt;
+
+&lt;h3 id=&#34;proc-edure-the-wrapper-class-for-block&#34;&gt;Proc(edure): the wrapper class for block&lt;/h3&gt;
+
+&lt;p&gt;Similar to the wrapper class in Java which provides a way to use primitive types as objects, Ruby has an idiomatic solution to transform a block into an object through the Proc class. The block still retains its functionality, but it can be saved into a variable and can be &lt;code&gt;call&lt;/code&gt;ed at demand.&lt;/p&gt;
+
+&lt;p&gt;Going back to the calculator example, we re-implement the add method using Proc:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b, add)
+  add.call(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+add = &lt;span style=&#34;color: #aa0000&#34;&gt;Proc&lt;/span&gt;.new { |a, b| a + b }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;, add)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that we no longer pass a block as a parameter, instead we created an new instance of Proc called &lt;code&gt;add&lt;/code&gt; that contains the original block and passed it as a parameter instead.&lt;/p&gt;
+
+&lt;p&gt;As &lt;code&gt;add&lt;/code&gt; is an object, we can call it on its own:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; add.call(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In addition, we are free to pass &lt;code&gt;add&lt;/code&gt; to whatever methods we want and &lt;code&gt;call&lt;/code&gt; it indiscriminately. As blocks are one-time solutions, by wrapping it in an object we make it reusable anywhere in the code. This makes the code DRY.&lt;/p&gt;
+
+&lt;h3 id=&#34;lambda-anonymous-functions&#34;&gt;Lambda: anonymous functions&lt;/h3&gt;
+
+&lt;p&gt;Proc has a cousin: lambda, the cornerstone of functional programming. They are very similar.&lt;/p&gt;
+
+&lt;p&gt;Here’s how you use a lambda:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b, add)
+  add.call(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+add = &lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; { |a, b| a + b }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;, add)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;What is a lambda exactly? They are anonymous functions.&lt;/p&gt;
+
+&lt;p&gt;At this point, the astute reader may be wondering what is the difference between lambda and Proc. Remember that Proc is a wrapper class for block, which is simply a code snippet. Therefore Proc is not a function, but lambda is. When we use Proc in a method, the code snippet that is wrapped up is now a part of the method’s code. You may think of the code snippet as being embedded inside the method, whereas lambda is a merely a function that is being called by the method.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example to illustrate the difference between Proc and lambda:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;method1&lt;/span&gt;(a)
+  a.call
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;method1 ended&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;proc&lt;/span&gt; = &lt;span style=&#34;color: #aa0000&#34;&gt;Proc&lt;/span&gt;.new { &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; }
+&lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; = &lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; { &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; method1(&lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt;) &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#STDOUT: &amp;quot;method1 ended&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; method1(&lt;span style=&#34;color: #00aaaa&#34;&gt;proc&lt;/span&gt;)  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#STDERR: LocalJumpError: unexpected return&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Since the code snippet in &lt;code&gt;proc&lt;/code&gt; is embedded inside the method, its return statement is treated as part of &lt;code&gt;method1&lt;/code&gt; therefore an “unexpected return” error is flagged when &lt;code&gt;method1&lt;/code&gt; is executed.&lt;/p&gt;
+
+&lt;p&gt;For lambda, it is treated as a function instead of a code snippet, therefore &lt;code&gt;method1&lt;/code&gt; merely calls it and exits normally.&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Block: a bunch of code, non-object&lt;/p&gt;
+
+&lt;p&gt;Proc: a block encapsulated in a wrapper object&lt;/p&gt;
+
+&lt;p&gt;Lambda: anonymous function, is an object&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<section id="info-pane" class="row text-center info">
+  {{ with .Site.Params.intro }}
+  <h3 class="intro">
+  	{{ . | markdownify }}
+  	<!-- Software engineer <span class="typed"></span> -->
+  </h3>
+  {{ end }}
+  {{ with .Site.Params.description }}
+  <h4 class="description">{{ . | markdownify }}</h4>
+  {{ end }}
+</section>

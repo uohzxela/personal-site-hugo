@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Associations in Active Record</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON MAY 27, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/active-record">ACTIVE RECORD</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/database-schema">DATABASE SCHEMA</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/rails">RAILS</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>Hi there. This week I’m going to blog about Active Record associations. They are used to declare relationships between model classes in Rails.</p>
+
+<p>There are six types of AR associations in Rails:</p>
+
+<ol>
+<li><code>belongs_to</code></li>
+<li><code>has_one</code></li>
+<li><code>has_many</code></li>
+<li><code>has_many :through</code></li>
+<li><code>has_one :through</code></li>
+<li><code>has_and_belongs_to_many</code></li>
+</ol>
+
+<p>In addition, there are three types of relationships that can expressed between model classes:</p>
+
+<ol>
+<li>One-to-many</li>
+<li>Many-to-many</li>
+<li>One-to-one</li>
+</ol>
+
+<p>This post will focus on each of the relationships, explaining how some associations work together to achieve a particular relationship between model classes.</p>
+
+<hr>
+
+<h3 id="one-to-many">One-to-many</h3>
+
+<p>Associations used:</p>
+
+<ol>
+<li><code>belongs_to</code></li>
+<li><code>has_many</code></li>
+</ol>
+
+<p>Imagine you have two tables: Employee and Department. An employee can only belong to one department and one department can have many employees. If you have ever taken a database course before, this notation would look familiar:</p>
+
+<pre><code>Employee 1 : n Department
+</code></pre>
+
+<p>This can be interpreted as follows: for each employee it can have only 1 department, for each department it can have multiple employees.</p>
+
+<p>Clearly, from the notation above, you can easily intuit about the one-to-many relationship.</p>
+
+<p>Here’s the code snippet on such a construction:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Employee</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  belongs_to <span style="color: #0000aa">:department</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Department</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_many <span style="color: #0000aa">:employees</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>Note the pluralization of the word “employee” when it is declared with <code>has_many</code> and the singular form of “department”.</p>
+
+<p>It’s pretty self-explanatory. An employee belongs to a department as he/she cannot belong to more than one department. An department has many employees as a department is a collection of objects; in this case, it is a group of more than one person.</p>
+
+<p>One caveat though: whichever table contains the statement <code>belongs_to :&lt;table name&gt;</code> must have the foreign id attribute of <code>&lt;table name&gt;</code>. That way, it can reference the row of the associated table it belongs to. In this case, the table Employee has an attribute called <code>department_id</code> as the Department table’s foreign id.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">CreateEmployeess</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Migration</span>
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">change</span>
+    create_table <span style="color: #0000aa">:employees</span> <span style="color: #0000aa">do</span> |t|
+      t.string   <span style="color: #0000aa">:name</span>
+      t.string    <span style="color: #0000aa">:email</span>
+      t.integer  <span style="color: #0000aa">:department_id</span>
+    <span style="color: #0000aa">end</span>
+  <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<hr>
+
+<h3 id="many-to-many">Many-to-many</h3>
+
+<p>Associations used:</p>
+
+<ol>
+<li><code>belongs_to</code></li>
+<li><code>has_many</code></li>
+<li><code>has_many :through</code></li>
+<li><code>has_and_belongs_to_many</code></li>
+</ol>
+
+<p>Imagine you have two tables: Employee and Skill. Each employee has multiple skills (Java, Cobol etc) and each skill can be shared by multiple employees.</p>
+
+<p>Notation:</p>
+
+<pre><code>Employee n : n Skills
+</code></pre>
+
+<p>This is pretty self-explanatory. However, to implement this relationship in Rails is a bit tricky.</p>
+
+<p>First thing first, you need to create a join table, preferrably named as <code>employees_skills</code> due to the Rails convention of naming join table in lexicographical order. Take note of the pluralization of both table names too.</p>
+
+<p>Why create a join table for many-to-many relationship? Because we need to normalize the database to reduce redundancy. Yes we still can implement many-to-many relationship without the join table but I’m sure the employee table will contain a bunch of duplicated employee data along with distinct skill data:</p>
+
+<table>
+<thead>
+<tr>
+<th>Employee ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Skill</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>Alex</td>
+<td>alex@asdf.com</td>
+<td>Cobol</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Alex</td>
+<td>alex@asdf.com</td>
+<td>Java</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Alex</td>
+<td>alex@asdf.com</td>
+<td>Ruby</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Kevon</td>
+<td>kevon@asdf.com</td>
+<td>Lisp</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Kevon</td>
+<td>kevon@asdf.com</td>
+<td>Ruby</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Chen</td>
+<td>chen@asdf.com</td>
+<td>Haskell</td>
+</tr>
+</tbody>
+</table>
+
+<p>Instead of the extremely redundant table above, why not we have a join table like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Employee ID</th>
+<th>Skill</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>Cobol</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Java</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Ruby</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Lisp</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Ruby</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Haskell</td>
+</tr>
+</tbody>
+</table>
+
+<p>Data from both tables is now stored in one place, and is referenced by their IDs instead of raw data. This leads to very efficient storage of data through database normalization.</p>
+
+<p>To implement many-to-many relationships in Rails, there are two ways of doing this: <code>has_many :through</code> and <code>has_and_belongs_to_many</code>.</p>
+
+<p><code>has_and_belongs_to_many</code> (HMABT) is a more concise way of creating many-to-many relationship but as quoted from The Rails Way it is “practically obsolete in the minds of many Rails developers”. The reason is that the HMABT join model is not real; it cannot contain any attributes other than the foreign IDs of the two tables it is joining. If you want to add extra columns to the join table, you need to use <code>has_many :through</code>.</p>
+
+<h3 id="has-many-and-belongs-to">has_many_and_belongs_to</h3>
+
+<p>Model classes:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Employee</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_and_belongs_to_many <span style="color: #0000aa">:skills</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Skill</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_and_belongs_to_many <span style="color: #0000aa">:employees</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>We need to create a new table as the join table, but since there’s no real join model using HMABT method (normally Rails will generate a table from model for us), we have to create the table through database migration.</p>
+
+<p>Assuming the above statements are added directly to model classes, here is the corresponding migration to create join table:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">CreateEmployeesAndSkills</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Migration</span>
+    create_table <span style="color: #0000aa">:employees_skills</span>, <span style="color: #00aaaa">id</span>: <span style="color: #0000aa">false</span> <span style="color: #0000aa">do</span> |t|
+      t.belongs_to <span style="color: #0000aa">:employee</span>
+      t.belongs_to <span style="color: #0000aa">:skill</span>
+    <span style="color: #0000aa">end</span>
+  <span style="color: #0000aa">end</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<h3 id="has-many-through">has_many :through</h3>
+
+<p><code>has_many :through</code> is a more verbose way of creating many-to-many relationship but you will get a real join model.</p>
+
+<p>Model classes:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Employee</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_many <span style="color: #0000aa">:skillsets</span>
+  has_many <span style="color: #0000aa">:skills</span>, through <span style="color: #0000aa">:skillsets</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Skill</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_many <span style="color: #0000aa">:skillsets</span>
+  has_many <span style="color: #0000aa">:employees</span>, through <span style="color: #0000aa">:skillsets</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Skillset</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  belongs_to <span style="color: #0000aa">:employee</span>
+  belongs_to <span style="color: #0000aa">:skill</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+<p>The difference here is that we have created an actual join model that acts just like any other models; this brings flexibility such as the freedom to add extra attributes to the join table and also to reference it directly.</p>
+
+<hr>
+
+<h3 id="one-to-one">One-to-one</h3>
+
+<p>Associations used:</p>
+
+<ol>
+<li><code>has_one</code></li>
+<li><code>has_one :through</code></li>
+<li><code>belongs_to</code></li>
+</ol>
+
+<p><code>has_one</code> is like <code>has_many</code>, but when the database query is executed, a single object is retrieved instead. An example would be such that an employee only has one passport. <code>has_one :through</code> is used to reference an object through the intermediate singleton, e.g., an employee has only one passport number as referenced in his passport.</p>
+
+<p>Notation:</p>
+
+<pre><code>Employee 1 : 1 Passport 1 : 1 Passport Number
+</code></pre>
+
+<p>It can be interpreted as follows: an employee has a single passport which has a single passport number.</p>
+
+<p>Model classes:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Employee</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  has_one <span style="color: #0000aa">:passport</span>
+  has_one <span style="color: #0000aa">:passport_number</span>, <span style="color: #0000aa">through</span>: passport
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Passport</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  belongs_to <span style="color: #0000aa">:employee</span>
+  has_one <span style="color: #0000aa">:passport_number</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">PassportNumber</span> &lt; <span style="color: #aa0000">ActiveRecord</span>::<span style="color: #aa0000">Base</span>
+  belongs_to <span style="color: #0000aa">:passport</span>
+<span style="color: #0000aa">end</span>
+</pre></div>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/active-record-associations\/';
+    var disqus_title = 'Associations in Active Record';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/active-record-associations\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/restful-journey/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/callback-hell-and-promises/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

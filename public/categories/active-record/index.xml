@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Active Record on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/active-record/index.xml</link>
+    <description>Recent content in Active Record on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/active-record/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Associations in Active Record</title>
+      <link>https://www.alexjiao.com/blog/active-record-associations/</link>
+      <pubDate>Tue, 27 May 2014 10:35:51 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/active-record-associations/</guid>
+      <description>
+
+&lt;p&gt;Hi there. This week I’m going to blog about Active Record associations. They are used to declare relationships between model classes in Rails.&lt;/p&gt;
+
+&lt;p&gt;There are six types of AR associations in Rails:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In addition, there are three types of relationships that can expressed between model classes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;One-to-many&lt;/li&gt;
+&lt;li&gt;Many-to-many&lt;/li&gt;
+&lt;li&gt;One-to-one&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This post will focus on each of the relationships, explaining how some associations work together to achieve a particular relationship between model classes.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;one-to-many&#34;&gt;One-to-many&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Imagine you have two tables: Employee and Department. An employee can only belong to one department and one department can have many employees. If you have ever taken a database course before, this notation would look familiar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee 1 : n Department
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can be interpreted as follows: for each employee it can have only 1 department, for each department it can have multiple employees.&lt;/p&gt;
+
+&lt;p&gt;Clearly, from the notation above, you can easily intuit about the one-to-many relationship.&lt;/p&gt;
+
+&lt;p&gt;Here’s the code snippet on such a construction:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:department&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Department&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note the pluralization of the word “employee” when it is declared with &lt;code&gt;has_many&lt;/code&gt; and the singular form of “department”.&lt;/p&gt;
+
+&lt;p&gt;It’s pretty self-explanatory. An employee belongs to a department as he/she cannot belong to more than one department. An department has many employees as a department is a collection of objects; in this case, it is a group of more than one person.&lt;/p&gt;
+
+&lt;p&gt;One caveat though: whichever table contains the statement &lt;code&gt;belongs_to :&amp;lt;table name&amp;gt;&lt;/code&gt; must have the foreign id attribute of &lt;code&gt;&amp;lt;table name&amp;gt;&lt;/code&gt;. That way, it can reference the row of the associated table it belongs to. In this case, the table Employee has an attribute called &lt;code&gt;department_id&lt;/code&gt; as the Department table’s foreign id.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;CreateEmployeess&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Migration&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;change&lt;/span&gt;
+    create_table &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+      t.string   &lt;span style=&#34;color: #0000aa&#34;&gt;:name&lt;/span&gt;
+      t.string    &lt;span style=&#34;color: #0000aa&#34;&gt;:email&lt;/span&gt;
+      t.integer  &lt;span style=&#34;color: #0000aa&#34;&gt;:department_id&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;many-to-many&#34;&gt;Many-to-many&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Imagine you have two tables: Employee and Skill. Each employee has multiple skills (Java, Cobol etc) and each skill can be shared by multiple employees.&lt;/p&gt;
+
+&lt;p&gt;Notation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee n : n Skills
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is pretty self-explanatory. However, to implement this relationship in Rails is a bit tricky.&lt;/p&gt;
+
+&lt;p&gt;First thing first, you need to create a join table, preferrably named as &lt;code&gt;employees_skills&lt;/code&gt; due to the Rails convention of naming join table in lexicographical order. Take note of the pluralization of both table names too.&lt;/p&gt;
+
+&lt;p&gt;Why create a join table for many-to-many relationship? Because we need to normalize the database to reduce redundancy. Yes we still can implement many-to-many relationship without the join table but I’m sure the employee table will contain a bunch of duplicated employee data along with distinct skill data:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Employee ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Email&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Cobol&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Java&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Kevon&lt;/td&gt;
+&lt;td&gt;kevon@asdf.com&lt;/td&gt;
+&lt;td&gt;Lisp&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Kevon&lt;/td&gt;
+&lt;td&gt;kevon@asdf.com&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Chen&lt;/td&gt;
+&lt;td&gt;chen@asdf.com&lt;/td&gt;
+&lt;td&gt;Haskell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Instead of the extremely redundant table above, why not we have a join table like this:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Employee ID&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Cobol&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Java&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Lisp&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Haskell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Data from both tables is now stored in one place, and is referenced by their IDs instead of raw data. This leads to very efficient storage of data through database normalization.&lt;/p&gt;
+
+&lt;p&gt;To implement many-to-many relationships in Rails, there are two ways of doing this: &lt;code&gt;has_many :through&lt;/code&gt; and &lt;code&gt;has_and_belongs_to_many&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt; (HMABT) is a more concise way of creating many-to-many relationship but as quoted from The Rails Way it is “practically obsolete in the minds of many Rails developers”. The reason is that the HMABT join model is not real; it cannot contain any attributes other than the foreign IDs of the two tables it is joining. If you want to add extra columns to the join table, you need to use &lt;code&gt;has_many :through&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;has-many-and-belongs-to&#34;&gt;has_many_and_belongs_to&lt;/h3&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_and_belongs_to_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skills&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skill&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_and_belongs_to_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We need to create a new table as the join table, but since there’s no real join model using HMABT method (normally Rails will generate a table from model for us), we have to create the table through database migration.&lt;/p&gt;
+
+&lt;p&gt;Assuming the above statements are added directly to model classes, here is the corresponding migration to create join table:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;CreateEmployeesAndSkills&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Migration&lt;/span&gt;
+    create_table &lt;span style=&#34;color: #0000aa&#34;&gt;:employees_skills&lt;/span&gt;, &lt;span style=&#34;color: #00aaaa&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+      t.belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+      t.belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:skill&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;has-many-through&#34;&gt;has_many :through&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;has_many :through&lt;/code&gt; is a more verbose way of creating many-to-many relationship but you will get a real join model.&lt;/p&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skills&lt;/span&gt;, through &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skill&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;, through &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skillset&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:skill&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The difference here is that we have created an actual join model that acts just like any other models; this brings flexibility such as the freedom to add extra attributes to the join table and also to reference it directly.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;one-to-one&#34;&gt;One-to-one&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;has_one&lt;/code&gt; is like &lt;code&gt;has_many&lt;/code&gt;, but when the database query is executed, a single object is retrieved instead. An example would be such that an employee only has one passport. &lt;code&gt;has_one :through&lt;/code&gt; is used to reference an object through the intermediate singleton, e.g., an employee has only one passport number as referenced in his passport.&lt;/p&gt;
+
+&lt;p&gt;Notation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee 1 : 1 Passport 1 : 1 Passport Number
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It can be interpreted as follows: an employee has a single passport which has a single passport number.&lt;/p&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport_number&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;through&lt;/span&gt;: passport
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Passport&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport_number&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;PassportNumber&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:passport&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

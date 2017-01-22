@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Getting functional in Ruby</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON MAY 9, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/functional-programming">FUNCTIONAL PROGRAMMING</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/ruby">RUBY</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>Treading the waters of functional programming in Ruby makes me feel poignant that I didn’t take CS1101S. Functional programming is a totally different programming paradigm, one that is declarative instead of imperative. You seek to describe what you want done instead of specifying how you want something done. As a result, the code is more concise, leading to easier maintainability in large-scale systems. This is one of the big pluses of FP, along with the fact that it is more amenable to concurrency than its imperative cousin.</p>
+
+<p>Ruby is a functional-hybrid, as such concepts of blocks and lambdas exist, along with the idiomatic concept: Proc.</p>
+
+<h3 id="differences-between-functional-and-imperative-programming-in-ruby">Differences between functional and imperative programming in Ruby</h3>
+
+<p>Suppose we want to make a simple calculator. To do that we have to define add and subtract methods.</p>
+
+<p>Here’s how you do it the imperative way:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">calculate_add</span>(a, b)
+  a + b
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">def</span> <span style="color: #00aa00">calculate_subtract</span>(a, b)
+  a - b
+<span style="color: #0000aa">end</span>
+
+<span style="color: #00aaaa">puts</span> calculate_add(<span style="color: #009999">2</span>, <span style="color: #009999">3</span>)
+<span style="color: #00aaaa">puts</span> calculate_subtract(<span style="color: #009999">4</span>, <span style="color: #009999">2</span>)
+</pre></div>
+
+<p>Here’s how you do it the functional way:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">calculate</span>(a, b)
+  <span style="color: #0000aa">yield</span>(a, b)
+<span style="color: #0000aa">end</span>
+
+<span style="color: #00aaaa">puts</span> calculate(<span style="color: #009999">2</span>, <span style="color: #009999">3</span>) { |a, b| a + b }
+<span style="color: #00aaaa">puts</span> calculate(<span style="color: #009999">4</span>, <span style="color: #009999">2</span>) { |a, b| a - b }
+</pre></div>
+
+<p>See the difference? The code is shortened by almost half! It’s easier to read and understand what the method calculation is doing, as the logic is exposed in the form of blocks, instead of being abstracted away from the programmer in the imperative example. No doubt, code readability and brevity is increased through the functional approach.</p>
+
+<h3 id="what-is-a-block">What is a block?</h3>
+
+<p>In Ruby, everything is an object. There are some exceptions to this rule.</p>
+
+<p>Block is not an object. Its definition from Wikipedia is as follows:</p>
+
+<pre><code>In computer programming, a block is a section of code which is grouped together.
+</code></pre>
+
+<p>In the functional example shown above, <code>{ |a, b| a + b }</code> is a block, a bunch of code enclosed by curly brackets. It is stand-alone, not associated with any objects. I prefer to think of it as an external code snippet which is exposed to the programmer, as compared to the internal code snippet <code>a + b</code> in the imperative example.</p>
+
+<p>Blocks are not methods (or functions as you call it); they are just a bunch of code. They are not objects too. As faithful Rubyists, how do we transform blocks into objects the Ruby way?</p>
+
+<h3 id="proc-edure-the-wrapper-class-for-block">Proc(edure): the wrapper class for block</h3>
+
+<p>Similar to the wrapper class in Java which provides a way to use primitive types as objects, Ruby has an idiomatic solution to transform a block into an object through the Proc class. The block still retains its functionality, but it can be saved into a variable and can be <code>call</code>ed at demand.</p>
+
+<p>Going back to the calculator example, we re-implement the add method using Proc:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">calculate</span>(a, b, add)
+  add.call(a, b)
+<span style="color: #0000aa">end</span>
+
+add = <span style="color: #aa0000">Proc</span>.new { |a, b| a + b }
+
+<span style="color: #00aaaa">puts</span> calculate(<span style="color: #009999">2</span>, <span style="color: #009999">3</span>, add)
+</pre></div>
+
+<p>Notice that we no longer pass a block as a parameter, instead we created an new instance of Proc called <code>add</code> that contains the original block and passed it as a parameter instead.</p>
+
+<p>As <code>add</code> is an object, we can call it on its own:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #00aaaa">puts</span> add.call(<span style="color: #009999">2</span>,<span style="color: #009999">3</span>)
+</pre></div>
+
+<p>In addition, we are free to pass <code>add</code> to whatever methods we want and <code>call</code> it indiscriminately. As blocks are one-time solutions, by wrapping it in an object we make it reusable anywhere in the code. This makes the code DRY.</p>
+
+<h3 id="lambda-anonymous-functions">Lambda: anonymous functions</h3>
+
+<p>Proc has a cousin: lambda, the cornerstone of functional programming. They are very similar.</p>
+
+<p>Here’s how you use a lambda:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">calculate</span>(a, b, add)
+  add.call(a, b)
+<span style="color: #0000aa">end</span>
+
+add = <span style="color: #00aaaa">lambda</span> { |a, b| a + b }
+
+<span style="color: #00aaaa">puts</span> calculate(<span style="color: #009999">2</span>, <span style="color: #009999">3</span>, add)
+</pre></div>
+
+<p>What is a lambda exactly? They are anonymous functions.</p>
+
+<p>At this point, the astute reader may be wondering what is the difference between lambda and Proc. Remember that Proc is a wrapper class for block, which is simply a code snippet. Therefore Proc is not a function, but lambda is. When we use Proc in a method, the code snippet that is wrapped up is now a part of the method’s code. You may think of the code snippet as being embedded inside the method, whereas lambda is a merely a function that is being called by the method.</p>
+
+<p>Here’s an example to illustrate the difference between Proc and lambda:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">method1</span>(a)
+  a.call
+  <span style="color: #0000aa">return</span> <span style="color: #aa5500">&quot;method1 ended&quot;</span>
+<span style="color: #0000aa">end</span>
+
+<span style="color: #00aaaa">proc</span> = <span style="color: #aa0000">Proc</span>.new { <span style="color: #0000aa">return</span> }
+<span style="color: #00aaaa">lambda</span> = <span style="color: #00aaaa">lambda</span> { <span style="color: #0000aa">return</span> }
+
+<span style="color: #00aaaa">puts</span> method1(<span style="color: #00aaaa">lambda</span>) <span style="color: #aaaaaa; font-style: italic">#STDOUT: &quot;method1 ended&quot;</span>
+<span style="color: #00aaaa">puts</span> method1(<span style="color: #00aaaa">proc</span>)  <span style="color: #aaaaaa; font-style: italic">#STDERR: LocalJumpError: unexpected return</span>
+</pre></div>
+
+<p>Since the code snippet in <code>proc</code> is embedded inside the method, its return statement is treated as part of <code>method1</code> therefore an “unexpected return” error is flagged when <code>method1</code> is executed.</p>
+
+<p>For lambda, it is treated as a function instead of a code snippet, therefore <code>method1</code> merely calls it and exits normally.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Block: a bunch of code, non-object</p>
+
+<p>Proc: a block encapsulated in a wrapper object</p>
+
+<p>Lambda: anonymous function, is an object</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/functional-ruby\/';
+    var disqus_title = 'Getting functional in Ruby';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/functional-ruby\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/restful-journey/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

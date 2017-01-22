@@ -1,0 +1,1866 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alex Jiao</title>
+    <link>https://www.alexjiao.com/index.xml</link>
+    <description>Recent content on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Jan 2017 19:36:40 +0800</lastBuildDate>
+    <atom:link href="https://www.alexjiao.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>https://www.alexjiao.com/resume/</link>
+      <pubDate>Sat, 21 Jan 2017 19:36:40 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/resume/</guid>
+      <description>&lt;p&gt;&lt;bo&lt;body&gt;
+&lt;div id=&#39;container&#39;&gt;
+&lt;div&gt;
+&lt;h1 align=&#34;center&#34; id=&#34;markdown-resumé&#34;&gt;Résumé&lt;/h1&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;work-experience&#34;&gt;Work Experience&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;big&gt;&lt;b&gt;Grab&lt;/b&gt;&lt;/big&gt; (Singapore)&lt;/p&gt;
+&lt;p&gt;Software Engineer, Nov 2016 - Jan 2017&lt;/p&gt;
+&lt;!-- &lt;ul&gt;
+&lt;li&gt;Intermingled presentation and content&lt;/li&gt;
+&lt;li&gt;Styling was a pain, so either didn&#39;t do it or found a half-decent template and didn&#39;t mess with it&lt;/li&gt;
+&lt;/ul&gt; --&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;big&gt;&lt;b&gt;honestbee&lt;/b&gt;&lt;/big&gt; (Singapore)&lt;/p&gt;
+&lt;p&gt;Software Engineer, July 2016 - Sep 2016&lt;/p&gt;
+&lt;div style=&#34;font-size: small&#34;&gt;
+&lt;p&gt;Automated manual labor components using computer vision to enable better operations.&lt;/p&gt;
+
+&lt;p&gt;Language(s): Python.&lt;/p&gt;
+
+&lt;p&gt;Tech stack: Airflow, Google Vision API, OpenCV, Tesseract.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Researched and developed a prototype to extract structured data from receipts using OpenCV and Tesseract, achieving over 90% accuracy on in-sample dataset.&lt;/li&gt;
+&lt;li&gt;Built and shipped a production-ready image processing pipeline by integrating the prototype with Google Vision API, speeding up order reconciliations by 3X and potentially saving thousands of dollars in operating costs per month.
+&lt;/div&gt;
+&lt;p&gt;&lt;big&gt;&lt;b&gt;2RedBeans&lt;/b&gt;&lt;/big&gt; (San Francisco Bay Area)&lt;/p&gt;
+&lt;p&gt;Software Engineer, Aug 2015 - July 2016&lt;/p&gt;
+&lt;div style=&#34;font-size: small&#34;&gt;
+&lt;p&gt;Rebuilt the product across the full stack.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Languages: JavaScript (ECMAScript 6), Ruby, Swift.&lt;/p&gt;
+
+&lt;p&gt;Tech stack: React + Redux, Rails, Xcode.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rebuilt various parts of the product with HTML5, CSS3, ES6 using React and Redux.&lt;/li&gt;
+&lt;li&gt;Built &amp;amp; shipped the entire chat SPA (&lt;a href=&#34;http://www.2redbeans.com/en/app/chat&#34;&gt;http://www.2redbeans.com/en/app/chat&lt;/a&gt;) using AJAX &amp;amp; socket.io to allow real-time updates, with responsive design across desktop and mobile platforms, shaving off response times by 80%.&lt;/li&gt;
+&lt;li&gt;Rewrote legacy Rails API for new chat SPA to handle the shift of business logic to front-end, shrinking Rails codebase by 40%.&lt;/li&gt;
+&lt;li&gt;Developed features for iOS app using Swift and Xcode.&lt;/li&gt;
+&lt;li&gt;Standardized coding style of the front-end team using style guides.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;p&gt;&lt;big&gt;&lt;b&gt;Wego&lt;/b&gt;&lt;/big&gt; (Singapore)&lt;/p&gt;
+&lt;p&gt;DevOps Engineer, Jan 2015 - June 2015&lt;/p&gt;
+&lt;div style=&#34;font-size: small&#34;&gt;
+&lt;p&gt;Improved Wego&amp;rsquo;s devops and data infrastructure by tinkering with its distributed systems.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;Languages: Bash, Golang, Ruby.&lt;/p&gt;
+
+&lt;p&gt;Tech stack: AWS EC2, Chef, Consul, Docker, HAProxy, Heka, Jenkins, Kafka, Marathon, Mesos, Zookeeper.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wrote Chef recipes to automate infrastructure configuration.&lt;/li&gt;
+&lt;li&gt;Developed a CI &amp;amp; CD pipeline using Jenkins to enable automatic deployments.&lt;/li&gt;
+&lt;li&gt;Developed a container orchestration platform for staging environments using Marathon, Mesos and Docker.&lt;/li&gt;
+&lt;li&gt;Implemented service discovery for the aforementioned platform using HAProxy and Ruby.&lt;/li&gt;
+&lt;li&gt;Set up &amp;amp; maintained on-premise Docker registry which sped up Docker pushes &amp;amp; pulls by 5X.&lt;/li&gt;
+&lt;li&gt;Developed a proof-of-concept for distributed configuration management using Consul.&lt;/li&gt;
+&lt;li&gt;Set up and utilized Kafka as a message broker to make data pipelines fault-resilient.&lt;/li&gt;
+&lt;li&gt;Developed &amp;amp; open-sourced a Heka plugin written in Go to persist data from Kafka to Amazon S3.
+&lt;/div&gt;
+&lt;p&gt;&lt;big&gt;&lt;b&gt;Favorite Medium&lt;/b&gt;&lt;/big&gt; (Singapore)&lt;/p&gt;
+&lt;p&gt;Software Developer, May 2014 - Dec 2014&lt;/p&gt;
+&lt;div style=&#34;font-size: small&#34;&gt;
+&lt;p&gt;Made internal tools and worked on a project for Samsung APAC.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Languages: JavaScript, Ruby.&lt;/p&gt;
+
+&lt;p&gt;Tech stack: Angular.js, Rails, Amazon DynamoDB.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mainly worked on internal tools, such as employee portal, project management tool, and employee time tracker using Angular.js with Rails.&lt;/li&gt;
+&lt;li&gt;Developed a scalable NoSQL message service API using Amazon DynamoDB for a client’s project (Samsung APAC).&lt;/li&gt;
+&lt;li&gt;Migrated company&amp;rsquo;s internal database to Google Compute Engine.&lt;/li&gt;
+&lt;li&gt;Maintained the backend infrastructure of the company&amp;rsquo;s in-house apps.
+&lt;/div&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;National University of University&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;B.Comp. with Honours (Distinction) in Computer Science, 2012 - 2017&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stanford University&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NUS Overseas College (Silicon Valley), 2015 - 2016&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Hong Kong University of Science and Technology&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Exchange Programme, 2014&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;h2 id=&#34;interests&#34;&gt;Interests&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Programming language implementations&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compiler optimizations&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Very familiar with Python&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Familiar with Ruby, JavaScript, Java and Golang&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hi, nice to meet you.</title>
+      <link>https://www.alexjiao.com/about/</link>
+      <pubDate>Sat, 21 Jan 2017 08:54:26 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/about/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m Alex, a CS student at National University of Singapore. I have experience working across the full web development stack. Being a generalist, I do not tie myself to a single platform or programming language. My academic interest lies in programming language implementations. Lately, I&amp;rsquo;m trying to deep dive into this area, and it has been fascinating so far.&lt;/p&gt;
+
+&lt;p&gt;I was born in Dalian, which is a coastal city in Liaoning, China, and have spent a good chunk of my life in Beijing before immigrating to Singapore. Now, I consider myself more or less a Singaporean, save for a bit of Beijing accent. I relish eating our local fare, and I think &lt;i&gt;bak chor mee&lt;/i&gt; is the best thing ever since sliced bread.&lt;/p&gt;
+
+&lt;p&gt;If you are working with me in any professional capacity, it&amp;rsquo;d be helpful to know that I am hearing impaired. I was diagnosed with moderately severe sensorineural hearing loss since young. I am not too bothered by this, as I got a good pair of hearing aids. However, I&amp;rsquo;ll really appreciate it if you can speak loud and clear.&lt;/p&gt;
+
+&lt;p&gt;If you have time, feel free to explore my blog on ruminations on things I care about.&lt;/p&gt;
+
+&lt;p&gt;See you around. :-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hosting an AngularJS app on an Google Compute Engine VM instance</title>
+      <link>https://www.alexjiao.com/blog/angular-app-google-compute/</link>
+      <pubDate>Sat, 16 Aug 2014 10:26:47 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-app-google-compute/</guid>
+      <description>&lt;p&gt;Recently I was tasked with deploying an Angular app on Google Compute Engine(GCE). I spent a lot of time trawling the web for tutorials but they are scattered around as usual. With help from my co-worker, I managed to get it done. To prevent others from floundering about in this niche area, here’s my walkthrough.&lt;/p&gt;
+
+&lt;p&gt;First you have to create a project &lt;a href=&#34;https://console.developers.google.com/project&#34;&gt;here&lt;/a&gt;. After that you’d have to create a VM instance. This step requires billing information as Google will charge you from the get-go.&lt;/p&gt;
+
+&lt;p&gt;Having created the VM instance, you will need to connect to it using &lt;code&gt;gcutil&lt;/code&gt; tool from the terminal.&lt;/p&gt;
+
+&lt;p&gt;Follow the steps here to install &lt;code&gt;gcutil&lt;/code&gt; and then to authenticate to GCE.&lt;/p&gt;
+
+&lt;p&gt;Since my project name is &lt;code&gt;foo-boulevard-629&lt;/code&gt; and my instance name is &lt;code&gt;beechfork-2&lt;/code&gt;, this would be my command to connect to the VM instance:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gcutil --service_version=&amp;quot;v1&amp;quot; --project=&amp;quot;foo-boulevard-629&amp;quot; ssh --zone=&amp;quot;asia-east1-a&amp;quot; &amp;quot;beechfork-2&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After you are connected to the VM instance, you’ll need to install node.js to run the Angular app server. Since my VM instance is a Debian 7.0 (Wheezy), I followed this &lt;a href=&#34;https://gist.github.com/x-Code-x/2562576&#34;&gt;Gist&lt;/a&gt; to install node.&lt;/p&gt;
+
+&lt;p&gt;Be sure to check whether your installed &lt;code&gt;node&lt;/code&gt; is working by running &lt;code&gt;node -v&lt;/code&gt; before we proceed to the next step.&lt;/p&gt;
+
+&lt;p&gt;Next, &lt;code&gt;cd&lt;/code&gt; into your preferred directory and clone your git repository containing your Angular app.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git clone https://favmed.unfuddle.com/git/favmed_marathon/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Install your Angular app dependencies using &lt;code&gt;npm install&lt;/code&gt; and &lt;code&gt;bower install&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this time, we can start the server using Grunt by running &lt;code&gt;grunt serve&lt;/code&gt;, however it is recommmend to use a daemon, e.g., &lt;code&gt;forever&lt;/code&gt;, to make sure that the server runs continuously.&lt;/p&gt;
+
+&lt;p&gt;Let’s install &lt;code&gt;forever&lt;/code&gt; first: &lt;code&gt;sudo npm install forever -g&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To use &lt;code&gt;forever&lt;/code&gt;, we need to create a script that configures the port number and the folder to be served.&lt;/p&gt;
+
+&lt;p&gt;Create a file named &lt;code&gt;web.js&lt;/code&gt; as shown below in your root directory of your Angular app:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; gzippo = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;gzippo&amp;#39;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; express = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;express&amp;quot;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; logfmt = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;logfmt&amp;quot;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; app = express();
+
+app.use(logfmt.requestLogger());
+app.use(gzippo.staticGzip(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; + __dirname + &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;/app&amp;quot;&lt;/span&gt;));
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; port = &lt;span style=&#34;color: #00aaaa&#34;&gt;Number&lt;/span&gt;(process.env.PORT || &lt;span style=&#34;color: #009999&#34;&gt;5000&lt;/span&gt;);
+app.listen(port, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;() {
+  console.log(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Listening on &amp;quot;&lt;/span&gt; + port);
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Before running the script, you need to install the required modules: &lt;code&gt;npm install gzippo express logfmt --save&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;forever web.js&lt;/code&gt; to serve your Angular app.&lt;/p&gt;
+
+&lt;p&gt;In your VM instance page, you will see a external IP address. You can now access your Angular app at this link with the appropriate port number. Alternatively, you can configure your VM instance’s port number to be the same as the one that you set for your Angular app server, so that you can access your app without the port number.&lt;/p&gt;
+
+&lt;p&gt;Have fun.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rolling your own simple token-based authentication in AngularJS with Rails</title>
+      <link>https://www.alexjiao.com/blog/angular-rails-auth/</link>
+      <pubDate>Fri, 01 Aug 2014 02:54:29 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-rails-auth/</guid>
+      <description>
+
+&lt;p&gt;Recently I was interested in implementing token-based authentication with a decoupled frontend and backend. I googled about ways to do it the Angular-Rails way. Turns out it is not that simple and straightfoward. After a couple of days of reading fragmented sources of information on the web, I finally rolled my own authentication system.&lt;/p&gt;
+
+&lt;p&gt;Granted that one could easily use Devise gem for their authentication needs, however there’s too much cruft associated with it and I want to implement authentication from the bottom-up to solidify my understanding.&lt;/p&gt;
+
+&lt;p&gt;Given that the resources are scattered out there, I thought I’d write a tutorial to synthesize them into a coherent whole for the benefit of the reader. A large chunk of my tutorial (the Rails backend) is adapted from Michael Hartl’s famous RoR Tutorial, with the rest culled from various resources like StackOverflow and other blogs.&lt;/p&gt;
+
+&lt;p&gt;This tutorial is for those who want to understand how token-based authentication works. We’ll be rolling a simple solution that authenticates users based on their email and password. Log-ins, sign-outs and simple authorization are included as well. I stress that the auth system in this tutorial is definitely not industrial-grade but it won’t be prone to easy hack-ins either.&lt;/p&gt;
+
+&lt;p&gt;You may want to read this article for a rundown of the evolution of API authentication and this article to understand how token-based auth compares with the traditional cookie-based auth.&lt;/p&gt;
+
+&lt;p&gt;We’ll be using token-based auth in this tutorial because it is more conventional and confers more advantages compared to cookie-based auth.&lt;/p&gt;
+
+&lt;p&gt;Even though this tutorial is mainly for developers using Angular and Rails, the process of token-based authentication is generic enough such that a framework-agnostic flow can be gleaned from it:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Client sends the user provided login credentials to the server.&lt;/li&gt;
+&lt;li&gt;Server authenticates credentials and responds with a generated token.&lt;/li&gt;
+&lt;li&gt;Client stores the token somewhere (local storage, cookies, or just in memory).&lt;/li&gt;
+&lt;li&gt;Client sends the token as an authorization header on every request to the server.&lt;/li&gt;
+&lt;li&gt;Server verifies the token and acts accordingly with either sending the requested &amp;gt; resource, or an 401 (or something alike).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Without further ado, let’s get started.&lt;/p&gt;
+
+&lt;h3 id=&#34;rails-api-setup&#34;&gt;Rails API setup&lt;/h3&gt;
+
+&lt;p&gt;We will be starting a Rails API server from scratch. Run &lt;code&gt;rails new sample-api&lt;/code&gt; in terminal.&lt;/p&gt;
+
+&lt;p&gt;We will be using bcrypt gem as the backbone of our auth machinery. Hence we have to uncomment bcrypt-ruby gem in Gemfile and then do &lt;code&gt;bundle install&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;gem &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;bcrypt-ruby&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;~&amp;gt; 3.1.2&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we create our User model. It will have these attributes: name, email, password digest and remember token. We will not be storing passwords in plaintext as hackers can easily retrieve user login credentials through the database. Create the User model by running this command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rails g model User name:string email:string password_digest:string remember_token:string&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the database migration file auto-generated by the last command, add in a remember token index for easy retrieval since we will be accessing users by their token often.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;CreateUsers&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Migration&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;change&lt;/span&gt;
+    create_table &lt;span style=&#34;color: #0000aa&#34;&gt;:users&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+      t.string &lt;span style=&#34;color: #0000aa&#34;&gt;:name&lt;/span&gt;
+      t.string &lt;span style=&#34;color: #0000aa&#34;&gt;:email&lt;/span&gt;
+      t.string &lt;span style=&#34;color: #0000aa&#34;&gt;:password_digest&lt;/span&gt;
+      t.string &lt;span style=&#34;color: #0000aa&#34;&gt;:remember_token&lt;/span&gt;
+
+      t.timestamps
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+    add_index &lt;span style=&#34;color: #0000aa&#34;&gt;:users&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;:remember_token&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Run &lt;code&gt;rake db:migrate&lt;/code&gt; to update the database schema. Your schema should now look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Schema&lt;/span&gt;.define(&lt;span style=&#34;color: #0000aa&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;20140801074722&lt;/span&gt;) &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt;
+  create_table &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;users&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;force&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+    t.string   &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;
+    t.string   &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;email&amp;quot;&lt;/span&gt;
+    t.string   &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;password_digest&amp;quot;&lt;/span&gt;
+    t.string   &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;remember_token&amp;quot;&lt;/span&gt;
+    t.datetime &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;created_at&amp;quot;&lt;/span&gt;
+    t.datetime &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;updated_at&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  add_index &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;users&amp;quot;&lt;/span&gt;, [&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;remember_token&amp;quot;&lt;/span&gt;], &lt;span style=&#34;color: #00aaaa&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;index_users_on_remember_token&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we modify our User model class in &lt;code&gt;models/user.rb&lt;/code&gt; to utilise the bcrypt gem by adding &lt;code&gt;has_secure_password&lt;/code&gt;. We will also use some boilerplate from Michael Hartl’s Rails Tutorial (thanks Michael) to validate user’s credentials. Class-level methods used to generate and digest tokens are added as well. Finally, we define a private instance-level method to assign the newly generated token to the &lt;code&gt;remember_token&lt;/code&gt; field of &lt;code&gt;User&lt;/code&gt; model.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;User&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_secure_password &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# using bcrypt&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# boilerplate from Hartl&amp;#39;s tutorial to validate user input&lt;/span&gt;
+  before_save { &lt;span style=&#34;color: #00aaaa&#34;&gt;self&lt;/span&gt;.email = email.downcase }
+  validates &lt;span style=&#34;color: #0000aa&#34;&gt;:name&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;presence&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;length&lt;/span&gt;: { &lt;span style=&#34;color: #0000aa&#34;&gt;maximum&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;50&lt;/span&gt; }
+  &lt;span style=&#34;color: #aa0000&#34;&gt;VALID_EMAIL_REGEX&lt;/span&gt; = &lt;span style=&#34;color: #009999&#34;&gt;/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i&lt;/span&gt;
+  validates &lt;span style=&#34;color: #0000aa&#34;&gt;:email&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;presence&lt;/span&gt;:   &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;,
+                    &lt;span style=&#34;color: #00aaaa&#34;&gt;format&lt;/span&gt;:     { &lt;span style=&#34;color: #0000aa&#34;&gt;with&lt;/span&gt;: &lt;span style=&#34;color: #aa0000&#34;&gt;VALID_EMAIL_REGEX&lt;/span&gt; },
+                    &lt;span style=&#34;color: #0000aa&#34;&gt;uniqueness&lt;/span&gt;: { &lt;span style=&#34;color: #0000aa&#34;&gt;case_sensitive&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt; }
+
+  validates &lt;span style=&#34;color: #0000aa&#34;&gt;:password&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;length&lt;/span&gt;: { &lt;span style=&#34;color: #0000aa&#34;&gt;minimum&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;6&lt;/span&gt; }
+  before_create &lt;span style=&#34;color: #0000aa&#34;&gt;:create_remember_token&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# class-level methods to generate and digest tokens&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;User&lt;/span&gt;.&lt;span style=&#34;color: #00aa00&#34;&gt;new_remember_token&lt;/span&gt;
+    &lt;span style=&#34;color: #aa0000&#34;&gt;SecureRandom&lt;/span&gt;.urlsafe_base64
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;User&lt;/span&gt;.&lt;span style=&#34;color: #00aa00&#34;&gt;digest&lt;/span&gt;(token)
+    &lt;span style=&#34;color: #aa0000&#34;&gt;Digest&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;SHA1&lt;/span&gt;.hexdigest(token.to_s)
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# private instance-level method to assign token&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;create_remember_token&lt;/span&gt;
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;self&lt;/span&gt;.remember_token = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.digest(&lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.new_remember_token)
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we move on to the controllers. Before creating the users controller, we have to configure the application controller. Since we are decoupling the frontend and the backend, each of them lives in a separate domain. Hence the frontend app have to make cross-domain requests to the Rails backend. Such requests will not be acknowledged unless the server is configured to implement cross-origin resource sharing (CORS).&lt;/p&gt;
+
+&lt;p&gt;As the application controller is the main controller, changes made to it affect the rest of the controllers which inherit from it. Hence it makes sense to implement CORS in application controller.&lt;/p&gt;
+
+&lt;p&gt;Since we are not sending the auth token on the client side through the custom X-CSRF-Token header, we have to change &lt;code&gt;protect_from_forgery&lt;/code&gt; to use &lt;code&gt;:null_session&lt;/code&gt; along with a guard to handle CSRF token verification issue. We included respond_to :json as the Rails API will be mainly serving JSON responses.&lt;/p&gt;
+
+&lt;p&gt;We have also included &lt;code&gt;SessionsHelper&lt;/code&gt; which contains helper methods (to be implemented later) for sign-ins and sign-outs. Finally, there is a callback method used to restrict access to unauthorized users.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;ApplicationController&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActionController&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# Prevent CSRF attacks by raising an exception.&lt;/span&gt;
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# For APIs, you may want to use :null_session instead.&lt;/span&gt;
+  protect_from_forgery &lt;span style=&#34;color: #0000aa&#34;&gt;with&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;:null_session&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;: &lt;span style=&#34;color: #aa0000&#34;&gt;Proc&lt;/span&gt;.new { |c| c.request.format == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt; }
+  &lt;span style=&#34;color: #0000aa&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color: #aa0000&#34;&gt;SessionsHelper&lt;/span&gt; &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# include helper methods used for sign in and sign out&lt;/span&gt;
+  respond_to &lt;span style=&#34;color: #0000aa&#34;&gt;:json&lt;/span&gt;
+
+  before_filter &lt;span style=&#34;color: #0000aa&#34;&gt;:set_cors_headers&lt;/span&gt;
+  before_filter &lt;span style=&#34;color: #0000aa&#34;&gt;:cors_preflight&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;set_cors_headers&lt;/span&gt;
+    headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Access-Control-Allow-Origin&amp;#39;&lt;/span&gt;] = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;
+    headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Access-Control-Allow-Methods&amp;#39;&lt;/span&gt;] = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;GET, POST, PUT, DELETE, OPTIONS&amp;#39;&lt;/span&gt;
+    headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Access-Control-Allow-Headers&amp;#39;&lt;/span&gt;] = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Origin, X-Requested-With, Content-Type, Accept, Authorization&amp;#39;&lt;/span&gt;
+    headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Access-Control-Max-Age&amp;#39;&lt;/span&gt;] = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;3628800&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# before every actual request, the browser sends a OPTIONS request &lt;/span&gt;
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# to check if the server implements CORS&lt;/span&gt;
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# for such requests, send an empty response with 200 status&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;cors_preflight&lt;/span&gt;
+    head &lt;span style=&#34;color: #0000aa&#34;&gt;:ok&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; request.method == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;OPTIONS&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# callback method used for authorization &lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;restrict_access&lt;/span&gt;
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; request.headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;HTTP_AUTHORIZATION&amp;#39;&lt;/span&gt;]
+        token = request.headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;HTTP_AUTHORIZATION&amp;#39;&lt;/span&gt;].split(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;).second
+        user = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.find_by(&lt;span style=&#34;color: #0000aa&#34;&gt;remember_token&lt;/span&gt;: &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.digest(token))
+      &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+      head &lt;span style=&#34;color: #0000aa&#34;&gt;:unauthorized&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;unless&lt;/span&gt; user &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# send 401 response unless user is authorized&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;sign-up-sign-in-and-sign-out&#34;&gt;Sign-up, sign-in and sign-out&lt;/h3&gt;
+
+&lt;p&gt;To implement sign-up, we have to create a Users controller first as this is where we define the creation of new users. Run &lt;code&gt;rails g controller Users&lt;/code&gt; in terminal.&lt;/p&gt;
+
+&lt;p&gt;Define the &lt;code&gt;create&lt;/code&gt; method in &lt;code&gt;controllers/users_controller.rb&lt;/code&gt; as shown below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;UsersController&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ApplicationController&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;create&lt;/span&gt;
+    user = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.new(user_params)
+    &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; user.save
+      token = sign_in user
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Signed up successfully&amp;quot;&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;auth_token&lt;/span&gt;: token
+          }
+        }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt;
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Signed up failed, user exists&amp;quot;&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {}
+        }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;user_params&lt;/span&gt;
+      params.require(&lt;span style=&#34;color: #0000aa&#34;&gt;:user&lt;/span&gt;).permit!
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The alert reader can see that &lt;code&gt;sign_in&lt;/code&gt; method is not defined in this class; it is defined in &lt;code&gt;SessionsHelper&lt;/code&gt; module instead. Since we want the user to be automatically signed in after registration, we have to proceed with the implementation of sign-in process, and followed by sign-out. This is done with sessions. A session is considered as a resource in the server, hence we have to create a controller for it.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;rails g controller Sessions&lt;/code&gt; to create the &lt;code&gt;SessionsController&lt;/code&gt;. As a side-effect, &lt;code&gt;SessionsHelper&lt;/code&gt; is automatically created too.&lt;/p&gt;
+
+&lt;p&gt;Let’s define the &lt;code&gt;create&lt;/code&gt; and &lt;code&gt;destroy&lt;/code&gt; methods in &lt;code&gt;controllers/sessions_controller.rb&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;SessionsController&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ApplicationController&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;create&lt;/span&gt;
+    user = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.find_by(&lt;span style=&#34;color: #0000aa&#34;&gt;email&lt;/span&gt;: params[&lt;span style=&#34;color: #0000aa&#34;&gt;:user&lt;/span&gt;][&lt;span style=&#34;color: #0000aa&#34;&gt;:email&lt;/span&gt;].downcase)
+    &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; user &amp;amp;&amp;amp; user.authenticate(params[&lt;span style=&#34;color: #0000aa&#34;&gt;:user&lt;/span&gt;][&lt;span style=&#34;color: #0000aa&#34;&gt;:password&lt;/span&gt;])
+      &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#sign_in helper method from SessionsHelper&lt;/span&gt;
+      token = sign_in user
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Logged in successfully&amp;quot;&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;auth_token&lt;/span&gt;: token
+          }
+        }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt;
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+      &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Log in failed&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {}
+      }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;destroy&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; request.headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;HTTP_AUTHORIZATION&amp;#39;&lt;/span&gt;]
+      token = request.headers[&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;HTTP_AUTHORIZATION&amp;#39;&lt;/span&gt;].split(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;).second
+      user = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.find_by(&lt;span style=&#34;color: #0000aa&#34;&gt;remember_token&lt;/span&gt;: &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.digest(token))
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; user
+      &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#sign_out helper method from SessionsHelper&lt;/span&gt;
+      sign_out user
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Signed out successfully&amp;quot;&lt;/span&gt;,
+          &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {}
+        }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt;
+      render &lt;span style=&#34;color: #0000aa&#34;&gt;status&lt;/span&gt;: &lt;span style=&#34;color: #009999&#34;&gt;200&lt;/span&gt;,
+      &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;success&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;info&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Signed out failed, no such user&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #0000aa&#34;&gt;data&lt;/span&gt;: {}
+      }
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Looking at the above code, there’s nothing out of the ordinary except for this snippet &lt;code&gt;user.authenticate(params[:user][:password])&lt;/code&gt;. The &lt;code&gt;authenticate()&lt;/code&gt; method is part of the bcrypt gem, and is used to digest the given password to compare it with the stored password digest in the users database, returning a boolean value.&lt;/p&gt;
+
+&lt;p&gt;We also observe that we invoke the helper methods from the &lt;code&gt;SessionsHelper&lt;/code&gt; module in &lt;code&gt;helpers/sessions_helper.rb&lt;/code&gt;. Without further ado, let’s flesh the module out.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;module&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;SessionsHelper&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;sign_in&lt;/span&gt;(user)
+    remember_token = &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.new_remember_token
+    user.update_attribute(&lt;span style=&#34;color: #0000aa&#34;&gt;:remember_token&lt;/span&gt;, &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.digest(remember_token))
+    remember_token
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;sign_out&lt;/span&gt;(user)
+    user.update_attribute(&lt;span style=&#34;color: #0000aa&#34;&gt;:remember_token&lt;/span&gt;, &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.digest(&lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.new_remember_token))
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;simple-authorization&#34;&gt;Simple authorization&lt;/h3&gt;
+
+&lt;p&gt;Let’s define a restricted API call to illustrate the authorization concept. We make it such that only logged-in users can access the index of all users from the API.&lt;/p&gt;
+
+&lt;p&gt;We return to &lt;code&gt;controllers/users_controller.rb&lt;/code&gt; to effect this change by defining the index method and using a &lt;code&gt;before_action&lt;/code&gt; callback hook to restrict access to it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;UsersController&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ApplicationController&lt;/span&gt;
+  before_action &lt;span style=&#34;color: #0000aa&#34;&gt;:restrict_access&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;only&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;:index&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;index&lt;/span&gt;
+    respond_with &lt;span style=&#34;color: #aa0000&#34;&gt;User&lt;/span&gt;.all
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;# rest of the code here&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;restrict_access&lt;/code&gt; method is defined in &lt;code&gt;ApplicationController&lt;/code&gt; and &lt;code&gt;UsersController&lt;/code&gt; is a subclass of it. That’s why we are able to invoke &lt;code&gt;restrict_access&lt;/code&gt; method here.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;index&lt;/code&gt; method will respond with a JSON containing all users, this is made possible by the &lt;code&gt;respond_to :json&lt;/code&gt; method in &lt;code&gt;ApplicationController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;routings&#34;&gt;Routings&lt;/h3&gt;
+
+&lt;p&gt;This is the final part of our Rails API. We have to tie up the loose ends by connecting the methods in our controllers to the API endpoints – the URLs.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #aa0000&#34;&gt;Rails&lt;/span&gt;.application.routes.draw &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt;
+  resources &lt;span style=&#34;color: #0000aa&#34;&gt;:users&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;defaults&lt;/span&gt;: {&lt;span style=&#34;color: #00aaaa&#34;&gt;format&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;json&amp;#39;&lt;/span&gt;}
+  match &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/users&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;to&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;users#set_cors_headers&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;via&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;:options&lt;/span&gt;
+  resources &lt;span style=&#34;color: #0000aa&#34;&gt;:sessions&lt;/span&gt;
+  match &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/signin&amp;#39;&lt;/span&gt;,    &lt;span style=&#34;color: #0000aa&#34;&gt;to&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sessions#create&amp;#39;&lt;/span&gt;,    &lt;span style=&#34;color: #0000aa&#34;&gt;via&lt;/span&gt;: [&lt;span style=&#34;color: #0000aa&#34;&gt;:post&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;:options&lt;/span&gt;]
+  match &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/signout&amp;#39;&lt;/span&gt;,   &lt;span style=&#34;color: #0000aa&#34;&gt;to&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sessions#destroy&amp;#39;&lt;/span&gt;,   &lt;span style=&#34;color: #0000aa&#34;&gt;via&lt;/span&gt;: [&lt;span style=&#34;color: #0000aa&#34;&gt;:delete&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;:options&lt;/span&gt;]
+  match &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/signup&amp;#39;&lt;/span&gt;,    &lt;span style=&#34;color: #0000aa&#34;&gt;to&lt;/span&gt;: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;users#create&amp;#39;&lt;/span&gt;,       &lt;span style=&#34;color: #0000aa&#34;&gt;via&lt;/span&gt;: [&lt;span style=&#34;color: #0000aa&#34;&gt;:post&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;:options&lt;/span&gt;]
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We have to take care of CORs preflight by specifying that the API endpoints can respond to OPTIONS request.&lt;/p&gt;
+
+&lt;p&gt;Notice that even though we defined every possible RESTful endpoints for &lt;code&gt;/users&lt;/code&gt; using &lt;code&gt;resources :users, defaults: {format: &#39;json&#39;}&lt;/code&gt;, we still have to handle the OPTION request for &lt;code&gt;/users&lt;/code&gt; by directing it to &lt;code&gt;set_cors_headers&lt;/code&gt; method defined in &lt;code&gt;ApplicationController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To be honest, I’m not sure whether my approach is considered best practice or not. Either way, it doesn’t look elegant. If you have any better solutions, do let me know!&lt;/p&gt;
+
+&lt;p&gt;This concludes the set-up for Rails API.&lt;/p&gt;
+
+&lt;h3 id=&#34;setting-up-the-angular-frontend&#34;&gt;Setting up the Angular frontend&lt;/h3&gt;
+
+&lt;p&gt;We will be creating a sample app using Angular framework. I’ll assume that the reader has already scaffolded the app with Yeoman.&lt;/p&gt;
+
+&lt;p&gt;If you haven’t already, please follow this &lt;a href=&#34;http://yeoman.io/codelab/index.html&#34;&gt;codelab&lt;/a&gt; until Step 5.&lt;/p&gt;
+
+&lt;p&gt;We will need to configure our Angular app by adding a dependency to store auth tokens on the client side.&lt;/p&gt;
+
+&lt;p&gt;First, we run &lt;code&gt;bower install --save angular-local-storage&lt;/code&gt; in terminal to install the local storage module.&lt;/p&gt;
+
+&lt;p&gt;We then have to edit the application module in &lt;code&gt;scripts/app.js&lt;/code&gt; to include the local storage module:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; app = angular
+  .module(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sampleAppApp&amp;#39;&lt;/span&gt;, [
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngAnimate&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngCookies&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngResource&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngRoute&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngSanitize&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ngTouch&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;LocalStorageModule&amp;#39;&lt;/span&gt;
+  ]);
+  app.config([&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;localStorageServiceProvider&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(localStorageServiceProvider){
+    localStorageServiceProvider.setPrefix(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;ls&amp;#39;&lt;/span&gt;);
+  }]);
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Just a caveat: Yeoman named my app as &lt;code&gt;sampleAppApp&lt;/code&gt; because I ran &lt;code&gt;yo angular&lt;/code&gt; in a folder named &lt;code&gt;sample-app&lt;/code&gt;. Please replace &lt;code&gt;sampleAppApp&lt;/code&gt; with the name that Yeoman generated for you.&lt;/p&gt;
+
+&lt;p&gt;Notice that we assigned the application module to a variable app. This is used to easily refer to the application module later on.&lt;/p&gt;
+
+&lt;p&gt;We also have to configure the local storage module by setting its prefix to avoid namespace conflicts.&lt;/p&gt;
+
+&lt;p&gt;Moving on, we lay out the routings in the application module:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt; app.config(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt; ($routeProvider) {
+  $routeProvider
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/main.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;MainCtrl&amp;#39;&lt;/span&gt;
+    })
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/about&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/about.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;AboutCtrl&amp;#39;&lt;/span&gt;
+    })
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/login&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/login.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;LoginCtrl&amp;#39;&lt;/span&gt;
+    })
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/signup&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/signup.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;SignupCtrl&amp;#39;&lt;/span&gt;
+    })
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/signout&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/signout.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;SignoutCtrl&amp;#39;&lt;/span&gt;
+    })
+    .when(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/restricted&amp;#39;&lt;/span&gt;, {
+      templateUrl: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;views/users.html&amp;#39;&lt;/span&gt;,
+      controller: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;UsersCtrl&amp;#39;&lt;/span&gt;
+    })
+    .otherwise({
+      redirectTo: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+    });
+  })
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In addition to the two default routes created by Yeoman, we now have four routes, with one route being restricted only to authorized users.&lt;/p&gt;
+
+&lt;p&gt;Having defined the routings, we proceed to flesh out the rest of the app by creating the controllers and the views.&lt;/p&gt;
+
+&lt;p&gt;We start with the sign-up controller by creating a new file in &lt;code&gt;scripts/controllers/signup.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;app.controller(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;SignupCtrl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;($location, $scope, $http, localStorageService) {
+  $scope.user = {};
+  &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (localStorageService.get(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;)) {
+      $scope.info = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Logged in&amp;quot;&lt;/span&gt; ;
+  }
+  $scope.signup = &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;() {
+      console.log($scope.user);
+      $http({
+          url: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;http://localhost:3000/signup&amp;#39;&lt;/span&gt;,
+          method: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+          data: {
+              user: $scope.user
+          }
+      }).success(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(response){
+          $scope.info = response.info;
+          localStorageService.set(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;, response.data.auth_token)
+      });
+  };
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this controller, we make a POST request containing user credentials to the Rails API (port number 3000). If successful, the API will return an auth token which will be stored in the local storage. We also display the relevant information in the API response so that we know whether the sign-up is successful or not.&lt;/p&gt;
+
+&lt;p&gt;Now we need to create a sign-up form to carry out form-based authentication. Let’s create a new file in &lt;code&gt;views/signup.html&lt;/code&gt; and add the HTML as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-submit&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;signup()&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;well&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;h3&lt;/span&gt;&amp;gt;Sign up&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;h3&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Name&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.email&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Email&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.password_confirmation&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Confirm password&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;btn&amp;quot;&lt;/span&gt;&amp;gt;Sign up&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt;&amp;gt;
+
+&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+  { { info } }
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- please remove spacing between curly brackets! --&amp;gt;&lt;/span&gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Our user credentials consist of four parameters: name, email, password and password confirmation. The last parameter may seem optional, but it is required by bcrypt to generate a password digest.&lt;/p&gt;
+
+&lt;p&gt;We have also included a string interpolation enclosed in a div block to display result of the log-in process. As Markdown is unable to escape double curly brackets, I deliberately added a space between them. You have to remove the spacing to make Angular’s string interpolation work.&lt;/p&gt;
+
+&lt;p&gt;At this point you may wish to test out the app and API by running &lt;code&gt;grunt serve&lt;/code&gt; and &lt;code&gt;rails s&lt;/code&gt; respectively. But don’t forget to include the &lt;code&gt;signup.js&lt;/code&gt; file in the index.html.&lt;/p&gt;
+
+&lt;p&gt;If there’s no problem, perfect! Moving on, we will create the log-in controller (&lt;code&gt;scripts/controllers/login.js&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;app.controller(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;LoginCtrl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;($location, $scope, $http, localStorageService) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (localStorageService.get(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;)) {
+    $scope.info = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Logged in&amp;quot;&lt;/span&gt;;
+  }
+  $scope.login = &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;() {
+    $http({
+      url: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;http://localhost:3000/signin&amp;#39;&lt;/span&gt;,
+      method: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+      data: {
+        user: $scope.user
+      }
+    }).success(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(response){
+      $scope.info = response.info;
+      localStorageService.set(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;, response.data.auth_token)
+    });
+  };
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The log-in controller is more or less the same as sign-up controller. The difference lies in the parameters passed to API. Log-in process is simpler, requiring only two parameters: email and password. The email is used to find the user, and the password is used for authentication. Let’s flesh out the form used to input the log-in parameters in &lt;code&gt;views/login.html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-submit&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;login()&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;well form-inline&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;h3&lt;/span&gt;&amp;gt;Login&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;h3&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.email&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Email&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-model&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;user.password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;placeholder&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;btn&amp;quot;&lt;/span&gt;&amp;gt;Log in&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-click&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;signup()&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;btn&amp;quot;&lt;/span&gt;&amp;gt;Sign up&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;button&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt;&amp;gt;
+
+&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+  { { info } }
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- please remove spacing between curly brackets! --&amp;gt;&lt;/span&gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, we complete the authentication cycle by fleshing out the sign-out controller in &lt;code&gt;scripts/controllers/signout.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;app.controller(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;SignoutCtrl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;($location, $scope, $http, localStorageService) {
+  $scope.signout = &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;() {
+    $http({
+      url: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;http://localhost:3000/signout&amp;#39;&lt;/span&gt;,
+      method: &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;DELETE&amp;#39;&lt;/span&gt;,
+      data: {}
+    }).success(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(response){
+      $scope.info = response.info;
+      localStorageService.remove(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;)
+    });
+  };
+  $scope.signout();
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here, we make a DELETE request to the API, if successful, we clear the token in local storage and return the relevant information to be displayed.&lt;/p&gt;
+
+&lt;p&gt;The sign-out view (&lt;code&gt;views/signout.html&lt;/code&gt;) is a just a HTML file to display the result:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+  { { info } }
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- please remove spacing between curly brackets! --&amp;gt;&lt;/span&gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;http-interceptors-and-authorization&#34;&gt;HTTP interceptors and authorization&lt;/h3&gt;
+
+&lt;p&gt;The alert reader may notice that we didn’t pass anything to the body of the DELETE request. So how do the API know which user to delete the session for?&lt;/p&gt;
+
+&lt;p&gt;Even though the authentication cycle is compete, we still have to construct the underlying pipes of our Angular app to make it work.&lt;/p&gt;
+
+&lt;p&gt;The idea is that the HTTP request headers should contain the token every time we make a request. How do we do that?&lt;/p&gt;
+
+&lt;p&gt;Turns out Angular has a built-in service to modify the HTTP request message before it is being sent to the server. We shall use a subset of the &lt;code&gt;$http service&lt;/code&gt; – HTTP interceptors – for this purpose.&lt;/p&gt;
+
+&lt;p&gt;Let’s create a file named &lt;code&gt;auth-interceptor.js&lt;/code&gt; in &lt;code&gt;scripts/services&lt;/code&gt; folder (create the folder if you haven’t) and add the code as shown below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;app.factory(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;AuthInterceptor&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(localStorageService, $q, $location) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {
+      request: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(config) {
+          config.headers = config.headers || {};
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (localStorageService.get(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;)) {
+              config.headers.Authorization = &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;Bearer &amp;#39;&lt;/span&gt; + localStorageService.get(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;token&amp;#39;&lt;/span&gt;);
+          }
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; config || $q.when(config);
+      },
+      response: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(response) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; response || $q.when(response);
+      },
+      responseError: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(rejection) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (rejection.status == &lt;span style=&#34;color: #009999&#34;&gt;401&lt;/span&gt;) {
+              $location.path(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;/login&amp;quot;&lt;/span&gt;);
+          }
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; $q.reject(rejection);
+      }
+  };
+});
+
+app.config(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt; ($httpProvider) {
+  $httpProvider.interceptors.push(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;AuthInterceptor&amp;#39;&lt;/span&gt;);
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The idea is simple. For every HTTP request, if the token exists in local storage, we set the token in the HTTP Authorization header. Otherwise the header would not be set and a 401 response will be expected when we tried to access a restricted page.&lt;/p&gt;
+
+&lt;p&gt;We also deal with intercepting responses here. For every responses with status 401 (meaning unauthorized), we direct the user to the login page.&lt;/p&gt;
+
+&lt;p&gt;All in all, &lt;code&gt;auth-interceptor.js&lt;/code&gt; essentially takes care of the authorization process for you.&lt;/p&gt;
+
+&lt;p&gt;Having done the necessary plumbing to make authentication work. We will create a restricted view that only logged-in users can access. The restricted view will contain a raw JSON response of all the user data.&lt;/p&gt;
+
+&lt;p&gt;First, we create a controller to fetch the user data from the API in &lt;code&gt;scripts/controllers/users.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;app.controller(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;UsersCtrl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;($scope, $http) {
+  $http.get(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;http://localhost:3000/users&amp;#39;&lt;/span&gt;).success(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(data) {
+    $scope.users = data;
+  });
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We are calling the restricted API endpoint here. If the user is authorized, display the data, otherwise the user will be redirected to the log-in page by &lt;code&gt;auth-interceptor.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To finally create the restricted view (&lt;code&gt;views/users.html&lt;/code&gt;) is very simple. Just add the string interpolations as shown below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+  { { users } }
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- please remove spacing between curly brackets! --&amp;gt;&lt;/span&gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;You may notice that we didn’t create any links for our routes; we have to type in the URL path manually in the address bar every time we want to test the auth. Implementing the links is left as an exercise for the diligent reader.&lt;/p&gt;
+
+&lt;p&gt;There is one more thing though. We have to tell Angular where to load up our controllers and services by adding those dependencies in &lt;code&gt;index.html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;    &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- build:js({.tmp,app}) scripts/scripts.js --&amp;gt;&lt;/span&gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/app.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/main.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/about.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/login.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/signup.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/signout.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/controllers/users.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;src&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;scripts/services/auth-interceptor.js&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;script&lt;/span&gt;&amp;gt;
+    &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- endbuild --&amp;gt;&lt;/span&gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;html&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This concludes my tutorial finally.&lt;/p&gt;
+
+&lt;p&gt;To play with the auth, start the frontend and backend servers with grunt serve and rails s respectively and type any of the URLs in the address bar:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/signup&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/login&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/signout&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/restricted&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have fun!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Life&#39;s a marathon</title>
+      <link>https://www.alexjiao.com/blog/life-is-a-marathon/</link>
+      <pubDate>Mon, 21 Jul 2014 08:55:36 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/life-is-a-marathon/</guid>
+      <description>
+
+&lt;p&gt;Two months ago, I was a complete tech newbie. I tried to create a chat app with NodeJS, I succeeded in making it but I didn’t succeed in understanding it. Save for some half-baked web apps, I was barely literate in web programming.&lt;/p&gt;
+
+&lt;p&gt;My stint at Favorite Medium is a fulfilling one that exposed me to real-world programming. Huge databases. RESTful APIs. In-house apps. I learnt a lot and had the opportunity to work on a non-trivial in-house app named as  Marathon, a clone of 10,000ft.&lt;/p&gt;
+
+&lt;h2 id=&#34;things-i-learned-from-marathon&#34;&gt;Things I learned from Marathon&lt;/h2&gt;
+
+&lt;p&gt;They say writing a full-scale software is like writing a novel. Using that analogy, I’m very used to writing short stories, but it is very different from writing a novel. For the latter, you have to start with a plot, conceptualise the characters, flesh them out with details and weave a convincing story around them. Similarly for software, you have to start with an architecture, design the features, flesh them out with code and build a pleasant user experience around them.&lt;/p&gt;
+
+&lt;p&gt;While Marathon wouldn’t be considered a novel, it wouldn’t be considered as a short story either. I would classify it as a novella; it’s not that ambitious of a project, but it is also not trivial (at least to me).&lt;/p&gt;
+
+&lt;p&gt;Hence I’d like to document three things I learnt about Marathon.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-genius-lies-in-the-details&#34;&gt;The genius lies in the details&lt;/h3&gt;
+
+&lt;p&gt;As a product grows, more and more time will be invested in hair-splitting. Maybe you can say that software engineers are professional hair-splitters. They take a subset of a feature so miniscule, and spend a great deal of time improving it. For example, engineers at Google spend an inordinate amount of tweaking the search algorithm to shave milliseconds off the loading time. On the front-end, those pedantic engineers obsess about kerning the Google logo to make it more visually pleasing. As the casual user, you may scoff and wonder about the futility of such detail-oriented investments, given that in isolation, they make no significance whatsoever.&lt;/p&gt;
+
+&lt;p&gt;But software is a sum of its parts, a totality of its features (which is a totality of its sub-features and so on and so forth, recursion ftw). To discount the kerning of Google logo is to discount the placement of the lightning scar that so greatly characterized Harry Potter. To discount the pedantic improvements of Google’s search algorithm is to discount the numerous edits that your favorite Harry Potter books have gone through.&lt;/p&gt;
+
+&lt;p&gt;Why am I referencing Rowling’s books here? Beats me, but you get the idea.&lt;/p&gt;
+
+&lt;p&gt;Hair-splitting may carry with it a negative connotation, but at the end of the day it is the details that make a product great.&lt;/p&gt;
+
+&lt;p&gt;Marathon is not great; in fact, it is crap compared to industrial-grade apps as it is only a prototype. Split the hair like the pendant you are, don’t settle.&lt;/p&gt;
+
+&lt;h3 id=&#34;don-t-get-mired-in-petty-bugs&#34;&gt;Don’t get mired in petty bugs&lt;/h3&gt;
+
+&lt;p&gt;I’m a lazy person. Sometimes, when my work gets interrupted, I find it hard to go back to the ‘zone’ again. Or the ‘flow’ or whatever you call it. This is why I try my best to block out long periods of time for work.&lt;/p&gt;
+
+&lt;p&gt;When you are in the ‘zone’, it feels uneasy to leave something hanging. That’s the power of the ‘zone’. I have used it for great effect by working on a bug for hours. It feels good when you are in the ‘zone’; you want to revel in it forever, but it has a danger of becoming a timesink.&lt;/p&gt;
+
+&lt;p&gt;When you are debugging an inscrutable bug, time flies. In that period of time when your mind is ensnarled by buggy logic, you are essentially doing nothing except to mollify your butt-hurt ego by removing mistakes from your code. Unless of course when the code is critical to the software infrastructure, it’s a different story altogether and this is one good excuse to be in the ‘flow’.&lt;/p&gt;
+
+&lt;p&gt;What I’m talking about is those minor bugs that you can probably live with as a software developer, those that only bring about marginal benefits upon elimination yet require an inordinate amount of time to debug.&lt;/p&gt;
+
+&lt;p&gt;When you are creating a prototype, your main goal is to flesh out the features into a coherent whole instead of squashing every single bug to make the app bug-free. Marathon is a prototype and it undeniably has bugs, but they are pretty minor and don’t break the app.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-by-doing-takes-precedence&#34;&gt;Learning by doing takes precedence&lt;/h3&gt;
+
+&lt;p&gt;Aside from being professional hair-splitters, software engineers are professional learners. They learn new technologies, apply it to a project (personal or work-related) and the cycle repeats. It makes sense to optimize this workflow, to learn how to learn. That’s pretty meta.&lt;/p&gt;
+
+&lt;p&gt;I need to learn AngularJS for Marathon. Being a theory-centric learner, I devoured a significant chunk of AngularJS text only to find out nothing really sticks.&lt;/p&gt;
+
+&lt;p&gt;The trick is to read cursorily to construct a mental model of where the essential topics lie, start building the actual app and refer to the text only when you get stuck.&lt;/p&gt;
+
+&lt;p&gt;Rather than drinking from a firehose at the start, why not just delve straight into the nitty-gritty of building the actual app and consult the documentation when you actually need it? I used to make the mistake of procuring all the necessary knowledge before I start to build the app, but it is an idealistic pursuit. Firstly, learning by reading sucks for memory retention (no wonder I’m struggling in college). Secondly, nothing ever gets done when you are busy trying to grok a non-trivial concept from the text. Lastly, you will lose motivation because nothing ever gets done.&lt;/p&gt;
+
+&lt;p&gt;By building your app incrementally and consulting the docs whenever you get stuck, it makes your learning process requirement-driven. You retain what you learnt easily because it’s learning by doing (duh). You are able to conceive tangible results with your WIP build. Your motivation will be all-time high as you have something to show after a day of work.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Building Marathon has been a fruitful journey. I can’t wait to start on my next project, hope it will be a even better experience by applying the aforementioned lessons.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Image upload tutorial in AngularJS with Rails</title>
+      <link>https://www.alexjiao.com/blog/angular-rails-image-upload/</link>
+      <pubDate>Sun, 13 Jul 2014 09:03:58 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-rails-image-upload/</guid>
+      <description>
+
+&lt;p&gt;The hardest part of Marathon app is almost done. I managed to connect the view with the model (finally!) and the project assignment CRUD interface is almost finished. I am thankful to be given an opportunity to work on the front-end of a non-trivial app, it really exposes me to the intricacies of AngularJS framework and the complexity of CSS. Even though what really interests me is back-end development where scalability is of paramount importance and where interesting algorithmic problems can be solved, front-end development still continues to delight the creator within me. We humans are all creators at heart. By playing around with front-end technologies, we put ourselves through an incremental process where the product takes shape pixel by pixel right in front of our eyes; like a sculptor freeing his angels from stone using his chisel and hammer, we free our ideas from fantasy by realizing it with modern web technologies.&lt;/p&gt;
+
+&lt;p&gt;But I have yet to blog about my learning process.&lt;/p&gt;
+
+&lt;p&gt;I used to take blogging for granted. I wrote sappy poems and the cruelties of my schooling life on tumblr last time. It worked to relieve my adolescent angst, but there was no educational value in that pursuit. This blog is different though; it is a collection of software engineering gems, a precious memory bank for the future me to siphon from. This idea never really hit home until one day I was explaining REST to my friend by showing him my blog post. I often refer to my post on ActiveRecord when I’m doing database migrations on Rails too.&lt;/p&gt;
+
+&lt;p&gt;Blogging is awesome and today I’m going to explain to my future self how to create an image upload function using Rails and Angular.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;image-upload-tutorial&#34;&gt;Image Upload Tutorial&lt;/h3&gt;
+
+&lt;p&gt;For image storage, we are going to use a remote file system like Amazon S3 instead of a database. Why? Because storing on a file system is cheaper and accessing images in a file system is much more straightforward than accessing them in a database. However, the database is still important for storing file paths or URLs to the remotely-stored images.&lt;/p&gt;
+
+&lt;p&gt;Amazon S3 is an obvious pick. Because it is really simple to set up and there’s a lot of documentation for it out there.&lt;/p&gt;
+
+&lt;p&gt;Amazon has a good tutorial on a no-frills method to upload images via the input forms &lt;a href=&#34;http://aws.amazon.com/articles/1434&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;html&lt;/span&gt;&amp;gt;
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;head&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;title&lt;/span&gt;&amp;gt;S3 POST Form&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;title&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;http-equiv&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;content&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;text/html; charset=UTF-8&amp;quot;&lt;/span&gt; /&amp;gt;
+  &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;head&lt;/span&gt;&amp;gt;
+
+  &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;action&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;https://s3-bucket.s3.amazonaws.com/&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;method&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;post&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;enctype&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;multipart/form-data&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;key&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;uploads/${filename}&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;AWSAccessKeyId&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;YOUR_AWS_ACCESS_KEY&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;acl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;private&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;success_action_redirect&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;http://localhost/&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;policy&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;YOUR_POLICY_DOCUMENT_BASE64_ENCODED&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;signature&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;YOUR_CALCULATED_SIGNATURE&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;image/jpeg&amp;quot;&lt;/span&gt;&amp;gt;
+      &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;&amp;lt;!-- Include any additional input fields here --&amp;gt;&lt;/span&gt;
+
+      File to upload to S3:
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;name&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;br&lt;/span&gt;&amp;gt;
+      &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;type&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;value&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Upload File to S3&amp;quot;&lt;/span&gt;&amp;gt;
+    &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;form&lt;/span&gt;&amp;gt;
+  &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;html&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can just dump your AWS access key and bucket name on those input form parameters, but you have to encode your policy document (expressed in JSON) and generate a signature by signing your encoded policy document with secret key. This is where server-side languages come in; the encoding and message digest generation can be done using Ruby or Java.&lt;/p&gt;
+
+&lt;p&gt;Since I’m a Ruby user, let’s have a look at the code for encoding and generation of signature in Ruby:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #00aaaa&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;base64&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #00aaaa&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;openssl&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #00aaaa&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;digest/sha1&amp;#39;&lt;/span&gt;
+
+policy = &lt;span style=&#34;color: #aa0000&#34;&gt;Base64&lt;/span&gt;.encode64(policy_document).gsub(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+
+signature = &lt;span style=&#34;color: #aa0000&#34;&gt;Base64&lt;/span&gt;.encode64(
+	&lt;span style=&#34;color: #aa0000&#34;&gt;OpenSSL&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;HMAC&lt;/span&gt;.digest(
+        &lt;span style=&#34;color: #aa0000&#34;&gt;OpenSSL&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Digest&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Digest&lt;/span&gt;.new(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sha1&amp;#39;&lt;/span&gt;),
+        aws_secret_key, policy)
+    ).gsub(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can just print out the values of &lt;code&gt;policy&lt;/code&gt; and &lt;code&gt;signature&lt;/code&gt; to console, copy paste them to the input forms and you’re done. But what if you switched AWS accounts and hence you have to use a different key? The whole process of encoding policy documents and generating signatures gets tedious and it would be better to stick the code into a server, let it run permanently and encode/generate the necessary tokens and send them as a JSON response back to the client.&lt;/p&gt;
+
+&lt;p&gt;Hence the client-side code would have placeholders instead of the actual values in the above input form template. Whenever the user uploads a file, it will send a GET request to the server, receive the necessary authentication tokens as a response, pass them to the form, and finally send a POST request to Amazon S3.&lt;/p&gt;
+
+&lt;p&gt;This is the basic idea behind the Angular directive (ng-s3upload) that I’m using for my image upload function. You can check it out here. As seen from the source code, it is a little different in that the input form is created programmatically instead of being used as a template.&lt;/p&gt;
+
+&lt;p&gt;Having explained the concepts, it is pretty straightforward as seen from the guidelines.&lt;/p&gt;
+
+&lt;p&gt;Firstly, the JSON response is generated by this code here. It is used in an Rails/Sinatra app, depending on your framework of choice. Notice that the last two methods used are similar to the ones in Amazon’s documentation.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;s3_access_token&lt;/span&gt;
+  render &lt;span style=&#34;color: #0000aa&#34;&gt;json&lt;/span&gt;: {
+    &lt;span style=&#34;color: #0000aa&#34;&gt;policy&lt;/span&gt;:    s3_upload_policy,
+    &lt;span style=&#34;color: #0000aa&#34;&gt;signature&lt;/span&gt;: s3_upload_signature,
+    &lt;span style=&#34;color: #0000aa&#34;&gt;key&lt;/span&gt;:       &lt;span style=&#34;color: #aa0000&#34;&gt;GLOBAL&lt;/span&gt;[&lt;span style=&#34;color: #0000aa&#34;&gt;:aws_key&lt;/span&gt;]
+  }
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;protected&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;s3_upload_policy&lt;/span&gt;
+    &lt;span style=&#34;color: #aa0000&#34;&gt;@policy&lt;/span&gt; ||= create_s3_upload_policy
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;create_s3_upload_policy&lt;/span&gt;
+    &lt;span style=&#34;color: #aa0000&#34;&gt;Base64&lt;/span&gt;.encode64(
+      {
+        &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;expiration&amp;quot;&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;.hour.from_now.utc.xmlschema,
+        &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;conditions&amp;quot;&lt;/span&gt; =&amp;gt; [
+          { &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;bucket&amp;quot;&lt;/span&gt; =&amp;gt;  &lt;span style=&#34;color: #aa0000&#34;&gt;GLOBAL&lt;/span&gt;[&lt;span style=&#34;color: #0000aa&#34;&gt;:aws_bucket&lt;/span&gt;] },
+          [ &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;starts-with&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;$key&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; ],
+          { &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;acl&amp;quot;&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;public-read&amp;quot;&lt;/span&gt; },
+          [ &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;starts-with&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;$Content-Type&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; ],
+          [ &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;content-length-range&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt; ]
+        ]
+      }.to_json).gsub(&lt;span style=&#34;color: #009999&#34;&gt;/\n/&lt;/span&gt;,&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;s3_upload_signature&lt;/span&gt;
+    &lt;span style=&#34;color: #aa0000&#34;&gt;Base64&lt;/span&gt;.encode64(&lt;span style=&#34;color: #aa0000&#34;&gt;OpenSSL&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;HMAC&lt;/span&gt;.digest(&lt;span style=&#34;color: #aa0000&#34;&gt;OpenSSL&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Digest&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Digest&lt;/span&gt;.new(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sha1&amp;#39;&lt;/span&gt;), &lt;span style=&#34;color: #aa0000&#34;&gt;GLOBAL&lt;/span&gt;[&lt;span style=&#34;color: #0000aa&#34;&gt;:aws_secret&lt;/span&gt;], s3_upload_policy)).gsub(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;\n&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;s3_access_token&lt;/code&gt; will be called when the client makes a GET request to the server, rendering a JSON response that contains the policy, signature and the public key. Notice that the Angular directive only specifies the bucket name, abstracting away the AWS keys, so you have to manually set the keys yourself on the server-side using environment variables.&lt;/p&gt;
+
+&lt;p&gt;If you’re using Rails, set the route as get &lt;code&gt;&#39;/s3/upload_image&#39; =&amp;gt; &#39;users#s3_access_token&#39;, defaults: {format: &#39;json&#39;}&lt;/code&gt; in the &lt;code&gt;routes.rb&lt;/code&gt; and you’re good to go. Notice that I’m using a &lt;code&gt;UsersController&lt;/code&gt; here, you can substitute it with whatever controller you wish to use.&lt;/p&gt;
+
+&lt;p&gt;Just a caveat though, since the Angular directive uses Twitter Bootstrap 2 for the progress bar (yes it has a progress bar to indicate loading progress, how cool is that). The bar won’t be displayed when you are using Bootstrap 3. Hence you have to open up the source code of the directive and change &lt;code&gt;&amp;lt;div class=&amp;quot;bar&amp;quot;&lt;/code&gt; to &lt;code&gt;&amp;lt;div class=&amp;quot;progress-bar&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even though there exists cleaner solutions like paperclip gem for Ruby, I believe their solution is entirely server-side; their HTML form is served using ERB. If you’re looking for a solution that decouples the front-end and back-end, ng-s3upload is a good alternative.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>UVA 10920 Spiral Tap</title>
+      <link>https://www.alexjiao.com/blog/uva-10920-spiral-tap/</link>
+      <pubDate>Fri, 04 Jul 2014 10:17:55 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/uva-10920-spiral-tap/</guid>
+      <description>&lt;p&gt;A week gone by without tackling an algorithm problem makes Jack a dull software engineer.&lt;/p&gt;
+
+&lt;p&gt;Lately, I’ve been working on an inhouse app which requires intermediate Javascript and CSS skills. Being the greenhorn I am at these technologies, I struggled and the process became a timesink. Hence I didn’t manage to set aside time for my regular algorithm coding session.&lt;/p&gt;
+
+&lt;p&gt;Prior to this busy week, I encountered the &lt;a href=&#34;http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;amp;Itemid=8&amp;amp;page=show_problem&amp;amp;problem=1861&#34;&gt;eponymous algorithm problem&lt;/a&gt; on UVa. Yes, I’m back on Uva OJ again. I found out that the slow response times of UVa OJ previously was due to problems with my browser cache. I am able to access the site using Incognito Mode on Chrome, since the browswer loads the site from a clean slate. There is truly no good subsitute for the problem classifier on UVa. CodeChef has its upsides – good community and support for more languages, but when it comes to finding questions by topic, it has nil support for that.&lt;/p&gt;
+
+&lt;p&gt;Spiral Tap is an interesting ad-hoc problem. The premise is quite straight-forward: the numbering sequence in the grid follows a spiral pattern that originates from the center square, and given a square number, you are required to find out the coordinates of that square. The &lt;a href=&#34;http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;amp;Itemid=8&amp;amp;page=show_problem&amp;amp;problem=1861&#34;&gt;problem statement&lt;/a&gt; has a diagram to illustrate the spiral-patterned grid.&lt;/p&gt;
+
+&lt;p&gt;It isn’t hard to visualize the solution through the naive approach. What you can do is to construct a 2D array first. Starting from the center square, you number each square from 1 to N using the spiral pattern. Given a square number from the input, you then find the coordinates of that square (note that the coordinates specified in the question is a bit special) and output it as the answer.&lt;/p&gt;
+
+&lt;p&gt;So the naive me, prior to this busy week, coded the naive solution and found out that my program sputtered and stopped upon using test cases of extremely large grids. Grids of size 10000x10000. Mind you. Upon realising that the naive solution is useless, I was quite disheartened at the prospect of finding a mathematical formula to solve the problem and decided to shelve the problem for the next week.&lt;/p&gt;
+
+&lt;p&gt;Luckily I chanced upon a hint given by a kind dude on the UVa discussion forum, it was just a hint and no more (not to the extent of spoonfeeding). I couldn’t say it better, so you can check out the hint &lt;a href=&#34;http://acm.uva.es/board/viewtopic.php?p=50676&amp;amp;sid=03fc5df83f88ad1a3077f6abddf28fcc#p50676&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I managed to squeeze out some time this week to code up the solution. It wasn’t easy, because while his hint describes the solution in layman terms, I couldn’t nail down the programmatic version. The hard part is, how do you find out which of the four lines the square is in? And more importantly, how do you find the coordinates based on the square’s position along the line?&lt;/p&gt;
+
+&lt;p&gt;So after quite some time thinking and doodling on paper, I managed to find a pattern. Supposed we want to find the coordinates of square number 15 in a 5x5 grid. Based on his hint, 15 falls in between 9 and 25, four lines connects square 9 and square 25. Which line contains square 15 and exactly where in the line is 15?&lt;/p&gt;
+
+&lt;p&gt;Fret not. First, we enumerate all the square numbers and their coordinates between square 9 and square 25:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;9 (5,5)
+
+10 (6,5)
+11 (6,4)
+12 (6,3)
+13 (6,2)
+
+14 (5,2)
+15 (4,2)
+16 (3,2)
+17 (2,2)
+
+18 (2,3)
+19 (2,4)
+20 (2,5)
+21 (2,6)
+
+22 (3,6)
+23 (4,6)
+24 (5,6)
+25 (6,6)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here’s the thing. Clearly there are four lines, the squares in each line has a fixed coordinate on either the X or Y side. For the other side of the coordinates that is not fixed, it follows a incremental/decremental pattern as the square number increases.&lt;/p&gt;
+
+&lt;p&gt;So the algorithm is becoming much clearer now. We need to find the square numbers that mark the start of each line segment, in this case, they are squares 10, 14, 18 and 22. It’s trivial to calculate that 15 falls between 14 and 18. Based on the pattern that the second line segment’s x-coordinate follows a decremental pattern and that it has a fixed y-coordinate of 2, we start at (5, 2) at square 14 and logically we conclude that (4, 2) is the coordinate of square 15.&lt;/p&gt;
+
+&lt;p&gt;Having known the pattern, the solution is pretty much easier to visualize and program now.&lt;/p&gt;
+
+&lt;p&gt;Since this is an ad-hoc problem, the solution can’t really be generalized to solve other types of 2D array problems. But what I learnt from this coding session is that finding patterns can be a viable way to generate algorithms to solve a problem. Sometimes you just have to do it the hard way, to enumerate the steps so as to glean the pattern from the details.&lt;/p&gt;
+
+&lt;p&gt;My solution (AC):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.*&lt;/span&gt;;
+
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * @author Alex Jiao Ziheng&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * UVa 10920 Spiral Tap&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Main&lt;/span&gt; {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;main&lt;/span&gt;(String args[]) {
+      DataReader in = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; DataReader(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt;);
+      PrintWriter out = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; PrintWriter(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;out&lt;/span&gt;);
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; size, pos;
+      &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; {
+          size = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          pos = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; size==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              &lt;span style=&#34;color: #0000aa&#34;&gt;break&lt;/span&gt;;
+          }
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseCoord = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;) Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;ceil&lt;/span&gt;(size/&lt;span style=&#34;color: #009999&#34;&gt;2.0&lt;/span&gt;);
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseSqrt = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;) Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;sqrt&lt;/span&gt;(pos);
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (baseSqrt%&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;==&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              baseSqrt -= &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          }
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; nextSqrt = baseSqrt + &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; nextSq = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;)Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;pow&lt;/span&gt;(nextSqrt,&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;);
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; baseSq = (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;)Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;pow&lt;/span&gt;(baseSqrt,&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;);
+          baseCoord += (baseSqrt-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)/&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; maxCoord = baseCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; minCoord = baseCoord - baseSqrt;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; x, y, secSegMarker,thirdSegMarker, fourthSegMarker;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; segLength = (nextSq-baseSq)/&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;;
+          secSegMarker = baseSq + segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          thirdSegMarker = baseSq + &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt; * segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          fourthSegMarker = baseSq + &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt; * segLength + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+          
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos &amp;gt; baseSq &amp;amp;&amp;amp; pos &amp;lt; secSegMarker) {
+              x = maxCoord;
+              y = (maxCoord-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) - (pos - (baseSq + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;));
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;= secSegMarker &amp;amp;&amp;amp; pos &amp;lt; thirdSegMarker) {
+              y = minCoord;
+              x = (maxCoord-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) - (pos - secSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;=thirdSegMarker &amp;amp;&amp;amp; pos &amp;lt; fourthSegMarker) {
+              x = minCoord;
+              y = minCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt; + (pos - thirdSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt;(pos&amp;gt;=fourthSegMarker &amp;amp;&amp;amp; pos &amp;lt;= nextSq) {
+              y = maxCoord;
+              x = minCoord + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt; + (pos - fourthSegMarker);
+          } &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; {
+              x = baseCoord;
+              y = baseCoord;
+          }    
+          out.&lt;span style=&#34;color: #1e90ff&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Line = %d, column = %d.\n&amp;quot;&lt;/span&gt;, x, y);
+      } &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt;(&lt;span style=&#34;color: #0000aa&#34;&gt;true&lt;/span&gt;);
+      out.&lt;span style=&#34;color: #1e90ff&#34;&gt;close&lt;/span&gt;();
+  }
+  
+  &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;DataReader&lt;/span&gt; {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; InputStream in = &lt;span style=&#34;color: #0000aa&#34;&gt;null&lt;/span&gt;;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; pos, count;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[] buf = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;64&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt;];
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;DataReader&lt;/span&gt;(InputStream in) {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt; = in;
+            pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+            count = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;nextInt&lt;/span&gt;() {
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c, sign = &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isWhitespace&lt;/span&gt;(c = read())) ;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (c == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;) {
+                sign = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+                c = read();
+            }
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; n = c - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read() - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &amp;gt;= &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;)
+                n = n * &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; + c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; n * sign;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;next&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (!Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isSpaceChar&lt;/span&gt;(c = read()))
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;nextLine&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read()) != &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;read&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos == count)
+                fillBuffer();
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; buf[pos++];
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;fillBuffer&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;try&lt;/span&gt; {
+                count = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;read&lt;/span&gt;(buf, pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, buf.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;);
+                &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (count == -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)
+                    buf[&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;] = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            } &lt;span style=&#34;color: #0000aa&#34;&gt;catch&lt;/span&gt; (Exception ignore) {
+            }
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Draggable bar directive in AngularJS</title>
+      <link>https://www.alexjiao.com/blog/angular-draggable-bar/</link>
+      <pubDate>Tue, 24 Jun 2014 09:53:50 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-draggable-bar/</guid>
+      <description>&lt;p&gt;Over the past few days, I read a ton of AngularJS tutorials on directives. This topic is indeed hard to grok but I finally hacked together a draggable bar directive for the 10kft clone.&lt;/p&gt;
+
+&lt;p&gt;You can check it out &lt;a href=&#34;http://jsfiddle.net/uohzxela/9m3Tg/&#34;&gt;here&lt;/a&gt; on JsFiddle. Feel free to play around with its attributes.&lt;/p&gt;
+
+&lt;p&gt;I think AngularJS’s opinionated architecture and 2-way data binding is awesome for CRUD apps. But when it comes to extensive manipulation of DOM, JQuery is still king.&lt;/p&gt;
+
+&lt;p&gt;This is not to say that AngularJS is totally useless when it comes to creating interactive widgets; it is useful in an architectural way.&lt;/p&gt;
+
+&lt;p&gt;Without AngularJS, there will be no directives to shorten and reuse the code.&lt;/p&gt;
+
+&lt;p&gt;Notice that I only used two terse lines to invoke the draggable bars:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;draggable&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;percent&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;19%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;height&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;30px&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;width&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;100%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;bar-color&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;LightCoral&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+    &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;br&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;draggable&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;percent&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;40%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;height&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;60px&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;width&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;60%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;bar-color&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;PaleTurquoise&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Whereas if you go the non-Angular route, you have to duplicate the messy code in the directive template twice:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;id &lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;container&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:width, &amp;#39;border&amp;#39;:&amp;#39;3px solid black&amp;#39;, &amp;#39;overflow&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;id&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sidebar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:percent,&amp;#39;height&amp;#39;:height, &amp;#39;background-color&amp;#39;:barColor, &amp;#39;overflow-y&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;
+          &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;span&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;position&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;overflow&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt; &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;span&lt;/span&gt;&amp;gt;
+            &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;dragbar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:&amp;#39;3px&amp;#39;,&amp;#39;height&amp;#39;:&amp;#39;100%&amp;#39;, &amp;#39;background-color&amp;#39;:&amp;#39;black&amp;#39;, &amp;#39;float&amp;#39;:&amp;#39;right&amp;#39;, &amp;#39;cursor&amp;#39;:&amp;#39;col-resize&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+    &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In short, AngularJS directives provide a way to package code into reusable HTMl widgets, but you still have to use JQuery if your DOM manipulation is extensive.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CodeChef - SUMTRIAN</title>
+      <link>https://www.alexjiao.com/blog/codechef-sumtrian/</link>
+      <pubDate>Sat, 21 Jun 2014 10:07:42 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/codechef-sumtrian/</guid>
+      <description>&lt;p&gt;I’ve been doing some algorithm problems lately. It helps to keep you sharp between the ears and makes you a better engineer overall. The only downside is the time-consuming nature of this pursuit, as I am not too proficient in churning out optimized solutions.&lt;/p&gt;
+
+&lt;p&gt;I started by doing problems using UVa Online Judge, the good thing about this site is the immense archive of problems and the &lt;a href=&#34;http://uhunt.onlinejudge.org/&#34;&gt;problem classifier&lt;/a&gt; maintained by Felix Halim. But there’s really one bad thing about UVa, its site is so slow and unstable.&lt;/p&gt;
+
+&lt;p&gt;Hence I switched over to CodeChef. It has a better community and support for more languages (you can even code in Scala!), most importantly, the judging process is really fast. No more waiting over 5 minutes to get your verdict.&lt;/p&gt;
+
+&lt;p&gt;Today I decided to tackle my first problem on CodeChef. I chose a DP-related problem in the Easy category because I’ve been hearing about dynamic programming for a long time and I don’t really know what it is.&lt;/p&gt;
+
+&lt;p&gt;Turns out it is just recursion + memoization (caching of results).&lt;/p&gt;
+
+&lt;p&gt;I know my understanding of DP is overly-simplistic, but it is a good enough mental model to solve additional DP-related problems.&lt;/p&gt;
+
+&lt;p&gt;Problem statement: &lt;a href=&#34;http://www.codechef.com/problems/SUMTRIAN&#34;&gt;http://www.codechef.com/problems/SUMTRIAN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For this problem, it is about obtaining the max sum by summing a value on each of the triangle’s levels. To sum the values, you have to traverse from the apex to the base; during the traversal, you can only go down and down-right.&lt;/p&gt;
+
+&lt;p&gt;I submitted a recursive-only solution and got back a TLE (Time Limit Exceeded) result, but when I used memoization to cache the results of the recursive calls, my solution was accepted.&lt;/p&gt;
+
+&lt;p&gt;Turns out the number of recursive calls to find the max sums at each level of the triangle grows at an exponential rate when the input is large. That’s why my recursive-only solution exceeded the time limit.&lt;/p&gt;
+
+&lt;p&gt;But when you cache the results of the previous recursive calls in a 2D array, you can access the previous results at O(1) time without calling the same recursive function again. This technique is called memoization and it makes your algorithm really fast.&lt;/p&gt;
+
+&lt;p&gt;That’s why today’s coding session is really fruitful, I learnt what it means by dynamic programming – approaching a problem by implementing it as a normal recursive solution, and then to add the caching part.&lt;/p&gt;
+
+&lt;p&gt;Recursive + caching solution (AC):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.IOException&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.InputStream&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.PrintWriter&lt;/span&gt;;
+
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * @author Alex Jiao Ziheng&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;SUMTRIAN&lt;/span&gt; {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;main&lt;/span&gt;(String args[]) &lt;span style=&#34;color: #0000aa&#34;&gt;throws&lt;/span&gt; NumberFormatException, IOException {
+      DataReader in = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; DataReader(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt;);
+      PrintWriter out = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; PrintWriter(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;out&lt;/span&gt;);
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; numTests = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+      &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (numTests &amp;gt; &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[height][];
+          &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; i=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; i&amp;lt;height; i++) {
+              triangle[i] = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[i + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+              &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; j=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; j&amp;lt;=i; j++) {
+                  triangle[i][j] = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+              }
+          }
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// cache used for memoization&lt;/span&gt;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] maxSums = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;][&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;];
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; ans = findMaxSum(triangle, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, maxSums);
+          out.&lt;span style=&#34;color: #1e90ff&#34;&gt;println&lt;/span&gt;(ans);
+          numTests--;
+      }
+      out.&lt;span style=&#34;color: #1e90ff&#34;&gt;close&lt;/span&gt;();
+  }
+  
+    &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;findMaxSum&lt;/span&gt;(&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; index, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][]maxSums) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (height == triangle.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index];
+      }
+      &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; max1, max2;
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// caching of max sums&lt;/span&gt;
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index, maxSums);
+          }
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, maxSums);
+          }
+          
+          max1 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index];
+          max2 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+          
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index] +
+                  Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;max&lt;/span&gt;(max1, max2);
+      }
+  }
+    &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// custom-made input reader which is really fast (not coded by me)&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;DataReader&lt;/span&gt; {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; InputStream in = &lt;span style=&#34;color: #0000aa&#34;&gt;null&lt;/span&gt;;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; pos, count;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[] buf = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;64&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt;];
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;DataReader&lt;/span&gt;(InputStream in) {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt; = in;
+            pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+            count = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;nextInt&lt;/span&gt;() {
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c, sign = &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isWhitespace&lt;/span&gt;(c = read())) ;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (c == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;) {
+                sign = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+                c = read();
+            }
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; n = c - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read() - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &amp;gt;= &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;)
+                n = n * &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; + c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; n * sign;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;next&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (!Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isSpaceChar&lt;/span&gt;(c = read()))
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;nextLine&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read()) != &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;read&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos == count)
+                fillBuffer();
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; buf[pos++];
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;fillBuffer&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;try&lt;/span&gt; {
+                count = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;read&lt;/span&gt;(buf, pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, buf.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;);
+                &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (count == -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)
+                    buf[&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;] = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            } &lt;span style=&#34;color: #0000aa&#34;&gt;catch&lt;/span&gt; (Exception ignore) {
+            }
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>To hell and back with promises</title>
+      <link>https://www.alexjiao.com/blog/callback-hell-and-promises/</link>
+      <pubDate>Sat, 14 Jun 2014 09:59:28 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/callback-hell-and-promises/</guid>
+      <description>
+
+&lt;p&gt;So this week I’m self-studying AngularJS as I will be working on the front-end for a project I’m assigned to. Not much building nowadays, as I am still learning the theory of how AngularJS apps work. But I did create a sample app by following &lt;a href=&#34;http://www.thinkster.io/angularjs/r1gRPYp4kM/angularjs-tutorial-learn-to-build-modern-webapps&#34;&gt;thinkster.io’s tutorial&lt;/a&gt;. It’s not that well explained and it assumes the reader to have a basic familiarity with AngularJS concepts.&lt;/p&gt;
+
+&lt;p&gt;Prior to attempting the tutorial, I read the &lt;em&gt;O’Reilly AngularJS&lt;/em&gt; book, authored by two engineers who worked on AngularJS at Google. It is well explained but the amount of errata in code snippets is really bad to the point of hindering my learning.&lt;/p&gt;
+
+&lt;p&gt;Thankfully, there is a canonical book on AngularJS, aptly titled &lt;a href=&#34;https://www.ng-book.com/&#34;&gt;ng-book&lt;/a&gt;. I won’t gush about how excellent this book is; the author already did that for you on the homepage. Even though the author tries too hard to the extent of sounding like a snake oil salesman, he really walks the talk.&lt;/p&gt;
+
+&lt;p&gt;To truly understand AngularJS, there’s a slew of Javascript concepts to master. In this post I’ll be dissecting callbacks and promises.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;what-is-a-callback&#34;&gt;What is a callback?&lt;/h3&gt;
+
+&lt;p&gt;Simply put, it is a function that is passed to another function to be invoked at a later time.&lt;/p&gt;
+
+&lt;p&gt;Imagine we have a really slow function that blocks the code execution.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;response = sendLetterToMum();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// code onwards not executed while the above function is running&lt;/span&gt;
+doSomething(response);
+carryOnWithLife();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// rest of the code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the synchronous way of programming, you have a slow function (&lt;code&gt;sendLetterToMum()&lt;/code&gt;) hogging up the execution time while the rest of the code is not executed. As an analogy, imagine yourself sending a letter to your mother at the post office, and staying there doing nothing until the reply has arrived.&lt;/p&gt;
+
+&lt;p&gt;This is why we have asynchronous programming, what any sane person would do in this scenario is to carry on with their daily life whilst waiting for the reply.&lt;/p&gt;
+
+&lt;p&gt;In Javascript, we implement this behavior using callbacks.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sendLetterToMum(doSomething(response));
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// code onwards executed while waiting for the above function to finish&lt;/span&gt;
+carryOnWithLife();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// rest of the code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this case, &lt;code&gt;doSomething(response)&lt;/code&gt; is the callback. It is invoked at a later time when &lt;code&gt;sendLetterToMum()&lt;/code&gt; returns a response.&lt;/p&gt;
+
+&lt;p&gt;Callbacks are very important in asynchronous programming, where it is used to avoid blocking during requests made to the server.&lt;/p&gt;
+
+&lt;p&gt;But it has its drawbacks.&lt;/p&gt;
+
+&lt;h3 id=&#34;callback-hell&#34;&gt;Callback hell&lt;/h3&gt;
+
+&lt;p&gt;Code snippet demonstrating callback hell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;User.get(fromId, {
+  success: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err, user) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (err) &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err};
+      user.friends.find(toId, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err, friend) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (err) &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err};
+          user.sendMessage(friend, message, callback);
+      });
+  },
+  failure: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err}
+  }
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, code readability for callbacks can easily spiral out of control as they become deeply nested. This is callback hell, and for each level, you have to explicitly handle errors.&lt;/p&gt;
+
+&lt;p&gt;Enter promises.&lt;/p&gt;
+
+&lt;h3 id=&#34;promise&#34;&gt;Promise&lt;/h3&gt;
+
+&lt;p&gt;Code snippet demonstrating the elegance of promises:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;User.get(fromId)
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(user) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; user.friends.find(toId);
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+})
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(friend) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; user.sendMessage(friend, message);
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+})
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(success) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// success handling&lt;/span&gt;
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the levels of indentations are much lesser now and the code is structured in a predictable way.&lt;/p&gt;
+
+&lt;p&gt;Promises are objects that represent value or thrown exception that is eventually returned. It acts as a proxy for the actual returned response, hence providing an abstraction that allows for a structured way of resolving returned values. As a result of a neater and more readable syntax, promises alleviate the pain of writing and reading asynchronous functions.&lt;/p&gt;
+
+&lt;p&gt;There are more to promises though, but I haven’t finished the chapter on promises in ng-book yet. All the more reason to read the book!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Associations in Active Record</title>
+      <link>https://www.alexjiao.com/blog/active-record-associations/</link>
+      <pubDate>Tue, 27 May 2014 10:35:51 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/active-record-associations/</guid>
+      <description>
+
+&lt;p&gt;Hi there. This week I’m going to blog about Active Record associations. They are used to declare relationships between model classes in Rails.&lt;/p&gt;
+
+&lt;p&gt;There are six types of AR associations in Rails:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In addition, there are three types of relationships that can expressed between model classes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;One-to-many&lt;/li&gt;
+&lt;li&gt;Many-to-many&lt;/li&gt;
+&lt;li&gt;One-to-one&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This post will focus on each of the relationships, explaining how some associations work together to achieve a particular relationship between model classes.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;one-to-many&#34;&gt;One-to-many&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Imagine you have two tables: Employee and Department. An employee can only belong to one department and one department can have many employees. If you have ever taken a database course before, this notation would look familiar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee 1 : n Department
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can be interpreted as follows: for each employee it can have only 1 department, for each department it can have multiple employees.&lt;/p&gt;
+
+&lt;p&gt;Clearly, from the notation above, you can easily intuit about the one-to-many relationship.&lt;/p&gt;
+
+&lt;p&gt;Here’s the code snippet on such a construction:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:department&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Department&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note the pluralization of the word “employee” when it is declared with &lt;code&gt;has_many&lt;/code&gt; and the singular form of “department”.&lt;/p&gt;
+
+&lt;p&gt;It’s pretty self-explanatory. An employee belongs to a department as he/she cannot belong to more than one department. An department has many employees as a department is a collection of objects; in this case, it is a group of more than one person.&lt;/p&gt;
+
+&lt;p&gt;One caveat though: whichever table contains the statement &lt;code&gt;belongs_to :&amp;lt;table name&amp;gt;&lt;/code&gt; must have the foreign id attribute of &lt;code&gt;&amp;lt;table name&amp;gt;&lt;/code&gt;. That way, it can reference the row of the associated table it belongs to. In this case, the table Employee has an attribute called &lt;code&gt;department_id&lt;/code&gt; as the Department table’s foreign id.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;CreateEmployeess&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Migration&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;change&lt;/span&gt;
+    create_table &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+      t.string   &lt;span style=&#34;color: #0000aa&#34;&gt;:name&lt;/span&gt;
+      t.string    &lt;span style=&#34;color: #0000aa&#34;&gt;:email&lt;/span&gt;
+      t.integer  &lt;span style=&#34;color: #0000aa&#34;&gt;:department_id&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;many-to-many&#34;&gt;Many-to-many&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Imagine you have two tables: Employee and Skill. Each employee has multiple skills (Java, Cobol etc) and each skill can be shared by multiple employees.&lt;/p&gt;
+
+&lt;p&gt;Notation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee n : n Skills
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is pretty self-explanatory. However, to implement this relationship in Rails is a bit tricky.&lt;/p&gt;
+
+&lt;p&gt;First thing first, you need to create a join table, preferrably named as &lt;code&gt;employees_skills&lt;/code&gt; due to the Rails convention of naming join table in lexicographical order. Take note of the pluralization of both table names too.&lt;/p&gt;
+
+&lt;p&gt;Why create a join table for many-to-many relationship? Because we need to normalize the database to reduce redundancy. Yes we still can implement many-to-many relationship without the join table but I’m sure the employee table will contain a bunch of duplicated employee data along with distinct skill data:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Employee ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Email&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Cobol&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Java&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Alex&lt;/td&gt;
+&lt;td&gt;alex@asdf.com&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Kevon&lt;/td&gt;
+&lt;td&gt;kevon@asdf.com&lt;/td&gt;
+&lt;td&gt;Lisp&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Kevon&lt;/td&gt;
+&lt;td&gt;kevon@asdf.com&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Chen&lt;/td&gt;
+&lt;td&gt;chen@asdf.com&lt;/td&gt;
+&lt;td&gt;Haskell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Instead of the extremely redundant table above, why not we have a join table like this:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Employee ID&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Cobol&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Java&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Lisp&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Haskell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Data from both tables is now stored in one place, and is referenced by their IDs instead of raw data. This leads to very efficient storage of data through database normalization.&lt;/p&gt;
+
+&lt;p&gt;To implement many-to-many relationships in Rails, there are two ways of doing this: &lt;code&gt;has_many :through&lt;/code&gt; and &lt;code&gt;has_and_belongs_to_many&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt; (HMABT) is a more concise way of creating many-to-many relationship but as quoted from The Rails Way it is “practically obsolete in the minds of many Rails developers”. The reason is that the HMABT join model is not real; it cannot contain any attributes other than the foreign IDs of the two tables it is joining. If you want to add extra columns to the join table, you need to use &lt;code&gt;has_many :through&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;has-many-and-belongs-to&#34;&gt;has_many_and_belongs_to&lt;/h3&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_and_belongs_to_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skills&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skill&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_and_belongs_to_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We need to create a new table as the join table, but since there’s no real join model using HMABT method (normally Rails will generate a table from model for us), we have to create the table through database migration.&lt;/p&gt;
+
+&lt;p&gt;Assuming the above statements are added directly to model classes, here is the corresponding migration to create join table:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;CreateEmployeesAndSkills&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Migration&lt;/span&gt;
+    create_table &lt;span style=&#34;color: #0000aa&#34;&gt;:employees_skills&lt;/span&gt;, &lt;span style=&#34;color: #00aaaa&#34;&gt;id&lt;/span&gt;: &lt;span style=&#34;color: #0000aa&#34;&gt;false&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;do&lt;/span&gt; |t|
+      t.belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+      t.belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:skill&lt;/span&gt;
+    &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;has-many-through&#34;&gt;has_many :through&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;has_many :through&lt;/code&gt; is a more verbose way of creating many-to-many relationship but you will get a real join model.&lt;/p&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skills&lt;/span&gt;, through &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skill&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+  has_many &lt;span style=&#34;color: #0000aa&#34;&gt;:employees&lt;/span&gt;, through &lt;span style=&#34;color: #0000aa&#34;&gt;:skillsets&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Skillset&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:skill&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The difference here is that we have created an actual join model that acts just like any other models; this brings flexibility such as the freedom to add extra attributes to the join table and also to reference it directly.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;one-to-one&#34;&gt;One-to-one&lt;/h3&gt;
+
+&lt;p&gt;Associations used:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one :through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;has_one&lt;/code&gt; is like &lt;code&gt;has_many&lt;/code&gt;, but when the database query is executed, a single object is retrieved instead. An example would be such that an employee only has one passport. &lt;code&gt;has_one :through&lt;/code&gt; is used to reference an object through the intermediate singleton, e.g., an employee has only one passport number as referenced in his passport.&lt;/p&gt;
+
+&lt;p&gt;Notation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Employee 1 : 1 Passport 1 : 1 Passport Number
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It can be interpreted as follows: an employee has a single passport which has a single passport number.&lt;/p&gt;
+
+&lt;p&gt;Model classes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Employee&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport_number&lt;/span&gt;, &lt;span style=&#34;color: #0000aa&#34;&gt;through&lt;/span&gt;: passport
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;Passport&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:employee&lt;/span&gt;
+  has_one &lt;span style=&#34;color: #0000aa&#34;&gt;:passport_number&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;PassportNumber&lt;/span&gt; &amp;lt; &lt;span style=&#34;color: #aa0000&#34;&gt;ActiveRecord&lt;/span&gt;::&lt;span style=&#34;color: #aa0000&#34;&gt;Base&lt;/span&gt;
+  belongs_to &lt;span style=&#34;color: #0000aa&#34;&gt;:passport&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Start of a RESTful journey on Rails</title>
+      <link>https://www.alexjiao.com/blog/restful-journey/</link>
+      <pubDate>Fri, 23 May 2014 11:16:31 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/restful-journey/</guid>
+      <description>
+
+&lt;p&gt;After learning Ruby on Rubymonk (boy, I was glad I learnt from that site, it exposed me to advanced Ruby concepts which eased my Rails learning), I started to tackle Michael Hartl’s famous RoR &lt;a href=&#34;https://www.railstutorial.org/&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hartl does a good job of exposing the reader to quintessential software engineering concepts such as MVC, data modelling, refactoring, TDD and so on (my list does not do him justice, his coverage of concepts is insane). Rather than teaching the basics of Rails by showing the readers how to build a toy app, Hartl exposes you to the tried-and-tested tools of the trade by building an industrial-grade Twitter clone from the ground up, using Rails as a framework. In a sense, the tutorial is not really about Rails per se; it is about web development in the real world through the lens of an experienced software engineer.&lt;/p&gt;
+
+&lt;p&gt;I’m glad I started server-side programming with Rails. It is not just a framework but a way of thinking about web applications; it brings organization to the messy nature of web development with its emphasis on convention over configuration.&lt;/p&gt;
+
+&lt;p&gt;One interesting architecture pattern that Rails adopt is the RESTful network architecture. As an aside, MVC (another architecture pattern of Rails) is pretty intuitive, in a sense that each component in the system has a well-defined job (controlling, viewing, modelling) to execute. In contrast, REST is an unfamiliar concept with a lazy-sounding name.&lt;/p&gt;
+
+&lt;p&gt;I need to understand it.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-rest&#34;&gt;What is REST?&lt;/h3&gt;
+
+&lt;p&gt;A quick google search would give you the name: “representational state transfer”, but that is not very helpful. Reading explanations of REST on Stackoverflow did not really help and I resorted to borrow RESTful Web Services from the shelf of nice software engineering books in the office.&lt;/p&gt;
+
+&lt;p&gt;The book finally enlightened me. The point of this blog post is to rehash what the authors are saying in layman terms.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;In RESTful architectures, the method information goes into the HTTP method. In Resource-Oriented Architectures, the scoping information goes into the URI.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Not very helpful again, but at least we got concrete concepts to unpack here.&lt;/p&gt;
+
+&lt;p&gt;What makes an architecture RESTful?&lt;/p&gt;
+
+&lt;p&gt;In web programming, we tell remote machines what to do by issuing HTTP requests. A HTTP request may look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_RequestMessageExample.png&#34;&gt;&lt;/img&gt;&lt;/p&gt;
+
+&lt;p&gt;The first word in the request line refers to one of the HTTP methods, in this case it is &lt;code&gt;GET&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When we are talking about method information, we refer to the canonical CRUD methods that we use to manipulate data: Create, Read, Update, Delete. The HTTP equivalents are: &lt;code&gt;POST, GET, PATCH, DELETE&lt;/code&gt; respectively.&lt;/p&gt;
+
+&lt;p&gt;For RESTful architectures, your method of manipulating state of data in remote machines (simply put, method information) must correspond to the HTTP method in the request message. That is, if you want to update data in a server, you should use HTTP &lt;code&gt;UPDATE&lt;/code&gt; request, create data with HTTP &lt;code&gt;POST&lt;/code&gt; request and so on.&lt;/p&gt;
+
+&lt;p&gt;Non-RESTful architectures do not follow this rule; their HTTP methods do not match the method information. For instance, you send a HTTP &lt;code&gt;GET&lt;/code&gt; request message even when you want to update data.&lt;/p&gt;
+
+&lt;p&gt;For scoping information in URI, it is intrinsically linked to addressability. But addressability of what? The answer is resources. Here, a resource can be anything (a document, a row in a database etc.) that can be CRUD’d by the programmer. For starters, you may wish to think of resource as a more formally-sounding name for pieces of data residing in the server. With a formal-sounding name comes with other perks, such as addressability. When we adopt the RESTful way, we accord pieces of data in the server with identifiers to address them easily at a later time. Since resources are exposed through URIs, addressability is achieved through the scoping information in the URIs.&lt;/p&gt;
+
+&lt;p&gt;For example, when we want to retrieve search results related to jellyfish, we go to this URI: &lt;a href=&#34;http://www.google.com/search?q=jellyfish&#34;&gt;http://www.google.com/search?q=jellyfish&lt;/a&gt; . Alert readers may glean from this example that the reason they can also access the same page is that the URI has scoping information which makes the jellyfish search results addressable. Hence we conclude that Google Search’s web service is RESTful.&lt;/p&gt;
+
+&lt;p&gt;An example of a non-RESTful app would be Gmail web application. If you were to access Gmail, you would notice from the browser that there is only one URI: &lt;a href=&#34;https://mail.google.com&#34;&gt;https://mail.google.com&lt;/a&gt; throughout the whole session.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting functional in Ruby</title>
+      <link>https://www.alexjiao.com/blog/functional-ruby/</link>
+      <pubDate>Fri, 09 May 2014 11:44:16 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/functional-ruby/</guid>
+      <description>
+
+&lt;p&gt;Treading the waters of functional programming in Ruby makes me feel poignant that I didn’t take CS1101S. Functional programming is a totally different programming paradigm, one that is declarative instead of imperative. You seek to describe what you want done instead of specifying how you want something done. As a result, the code is more concise, leading to easier maintainability in large-scale systems. This is one of the big pluses of FP, along with the fact that it is more amenable to concurrency than its imperative cousin.&lt;/p&gt;
+
+&lt;p&gt;Ruby is a functional-hybrid, as such concepts of blocks and lambdas exist, along with the idiomatic concept: Proc.&lt;/p&gt;
+
+&lt;h3 id=&#34;differences-between-functional-and-imperative-programming-in-ruby&#34;&gt;Differences between functional and imperative programming in Ruby&lt;/h3&gt;
+
+&lt;p&gt;Suppose we want to make a simple calculator. To do that we have to define add and subtract methods.&lt;/p&gt;
+
+&lt;p&gt;Here’s how you do it the imperative way:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate_add&lt;/span&gt;(a, b)
+  a + b
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate_subtract&lt;/span&gt;(a, b)
+  a - b
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate_add(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;)
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate_subtract(&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s how you do it the functional way:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b)
+  &lt;span style=&#34;color: #0000aa&#34;&gt;yield&lt;/span&gt;(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;) { |a, b| a + b }
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;) { |a, b| a - b }
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;See the difference? The code is shortened by almost half! It’s easier to read and understand what the method calculation is doing, as the logic is exposed in the form of blocks, instead of being abstracted away from the programmer in the imperative example. No doubt, code readability and brevity is increased through the functional approach.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-a-block&#34;&gt;What is a block?&lt;/h3&gt;
+
+&lt;p&gt;In Ruby, everything is an object. There are some exceptions to this rule.&lt;/p&gt;
+
+&lt;p&gt;Block is not an object. Its definition from Wikipedia is as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;In computer programming, a block is a section of code which is grouped together.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the functional example shown above, &lt;code&gt;{ |a, b| a + b }&lt;/code&gt; is a block, a bunch of code enclosed by curly brackets. It is stand-alone, not associated with any objects. I prefer to think of it as an external code snippet which is exposed to the programmer, as compared to the internal code snippet &lt;code&gt;a + b&lt;/code&gt; in the imperative example.&lt;/p&gt;
+
+&lt;p&gt;Blocks are not methods (or functions as you call it); they are just a bunch of code. They are not objects too. As faithful Rubyists, how do we transform blocks into objects the Ruby way?&lt;/p&gt;
+
+&lt;h3 id=&#34;proc-edure-the-wrapper-class-for-block&#34;&gt;Proc(edure): the wrapper class for block&lt;/h3&gt;
+
+&lt;p&gt;Similar to the wrapper class in Java which provides a way to use primitive types as objects, Ruby has an idiomatic solution to transform a block into an object through the Proc class. The block still retains its functionality, but it can be saved into a variable and can be &lt;code&gt;call&lt;/code&gt;ed at demand.&lt;/p&gt;
+
+&lt;p&gt;Going back to the calculator example, we re-implement the add method using Proc:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b, add)
+  add.call(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+add = &lt;span style=&#34;color: #aa0000&#34;&gt;Proc&lt;/span&gt;.new { |a, b| a + b }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;, add)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that we no longer pass a block as a parameter, instead we created an new instance of Proc called &lt;code&gt;add&lt;/code&gt; that contains the original block and passed it as a parameter instead.&lt;/p&gt;
+
+&lt;p&gt;As &lt;code&gt;add&lt;/code&gt; is an object, we can call it on its own:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; add.call(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In addition, we are free to pass &lt;code&gt;add&lt;/code&gt; to whatever methods we want and &lt;code&gt;call&lt;/code&gt; it indiscriminately. As blocks are one-time solutions, by wrapping it in an object we make it reusable anywhere in the code. This makes the code DRY.&lt;/p&gt;
+
+&lt;h3 id=&#34;lambda-anonymous-functions&#34;&gt;Lambda: anonymous functions&lt;/h3&gt;
+
+&lt;p&gt;Proc has a cousin: lambda, the cornerstone of functional programming. They are very similar.&lt;/p&gt;
+
+&lt;p&gt;Here’s how you use a lambda:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;calculate&lt;/span&gt;(a, b, add)
+  add.call(a, b)
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+add = &lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; { |a, b| a + b }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; calculate(&lt;span style=&#34;color: #009999&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;3&lt;/span&gt;, add)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;What is a lambda exactly? They are anonymous functions.&lt;/p&gt;
+
+&lt;p&gt;At this point, the astute reader may be wondering what is the difference between lambda and Proc. Remember that Proc is a wrapper class for block, which is simply a code snippet. Therefore Proc is not a function, but lambda is. When we use Proc in a method, the code snippet that is wrapped up is now a part of the method’s code. You may think of the code snippet as being embedded inside the method, whereas lambda is a merely a function that is being called by the method.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example to illustrate the difference between Proc and lambda:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;method1&lt;/span&gt;(a)
+  a.call
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;method1 ended&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;proc&lt;/span&gt; = &lt;span style=&#34;color: #aa0000&#34;&gt;Proc&lt;/span&gt;.new { &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; }
+&lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; = &lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt; { &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; }
+
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; method1(&lt;span style=&#34;color: #00aaaa&#34;&gt;lambda&lt;/span&gt;) &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#STDOUT: &amp;quot;method1 ended&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #00aaaa&#34;&gt;puts&lt;/span&gt; method1(&lt;span style=&#34;color: #00aaaa&#34;&gt;proc&lt;/span&gt;)  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;#STDERR: LocalJumpError: unexpected return&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Since the code snippet in &lt;code&gt;proc&lt;/code&gt; is embedded inside the method, its return statement is treated as part of &lt;code&gt;method1&lt;/code&gt; therefore an “unexpected return” error is flagged when &lt;code&gt;method1&lt;/code&gt; is executed.&lt;/p&gt;
+
+&lt;p&gt;For lambda, it is treated as a function instead of a code snippet, therefore &lt;code&gt;method1&lt;/code&gt; merely calls it and exits normally.&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Block: a bunch of code, non-object&lt;/p&gt;
+
+&lt;p&gt;Proc: a block encapsulated in a wrapper object&lt;/p&gt;
+
+&lt;p&gt;Lambda: anonymous function, is an object&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

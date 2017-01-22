@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Image upload tutorial in AngularJS with Rails</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUL 13, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/angularjs">ANGULARJS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/image-upload">IMAGE UPLOAD</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/rails">RAILS</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>The hardest part of Marathon app is almost done. I managed to connect the view with the model (finally!) and the project assignment CRUD interface is almost finished. I am thankful to be given an opportunity to work on the front-end of a non-trivial app, it really exposes me to the intricacies of AngularJS framework and the complexity of CSS. Even though what really interests me is back-end development where scalability is of paramount importance and where interesting algorithmic problems can be solved, front-end development still continues to delight the creator within me. We humans are all creators at heart. By playing around with front-end technologies, we put ourselves through an incremental process where the product takes shape pixel by pixel right in front of our eyes; like a sculptor freeing his angels from stone using his chisel and hammer, we free our ideas from fantasy by realizing it with modern web technologies.</p>
+
+<p>But I have yet to blog about my learning process.</p>
+
+<p>I used to take blogging for granted. I wrote sappy poems and the cruelties of my schooling life on tumblr last time. It worked to relieve my adolescent angst, but there was no educational value in that pursuit. This blog is different though; it is a collection of software engineering gems, a precious memory bank for the future me to siphon from. This idea never really hit home until one day I was explaining REST to my friend by showing him my blog post. I often refer to my post on ActiveRecord when I’m doing database migrations on Rails too.</p>
+
+<p>Blogging is awesome and today I’m going to explain to my future self how to create an image upload function using Rails and Angular.</p>
+
+<hr>
+
+<h3 id="image-upload-tutorial">Image Upload Tutorial</h3>
+
+<p>For image storage, we are going to use a remote file system like Amazon S3 instead of a database. Why? Because storing on a file system is cheaper and accessing images in a file system is much more straightforward than accessing them in a database. However, the database is still important for storing file paths or URLs to the remotely-stored images.</p>
+
+<p>Amazon S3 is an obvious pick. Because it is really simple to set up and there’s a lot of documentation for it out there.</p>
+
+<p>Amazon has a good tutorial on a no-frills method to upload images via the input forms <a href="http://aws.amazon.com/articles/1434">here</a>.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">html</span>&gt;
+  &lt;<span style="color: #1e90ff; font-weight: bold">head</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">title</span>&gt;S3 POST Form&lt;/<span style="color: #1e90ff; font-weight: bold">title</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">meta</span> <span style="color: #1e90ff">http-equiv</span>=<span style="color: #aa5500">&quot;Content-Type&quot;</span> <span style="color: #1e90ff">content</span>=<span style="color: #aa5500">&quot;text/html; charset=UTF-8&quot;</span> /&gt;
+  &lt;/<span style="color: #1e90ff; font-weight: bold">head</span>&gt;
+
+  &lt;<span style="color: #1e90ff; font-weight: bold">body</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">form</span> <span style="color: #1e90ff">action</span>=<span style="color: #aa5500">&quot;https://s3-bucket.s3.amazonaws.com/&quot;</span> <span style="color: #1e90ff">method</span>=<span style="color: #aa5500">&quot;post&quot;</span> <span style="color: #1e90ff">enctype</span>=<span style="color: #aa5500">&quot;multipart/form-data&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;key&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;uploads/${filename}&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;AWSAccessKeyId&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;YOUR_AWS_ACCESS_KEY&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;acl&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;private&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;success_action_redirect&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;http://localhost/&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;policy&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;YOUR_POLICY_DOCUMENT_BASE64_ENCODED&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;signature&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;YOUR_CALCULATED_SIGNATURE&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;hidden&quot;</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;Content-Type&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;image/jpeg&quot;</span>&gt;
+      <span style="color: #aaaaaa; font-style: italic">&lt;!-- Include any additional input fields here --&gt;</span>
+
+      File to upload to S3:
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">name</span>=<span style="color: #aa5500">&quot;file&quot;</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;file&quot;</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">br</span>&gt;
+      &lt;<span style="color: #1e90ff; font-weight: bold">input</span> <span style="color: #1e90ff">type</span>=<span style="color: #aa5500">&quot;submit&quot;</span> <span style="color: #1e90ff">value</span>=<span style="color: #aa5500">&quot;Upload File to S3&quot;</span>&gt;
+    &lt;/<span style="color: #1e90ff; font-weight: bold">form</span>&gt;
+  &lt;/<span style="color: #1e90ff; font-weight: bold">body</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">html</span>&gt;
+</pre></div>
+
+<p>You can just dump your AWS access key and bucket name on those input form parameters, but you have to encode your policy document (expressed in JSON) and generate a signature by signing your encoded policy document with secret key. This is where server-side languages come in; the encoding and message digest generation can be done using Ruby or Java.</p>
+
+<p>Since I’m a Ruby user, let’s have a look at the code for encoding and generation of signature in Ruby:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #00aaaa">require</span> <span style="color: #aa5500">&#39;base64&#39;</span>
+<span style="color: #00aaaa">require</span> <span style="color: #aa5500">&#39;openssl&#39;</span>
+<span style="color: #00aaaa">require</span> <span style="color: #aa5500">&#39;digest/sha1&#39;</span>
+
+policy = <span style="color: #aa0000">Base64</span>.encode64(policy_document).gsub(<span style="color: #aa5500">&quot;\n&quot;</span>,<span style="color: #aa5500">&quot;&quot;</span>)
+
+signature = <span style="color: #aa0000">Base64</span>.encode64(
+	<span style="color: #aa0000">OpenSSL</span>::<span style="color: #aa0000">HMAC</span>.digest(
+        <span style="color: #aa0000">OpenSSL</span>::<span style="color: #aa0000">Digest</span>::<span style="color: #aa0000">Digest</span>.new(<span style="color: #aa5500">&#39;sha1&#39;</span>),
+        aws_secret_key, policy)
+    ).gsub(<span style="color: #aa5500">&quot;\n&quot;</span>,<span style="color: #aa5500">&quot;&quot;</span>)
+</pre></div>
+
+<p>You can just print out the values of <code>policy</code> and <code>signature</code> to console, copy paste them to the input forms and you’re done. But what if you switched AWS accounts and hence you have to use a different key? The whole process of encoding policy documents and generating signatures gets tedious and it would be better to stick the code into a server, let it run permanently and encode/generate the necessary tokens and send them as a JSON response back to the client.</p>
+
+<p>Hence the client-side code would have placeholders instead of the actual values in the above input form template. Whenever the user uploads a file, it will send a GET request to the server, receive the necessary authentication tokens as a response, pass them to the form, and finally send a POST request to Amazon S3.</p>
+
+<p>This is the basic idea behind the Angular directive (ng-s3upload) that I’m using for my image upload function. You can check it out here. As seen from the source code, it is a little different in that the input form is created programmatically instead of being used as a template.</p>
+
+<p>Having explained the concepts, it is pretty straightforward as seen from the guidelines.</p>
+
+<p>Firstly, the JSON response is generated by this code here. It is used in an Rails/Sinatra app, depending on your framework of choice. Notice that the last two methods used are similar to the ones in Amazon’s documentation.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">def</span> <span style="color: #00aa00">s3_access_token</span>
+  render <span style="color: #0000aa">json</span>: {
+    <span style="color: #0000aa">policy</span>:    s3_upload_policy,
+    <span style="color: #0000aa">signature</span>: s3_upload_signature,
+    <span style="color: #0000aa">key</span>:       <span style="color: #aa0000">GLOBAL</span>[<span style="color: #0000aa">:aws_key</span>]
+  }
+<span style="color: #0000aa">end</span>
+
+<span style="color: #0000aa">protected</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">s3_upload_policy</span>
+    <span style="color: #aa0000">@policy</span> ||= create_s3_upload_policy
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">create_s3_upload_policy</span>
+    <span style="color: #aa0000">Base64</span>.encode64(
+      {
+        <span style="color: #aa5500">&quot;expiration&quot;</span> =&gt; <span style="color: #009999">1</span>.hour.from_now.utc.xmlschema,
+        <span style="color: #aa5500">&quot;conditions&quot;</span> =&gt; [
+          { <span style="color: #aa5500">&quot;bucket&quot;</span> =&gt;  <span style="color: #aa0000">GLOBAL</span>[<span style="color: #0000aa">:aws_bucket</span>] },
+          [ <span style="color: #aa5500">&quot;starts-with&quot;</span>, <span style="color: #aa5500">&quot;$key&quot;</span>, <span style="color: #aa5500">&quot;&quot;</span> ],
+          { <span style="color: #aa5500">&quot;acl&quot;</span> =&gt; <span style="color: #aa5500">&quot;public-read&quot;</span> },
+          [ <span style="color: #aa5500">&quot;starts-with&quot;</span>, <span style="color: #aa5500">&quot;$Content-Type&quot;</span>, <span style="color: #aa5500">&quot;&quot;</span> ],
+          [ <span style="color: #aa5500">&quot;content-length-range&quot;</span>, <span style="color: #009999">0</span>, <span style="color: #009999">10</span> * <span style="color: #009999">1024</span> * <span style="color: #009999">1024</span> ]
+        ]
+      }.to_json).gsub(<span style="color: #009999">/\n/</span>,<span style="color: #aa5500">&#39;&#39;</span>)
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">s3_upload_signature</span>
+    <span style="color: #aa0000">Base64</span>.encode64(<span style="color: #aa0000">OpenSSL</span>::<span style="color: #aa0000">HMAC</span>.digest(<span style="color: #aa0000">OpenSSL</span>::<span style="color: #aa0000">Digest</span>::<span style="color: #aa0000">Digest</span>.new(<span style="color: #aa5500">&#39;sha1&#39;</span>), <span style="color: #aa0000">GLOBAL</span>[<span style="color: #0000aa">:aws_secret</span>], s3_upload_policy)).gsub(<span style="color: #aa5500">&quot;\n&quot;</span>,<span style="color: #aa5500">&quot;&quot;</span>)
+  <span style="color: #0000aa">end</span>
+</pre></div>
+
+<p><code>s3_access_token</code> will be called when the client makes a GET request to the server, rendering a JSON response that contains the policy, signature and the public key. Notice that the Angular directive only specifies the bucket name, abstracting away the AWS keys, so you have to manually set the keys yourself on the server-side using environment variables.</p>
+
+<p>If you’re using Rails, set the route as get <code>'/s3/upload_image' =&gt; 'users#s3_access_token', defaults: {format: 'json'}</code> in the <code>routes.rb</code> and you’re good to go. Notice that I’m using a <code>UsersController</code> here, you can substitute it with whatever controller you wish to use.</p>
+
+<p>Just a caveat though, since the Angular directive uses Twitter Bootstrap 2 for the progress bar (yes it has a progress bar to indicate loading progress, how cool is that). The bar won’t be displayed when you are using Bootstrap 3. Hence you have to open up the source code of the directive and change <code>&lt;div class=&quot;bar&quot;</code> to <code>&lt;div class=&quot;progress-bar&quot;</code>.</p>
+
+<p>Even though there exists cleaner solutions like paperclip gem for Ruby, I believe their solution is entirely server-side; their HTML form is served using ERB. If you’re looking for a solution that decouples the front-end and back-end, ng-s3upload is a good alternative.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/angular-rails-image-upload\/';
+    var disqus_title = 'Image upload tutorial in AngularJS with Rails';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/angular-rails-image-upload\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/uva-10920-spiral-tap/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/life-is-a-marathon/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

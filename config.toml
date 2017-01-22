@@ -1,0 +1,42 @@
+baseurl = "https://www.alexjiao.com"
+title = "Alex Jiao"
+author = "Alex Jiao"
+canonifyurls = true
+languagecode = "en"
+theme = "hugo-goa"
+
+pygmentsstyle       = "autumn"
+pygmentscodefences  = true
+
+disqusShortname = "https-shenoybr-github-io-hugo-goa-demo" # Comment out to disable Disqus.
+googleAnalytics = "XYZ"
+enableRobotsTXT = true
+
+[params]
+  sitename = "Alex Jiao"
+  author = "Alex Jiao Ziheng"
+  intro = "Software Engineer"
+  description = "I love moon rivers, sleeping suns and fields of gold."
+  authorimage = "myphoto.png"
+  dateformat = "Jan 2, 2006"
+  showcomments = true
+
+[params.social]
+	github = "uohzxela"
+	linkedin = "uohzxela"
+	email = "uohzxela@gmail.com"
+	facebook = "uohzxela"
+
+[params.extra]
+	copyright = "© 2017. Alex Jiao Ziheng. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+	poweredby = false
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+[[menu.main]]
+    name = "Blog"
+    url  = "/blog"
+[[menu.main]]
+    name = "Resume"
+    url  = "/resume"

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Hosting an AngularJS app on an Google Compute Engine VM instance</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON AUG 16, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/angularjs">ANGULARJS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/devops">DEVOPS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/google-compute-engine">GOOGLE COMPUTE ENGINE</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>Recently I was tasked with deploying an Angular app on Google Compute Engine(GCE). I spent a lot of time trawling the web for tutorials but they are scattered around as usual. With help from my co-worker, I managed to get it done. To prevent others from floundering about in this niche area, here’s my walkthrough.</p>
+
+<p>First you have to create a project <a href="https://console.developers.google.com/project">here</a>. After that you’d have to create a VM instance. This step requires billing information as Google will charge you from the get-go.</p>
+
+<p>Having created the VM instance, you will need to connect to it using <code>gcutil</code> tool from the terminal.</p>
+
+<p>Follow the steps here to install <code>gcutil</code> and then to authenticate to GCE.</p>
+
+<p>Since my project name is <code>foo-boulevard-629</code> and my instance name is <code>beechfork-2</code>, this would be my command to connect to the VM instance:</p>
+
+<p><code>gcutil --service_version=&quot;v1&quot; --project=&quot;foo-boulevard-629&quot; ssh --zone=&quot;asia-east1-a&quot; &quot;beechfork-2&quot;</code></p>
+
+<p>After you are connected to the VM instance, you’ll need to install node.js to run the Angular app server. Since my VM instance is a Debian 7.0 (Wheezy), I followed this <a href="https://gist.github.com/x-Code-x/2562576">Gist</a> to install node.</p>
+
+<p>Be sure to check whether your installed <code>node</code> is working by running <code>node -v</code> before we proceed to the next step.</p>
+
+<p>Next, <code>cd</code> into your preferred directory and clone your git repository containing your Angular app.</p>
+
+<p><code>git clone https://favmed.unfuddle.com/git/favmed_marathon/</code></p>
+
+<p>Install your Angular app dependencies using <code>npm install</code> and <code>bower install</code>.</p>
+
+<p>At this time, we can start the server using Grunt by running <code>grunt serve</code>, however it is recommmend to use a daemon, e.g., <code>forever</code>, to make sure that the server runs continuously.</p>
+
+<p>Let’s install <code>forever</code> first: <code>sudo npm install forever -g</code></p>
+
+<p>To use <code>forever</code>, we need to create a script that configures the port number and the folder to be served.</p>
+
+<p>Create a file named <code>web.js</code> as shown below in your root directory of your Angular app:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">var</span> gzippo = require(<span style="color: #aa5500">&#39;gzippo&#39;</span>);
+<span style="color: #0000aa">var</span> express = require(<span style="color: #aa5500">&quot;express&quot;</span>);
+<span style="color: #0000aa">var</span> logfmt = require(<span style="color: #aa5500">&quot;logfmt&quot;</span>);
+<span style="color: #0000aa">var</span> app = express();
+
+app.use(logfmt.requestLogger());
+app.use(gzippo.staticGzip(<span style="color: #aa5500">&quot;&quot;</span> + __dirname + <span style="color: #aa5500">&quot;/app&quot;</span>));
+
+<span style="color: #0000aa">var</span> port = <span style="color: #00aaaa">Number</span>(process.env.PORT || <span style="color: #009999">5000</span>);
+app.listen(port, <span style="color: #0000aa">function</span>() {
+  console.log(<span style="color: #aa5500">&quot;Listening on &quot;</span> + port);
+});
+</pre></div>
+
+<p>Before running the script, you need to install the required modules: <code>npm install gzippo express logfmt --save</code></p>
+
+<p>Run <code>forever web.js</code> to serve your Angular app.</p>
+
+<p>In your VM instance page, you will see a external IP address. You can now access your Angular app at this link with the appropriate port number. Alternatively, you can configure your VM instance’s port number to be the same as the one that you set for your Angular app server, so that you can access your app without the port number.</p>
+
+<p>Have fun.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/angular-app-google-compute\/';
+    var disqus_title = 'Hosting an AngularJS app on an Google Compute Engine VM instance';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/angular-app-google-compute\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-rails-auth/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

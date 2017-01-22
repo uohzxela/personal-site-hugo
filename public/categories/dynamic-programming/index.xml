@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic Programming on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/dynamic-programming/index.xml</link>
+    <description>Recent content in Dynamic Programming on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CodeChef - SUMTRIAN</title>
+      <link>https://www.alexjiao.com/blog/codechef-sumtrian/</link>
+      <pubDate>Sat, 21 Jun 2014 10:07:42 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/codechef-sumtrian/</guid>
+      <description>&lt;p&gt;I’ve been doing some algorithm problems lately. It helps to keep you sharp between the ears and makes you a better engineer overall. The only downside is the time-consuming nature of this pursuit, as I am not too proficient in churning out optimized solutions.&lt;/p&gt;
+
+&lt;p&gt;I started by doing problems using UVa Online Judge, the good thing about this site is the immense archive of problems and the &lt;a href=&#34;http://uhunt.onlinejudge.org/&#34;&gt;problem classifier&lt;/a&gt; maintained by Felix Halim. But there’s really one bad thing about UVa, its site is so slow and unstable.&lt;/p&gt;
+
+&lt;p&gt;Hence I switched over to CodeChef. It has a better community and support for more languages (you can even code in Scala!), most importantly, the judging process is really fast. No more waiting over 5 minutes to get your verdict.&lt;/p&gt;
+
+&lt;p&gt;Today I decided to tackle my first problem on CodeChef. I chose a DP-related problem in the Easy category because I’ve been hearing about dynamic programming for a long time and I don’t really know what it is.&lt;/p&gt;
+
+&lt;p&gt;Turns out it is just recursion + memoization (caching of results).&lt;/p&gt;
+
+&lt;p&gt;I know my understanding of DP is overly-simplistic, but it is a good enough mental model to solve additional DP-related problems.&lt;/p&gt;
+
+&lt;p&gt;Problem statement: &lt;a href=&#34;http://www.codechef.com/problems/SUMTRIAN&#34;&gt;http://www.codechef.com/problems/SUMTRIAN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For this problem, it is about obtaining the max sum by summing a value on each of the triangle’s levels. To sum the values, you have to traverse from the apex to the base; during the traversal, you can only go down and down-right.&lt;/p&gt;
+
+&lt;p&gt;I submitted a recursive-only solution and got back a TLE (Time Limit Exceeded) result, but when I used memoization to cache the results of the recursive calls, my solution was accepted.&lt;/p&gt;
+
+&lt;p&gt;Turns out the number of recursive calls to find the max sums at each level of the triangle grows at an exponential rate when the input is large. That’s why my recursive-only solution exceeded the time limit.&lt;/p&gt;
+
+&lt;p&gt;But when you cache the results of the previous recursive calls in a 2D array, you can access the previous results at O(1) time without calling the same recursive function again. This technique is called memoization and it makes your algorithm really fast.&lt;/p&gt;
+
+&lt;p&gt;That’s why today’s coding session is really fruitful, I learnt what it means by dynamic programming – approaching a problem by implementing it as a normal recursive solution, and then to add the caching part.&lt;/p&gt;
+
+&lt;p&gt;Recursive + caching solution (AC):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.IOException&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.InputStream&lt;/span&gt;;
+&lt;span style=&#34;color: #0000aa&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00aaaa; text-decoration: underline&#34;&gt;java.io.PrintWriter&lt;/span&gt;;
+
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; * @author Alex Jiao Ziheng&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;SUMTRIAN&lt;/span&gt; {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;main&lt;/span&gt;(String args[]) &lt;span style=&#34;color: #0000aa&#34;&gt;throws&lt;/span&gt; NumberFormatException, IOException {
+      DataReader in = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; DataReader(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt;);
+      PrintWriter out = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; PrintWriter(System.&lt;span style=&#34;color: #1e90ff&#34;&gt;out&lt;/span&gt;);
+      &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; numTests = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+      &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (numTests &amp;gt; &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[height][];
+          &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; i=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; i&amp;lt;height; i++) {
+              triangle[i] = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[i + &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+              &lt;span style=&#34;color: #0000aa&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; j=&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;; j&amp;lt;=i; j++) {
+                  triangle[i][j] = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;nextInt&lt;/span&gt;();
+              }
+          }
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// cache used for memoization&lt;/span&gt;
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] maxSums = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;][&lt;span style=&#34;color: #009999&#34;&gt;100&lt;/span&gt;];
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; ans = findMaxSum(triangle, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, maxSums);
+          out.&lt;span style=&#34;color: #1e90ff&#34;&gt;println&lt;/span&gt;(ans);
+          numTests--;
+      }
+      out.&lt;span style=&#34;color: #1e90ff&#34;&gt;close&lt;/span&gt;();
+  }
+  
+    &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;findMaxSum&lt;/span&gt;(&lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][] triangle, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; height, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; index, &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt;[][]maxSums) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (height == triangle.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;-&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index];
+      }
+      &lt;span style=&#34;color: #0000aa&#34;&gt;else&lt;/span&gt; {
+          &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; max1, max2;
+          &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// caching of max sums&lt;/span&gt;
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index, maxSums);
+          }
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] == &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;) {
+              maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;] = findMaxSum(triangle, height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;, maxSums);
+          }
+          
+          max1 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index];
+          max2 = maxSums[height+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;][index+&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;];
+          
+          &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; triangle[height][index] +
+                  Math.&lt;span style=&#34;color: #1e90ff&#34;&gt;max&lt;/span&gt;(max1, max2);
+      }
+  }
+    &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// custom-made input reader which is really fast (not coded by me)&lt;/span&gt;
+  &lt;span style=&#34;color: #0000aa&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #0000aa&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00aa00; text-decoration: underline&#34;&gt;DataReader&lt;/span&gt; {
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; InputStream in = &lt;span style=&#34;color: #0000aa&#34;&gt;null&lt;/span&gt;;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; pos, count;
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[] buf = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;byte&lt;/span&gt;[&lt;span style=&#34;color: #009999&#34;&gt;64&lt;/span&gt; * &lt;span style=&#34;color: #009999&#34;&gt;1024&lt;/span&gt;];
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;DataReader&lt;/span&gt;(InputStream in) {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color: #1e90ff&#34;&gt;in&lt;/span&gt; = in;
+            pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+            count = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;nextInt&lt;/span&gt;() {
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c, sign = &lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isWhitespace&lt;/span&gt;(c = read())) ;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (c == &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;) {
+                sign = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+                c = read();
+            }
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; n = c - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read() - &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &amp;gt;= &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;)
+                n = n * &lt;span style=&#34;color: #009999&#34;&gt;10&lt;/span&gt; + c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; n * sign;
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;next&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; (!Character.&lt;span style=&#34;color: #1e90ff&#34;&gt;isSpaceChar&lt;/span&gt;(c = read()))
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #00aa00&#34;&gt;nextLine&lt;/span&gt;() {
+            StringBuilder builder = &lt;span style=&#34;color: #0000aa&#34;&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; c;
+            &lt;span style=&#34;color: #0000aa&#34;&gt;while&lt;/span&gt; ((c = read()) != &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;)
+                builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;append&lt;/span&gt;(c);
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; builder.&lt;span style=&#34;color: #1e90ff&#34;&gt;toString&lt;/span&gt;();
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;read&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (pos == count)
+                fillBuffer();
+            &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; buf[pos++];
+        }
+
+        &lt;span style=&#34;color: #0000aa&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #00aaaa&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #00aa00&#34;&gt;fillBuffer&lt;/span&gt;() {
+            &lt;span style=&#34;color: #0000aa&#34;&gt;try&lt;/span&gt; {
+                count = in.&lt;span style=&#34;color: #1e90ff&#34;&gt;read&lt;/span&gt;(buf, pos = &lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;, buf.&lt;span style=&#34;color: #1e90ff&#34;&gt;length&lt;/span&gt;);
+                &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (count == -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;)
+                    buf[&lt;span style=&#34;color: #009999&#34;&gt;0&lt;/span&gt;] = -&lt;span style=&#34;color: #009999&#34;&gt;1&lt;/span&gt;;
+            } &lt;span style=&#34;color: #0000aa&#34;&gt;catch&lt;/span&gt; (Exception ignore) {
+            }
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

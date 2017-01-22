@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">CodeChef - SUMTRIAN</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUN 21, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/algorithms">ALGORITHMS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/dynamic-programming">DYNAMIC PROGRAMMING</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>I’ve been doing some algorithm problems lately. It helps to keep you sharp between the ears and makes you a better engineer overall. The only downside is the time-consuming nature of this pursuit, as I am not too proficient in churning out optimized solutions.</p>
+
+<p>I started by doing problems using UVa Online Judge, the good thing about this site is the immense archive of problems and the <a href="http://uhunt.onlinejudge.org/">problem classifier</a> maintained by Felix Halim. But there’s really one bad thing about UVa, its site is so slow and unstable.</p>
+
+<p>Hence I switched over to CodeChef. It has a better community and support for more languages (you can even code in Scala!), most importantly, the judging process is really fast. No more waiting over 5 minutes to get your verdict.</p>
+
+<p>Today I decided to tackle my first problem on CodeChef. I chose a DP-related problem in the Easy category because I’ve been hearing about dynamic programming for a long time and I don’t really know what it is.</p>
+
+<p>Turns out it is just recursion + memoization (caching of results).</p>
+
+<p>I know my understanding of DP is overly-simplistic, but it is a good enough mental model to solve additional DP-related problems.</p>
+
+<p>Problem statement: <a href="http://www.codechef.com/problems/SUMTRIAN">http://www.codechef.com/problems/SUMTRIAN</a></p>
+
+<p>For this problem, it is about obtaining the max sum by summing a value on each of the triangle’s levels. To sum the values, you have to traverse from the apex to the base; during the traversal, you can only go down and down-right.</p>
+
+<p>I submitted a recursive-only solution and got back a TLE (Time Limit Exceeded) result, but when I used memoization to cache the results of the recursive calls, my solution was accepted.</p>
+
+<p>Turns out the number of recursive calls to find the max sums at each level of the triangle grows at an exponential rate when the input is large. That’s why my recursive-only solution exceeded the time limit.</p>
+
+<p>But when you cache the results of the previous recursive calls in a 2D array, you can access the previous results at O(1) time without calling the same recursive function again. This technique is called memoization and it makes your algorithm really fast.</p>
+
+<p>That’s why today’s coding session is really fruitful, I learnt what it means by dynamic programming – approaching a problem by implementing it as a normal recursive solution, and then to add the caching part.</p>
+
+<p>Recursive + caching solution (AC):</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">import</span> <span style="color: #00aaaa; text-decoration: underline">java.io.IOException</span>;
+<span style="color: #0000aa">import</span> <span style="color: #00aaaa; text-decoration: underline">java.io.InputStream</span>;
+<span style="color: #0000aa">import</span> <span style="color: #00aaaa; text-decoration: underline">java.io.PrintWriter</span>;
+
+<span style="color: #aaaaaa; font-style: italic">/**</span>
+<span style="color: #aaaaaa; font-style: italic"> * @author Alex Jiao Ziheng</span>
+<span style="color: #aaaaaa; font-style: italic"> *</span>
+<span style="color: #aaaaaa; font-style: italic"> */</span>
+<span style="color: #0000aa">public</span> <span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">SUMTRIAN</span> {
+  <span style="color: #0000aa">public</span> <span style="color: #0000aa">static</span> <span style="color: #00aaaa">void</span> <span style="color: #00aa00">main</span>(String args[]) <span style="color: #0000aa">throws</span> NumberFormatException, IOException {
+      DataReader in = <span style="color: #0000aa">new</span> DataReader(System.<span style="color: #1e90ff">in</span>);
+      PrintWriter out = <span style="color: #0000aa">new</span> PrintWriter(System.<span style="color: #1e90ff">out</span>);
+      <span style="color: #00aaaa">int</span> numTests = in.<span style="color: #1e90ff">nextInt</span>();
+      <span style="color: #0000aa">while</span> (numTests &gt; <span style="color: #009999">0</span>) {
+          <span style="color: #00aaaa">int</span> height = in.<span style="color: #1e90ff">nextInt</span>();
+          <span style="color: #00aaaa">int</span>[][] triangle = <span style="color: #0000aa">new</span> <span style="color: #00aaaa">int</span>[height][];
+          <span style="color: #0000aa">for</span> (<span style="color: #00aaaa">int</span> i=<span style="color: #009999">0</span>; i&lt;height; i++) {
+              triangle[i] = <span style="color: #0000aa">new</span> <span style="color: #00aaaa">int</span>[i + <span style="color: #009999">1</span>];
+              <span style="color: #0000aa">for</span> (<span style="color: #00aaaa">int</span> j=<span style="color: #009999">0</span>; j&lt;=i; j++) {
+                  triangle[i][j] = in.<span style="color: #1e90ff">nextInt</span>();
+              }
+          }
+          <span style="color: #aaaaaa; font-style: italic">// cache used for memoization</span>
+          <span style="color: #00aaaa">int</span>[][] maxSums = <span style="color: #0000aa">new</span> <span style="color: #00aaaa">int</span>[<span style="color: #009999">100</span>][<span style="color: #009999">100</span>];
+          <span style="color: #00aaaa">int</span> ans = findMaxSum(triangle, <span style="color: #009999">0</span>, <span style="color: #009999">0</span>, maxSums);
+          out.<span style="color: #1e90ff">println</span>(ans);
+          numTests--;
+      }
+      out.<span style="color: #1e90ff">close</span>();
+  }
+  
+    <span style="color: #0000aa">private</span> <span style="color: #0000aa">static</span> <span style="color: #00aaaa">int</span> <span style="color: #00aa00">findMaxSum</span>(<span style="color: #00aaaa">int</span>[][] triangle, <span style="color: #00aaaa">int</span> height, <span style="color: #00aaaa">int</span> index, <span style="color: #00aaaa">int</span>[][]maxSums) {
+      <span style="color: #0000aa">if</span> (height == triangle.<span style="color: #1e90ff">length</span>-<span style="color: #009999">1</span>) {
+          <span style="color: #0000aa">return</span> triangle[height][index];
+      }
+      <span style="color: #0000aa">else</span> {
+          <span style="color: #00aaaa">int</span> max1, max2;
+          <span style="color: #aaaaaa; font-style: italic">// caching of max sums</span>
+          <span style="color: #0000aa">if</span> (maxSums[height+<span style="color: #009999">1</span>][index] == <span style="color: #009999">0</span>) {
+              maxSums[height+<span style="color: #009999">1</span>][index] = findMaxSum(triangle, height+<span style="color: #009999">1</span>, index, maxSums);
+          }
+          <span style="color: #0000aa">if</span> (maxSums[height+<span style="color: #009999">1</span>][index+<span style="color: #009999">1</span>] == <span style="color: #009999">0</span>) {
+              maxSums[height+<span style="color: #009999">1</span>][index+<span style="color: #009999">1</span>] = findMaxSum(triangle, height+<span style="color: #009999">1</span>, index+<span style="color: #009999">1</span>, maxSums);
+          }
+          
+          max1 = maxSums[height+<span style="color: #009999">1</span>][index];
+          max2 = maxSums[height+<span style="color: #009999">1</span>][index+<span style="color: #009999">1</span>];
+          
+          <span style="color: #0000aa">return</span> triangle[height][index] +
+                  Math.<span style="color: #1e90ff">max</span>(max1, max2);
+      }
+  }
+    <span style="color: #aaaaaa; font-style: italic">// custom-made input reader which is really fast (not coded by me)</span>
+  <span style="color: #0000aa">static</span> <span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">DataReader</span> {
+        <span style="color: #0000aa">private</span> InputStream in = <span style="color: #0000aa">null</span>;
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">int</span> pos, count;
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">byte</span>[] buf = <span style="color: #0000aa">new</span> <span style="color: #00aaaa">byte</span>[<span style="color: #009999">64</span> * <span style="color: #009999">1024</span>];
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aa00">DataReader</span>(InputStream in) {
+            <span style="color: #0000aa">this</span>.<span style="color: #1e90ff">in</span> = in;
+            pos = <span style="color: #009999">0</span>;
+            count = <span style="color: #009999">0</span>;
+        }
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aaaa">int</span> <span style="color: #00aa00">nextInt</span>() {
+            <span style="color: #00aaaa">int</span> c, sign = <span style="color: #009999">1</span>;
+            <span style="color: #0000aa">while</span> (Character.<span style="color: #1e90ff">isWhitespace</span>(c = read())) ;
+            <span style="color: #0000aa">if</span> (c == <span style="color: #aa5500">&#39;-&#39;</span>) {
+                sign = -<span style="color: #009999">1</span>;
+                c = read();
+            }
+            <span style="color: #00aaaa">int</span> n = c - <span style="color: #aa5500">&#39;0&#39;</span>;
+            <span style="color: #0000aa">while</span> ((c = read() - <span style="color: #aa5500">&#39;0&#39;</span>) &gt;= <span style="color: #009999">0</span>)
+                n = n * <span style="color: #009999">10</span> + c;
+            <span style="color: #0000aa">return</span> n * sign;
+        }
+
+        <span style="color: #0000aa">public</span> String <span style="color: #00aa00">next</span>() {
+            StringBuilder builder = <span style="color: #0000aa">new</span> StringBuilder();
+            <span style="color: #00aaaa">int</span> c;
+            <span style="color: #0000aa">while</span> (!Character.<span style="color: #1e90ff">isSpaceChar</span>(c = read()))
+                builder.<span style="color: #1e90ff">append</span>(c);
+            <span style="color: #0000aa">return</span> builder.<span style="color: #1e90ff">toString</span>();
+        }
+
+        <span style="color: #0000aa">public</span> String <span style="color: #00aa00">nextLine</span>() {
+            StringBuilder builder = <span style="color: #0000aa">new</span> StringBuilder();
+            <span style="color: #00aaaa">int</span> c;
+            <span style="color: #0000aa">while</span> ((c = read()) != <span style="color: #aa5500">&#39;\n&#39;</span>)
+                builder.<span style="color: #1e90ff">append</span>(c);
+            <span style="color: #0000aa">return</span> builder.<span style="color: #1e90ff">toString</span>();
+        }
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aaaa">int</span> <span style="color: #00aa00">read</span>() {
+            <span style="color: #0000aa">if</span> (pos == count)
+                fillBuffer();
+            <span style="color: #0000aa">return</span> buf[pos++];
+        }
+
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">void</span> <span style="color: #00aa00">fillBuffer</span>() {
+            <span style="color: #0000aa">try</span> {
+                count = in.<span style="color: #1e90ff">read</span>(buf, pos = <span style="color: #009999">0</span>, buf.<span style="color: #1e90ff">length</span>);
+                <span style="color: #0000aa">if</span> (count == -<span style="color: #009999">1</span>)
+                    buf[<span style="color: #009999">0</span>] = -<span style="color: #009999">1</span>;
+            } <span style="color: #0000aa">catch</span> (Exception ignore) {
+            }
+        }
+    }
+}
+</pre></div>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/codechef-sumtrian\/';
+    var disqus_title = 'CodeChef - SUMTRIAN';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/codechef-sumtrian\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/callback-hell-and-promises/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-draggable-bar/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

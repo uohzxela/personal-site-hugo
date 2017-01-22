@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">To hell and back with promises</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUN 14, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/callbacks">CALLBACKS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/promises">PROMISES</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>So this week I’m self-studying AngularJS as I will be working on the front-end for a project I’m assigned to. Not much building nowadays, as I am still learning the theory of how AngularJS apps work. But I did create a sample app by following <a href="http://www.thinkster.io/angularjs/r1gRPYp4kM/angularjs-tutorial-learn-to-build-modern-webapps">thinkster.io’s tutorial</a>. It’s not that well explained and it assumes the reader to have a basic familiarity with AngularJS concepts.</p>
+
+<p>Prior to attempting the tutorial, I read the <em>O’Reilly AngularJS</em> book, authored by two engineers who worked on AngularJS at Google. It is well explained but the amount of errata in code snippets is really bad to the point of hindering my learning.</p>
+
+<p>Thankfully, there is a canonical book on AngularJS, aptly titled <a href="https://www.ng-book.com/">ng-book</a>. I won’t gush about how excellent this book is; the author already did that for you on the homepage. Even though the author tries too hard to the extent of sounding like a snake oil salesman, he really walks the talk.</p>
+
+<p>To truly understand AngularJS, there’s a slew of Javascript concepts to master. In this post I’ll be dissecting callbacks and promises.</p>
+
+<hr>
+
+<h3 id="what-is-a-callback">What is a callback?</h3>
+
+<p>Simply put, it is a function that is passed to another function to be invoked at a later time.</p>
+
+<p>Imagine we have a really slow function that blocks the code execution.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>response = sendLetterToMum();
+<span style="color: #aaaaaa; font-style: italic">// code onwards not executed while the above function is running</span>
+doSomething(response);
+carryOnWithLife();
+<span style="color: #aaaaaa; font-style: italic">// rest of the code</span>
+</pre></div>
+
+<p>This is the synchronous way of programming, you have a slow function (<code>sendLetterToMum()</code>) hogging up the execution time while the rest of the code is not executed. As an analogy, imagine yourself sending a letter to your mother at the post office, and staying there doing nothing until the reply has arrived.</p>
+
+<p>This is why we have asynchronous programming, what any sane person would do in this scenario is to carry on with their daily life whilst waiting for the reply.</p>
+
+<p>In Javascript, we implement this behavior using callbacks.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>sendLetterToMum(doSomething(response));
+<span style="color: #aaaaaa; font-style: italic">// code onwards executed while waiting for the above function to finish</span>
+carryOnWithLife();
+<span style="color: #aaaaaa; font-style: italic">// rest of the code</span>
+</pre></div>
+
+<p>In this case, <code>doSomething(response)</code> is the callback. It is invoked at a later time when <code>sendLetterToMum()</code> returns a response.</p>
+
+<p>Callbacks are very important in asynchronous programming, where it is used to avoid blocking during requests made to the server.</p>
+
+<p>But it has its drawbacks.</p>
+
+<h3 id="callback-hell">Callback hell</h3>
+
+<p>Code snippet demonstrating callback hell:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>User.get(fromId, {
+  success: <span style="color: #0000aa">function</span>(err, user) {
+      <span style="color: #0000aa">if</span> (err) <span style="color: #0000aa">return</span> {error: err};
+      user.friends.find(toId, <span style="color: #0000aa">function</span>(err, friend) {
+          <span style="color: #0000aa">if</span> (err) <span style="color: #0000aa">return</span> {error: err};
+          user.sendMessage(friend, message, callback);
+      });
+  },
+  failure: <span style="color: #0000aa">function</span>(err) {
+      <span style="color: #0000aa">return</span> {error: err}
+  }
+});
+</pre></div>
+
+<p>As you can see, code readability for callbacks can easily spiral out of control as they become deeply nested. This is callback hell, and for each level, you have to explicitly handle errors.</p>
+
+<p>Enter promises.</p>
+
+<h3 id="promise">Promise</h3>
+
+<p>Code snippet demonstrating the elegance of promises:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>User.get(fromId)
+.then(<span style="color: #0000aa">function</span>(user) {
+  <span style="color: #0000aa">return</span> user.friends.find(toId);
+}, <span style="color: #0000aa">function</span>(err) {
+  <span style="color: #aaaaaa; font-style: italic">// error handling</span>
+})
+.then(<span style="color: #0000aa">function</span>(friend) {
+  <span style="color: #0000aa">return</span> user.sendMessage(friend, message);
+}, <span style="color: #0000aa">function</span>(err) {
+  <span style="color: #aaaaaa; font-style: italic">// error handling</span>
+})
+.then(<span style="color: #0000aa">function</span>(success) {
+  <span style="color: #aaaaaa; font-style: italic">// success handling</span>
+}, <span style="color: #0000aa">function</span>(err) {
+  <span style="color: #aaaaaa; font-style: italic">// error handling</span>
+});
+</pre></div>
+
+<p>Notice that the levels of indentations are much lesser now and the code is structured in a predictable way.</p>
+
+<p>Promises are objects that represent value or thrown exception that is eventually returned. It acts as a proxy for the actual returned response, hence providing an abstraction that allows for a structured way of resolving returned values. As a result of a neater and more readable syntax, promises alleviate the pain of writing and reading asynchronous functions.</p>
+
+<p>There are more to promises though, but I haven’t finished the chapter on promises in ng-book yet. All the more reason to read the book!</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/callback-hell-and-promises\/';
+    var disqus_title = 'To hell and back with promises';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/callback-hell-and-promises\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/active-record-associations/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/codechef-sumtrian/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

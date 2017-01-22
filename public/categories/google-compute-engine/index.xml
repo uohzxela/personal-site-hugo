@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Compute Engine on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/google-compute-engine/index.xml</link>
+    <description>Recent content in Google Compute Engine on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/google-compute-engine/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hosting an AngularJS app on an Google Compute Engine VM instance</title>
+      <link>https://www.alexjiao.com/blog/angular-app-google-compute/</link>
+      <pubDate>Sat, 16 Aug 2014 10:26:47 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-app-google-compute/</guid>
+      <description>&lt;p&gt;Recently I was tasked with deploying an Angular app on Google Compute Engine(GCE). I spent a lot of time trawling the web for tutorials but they are scattered around as usual. With help from my co-worker, I managed to get it done. To prevent others from floundering about in this niche area, here’s my walkthrough.&lt;/p&gt;
+
+&lt;p&gt;First you have to create a project &lt;a href=&#34;https://console.developers.google.com/project&#34;&gt;here&lt;/a&gt;. After that you’d have to create a VM instance. This step requires billing information as Google will charge you from the get-go.&lt;/p&gt;
+
+&lt;p&gt;Having created the VM instance, you will need to connect to it using &lt;code&gt;gcutil&lt;/code&gt; tool from the terminal.&lt;/p&gt;
+
+&lt;p&gt;Follow the steps here to install &lt;code&gt;gcutil&lt;/code&gt; and then to authenticate to GCE.&lt;/p&gt;
+
+&lt;p&gt;Since my project name is &lt;code&gt;foo-boulevard-629&lt;/code&gt; and my instance name is &lt;code&gt;beechfork-2&lt;/code&gt;, this would be my command to connect to the VM instance:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gcutil --service_version=&amp;quot;v1&amp;quot; --project=&amp;quot;foo-boulevard-629&amp;quot; ssh --zone=&amp;quot;asia-east1-a&amp;quot; &amp;quot;beechfork-2&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After you are connected to the VM instance, you’ll need to install node.js to run the Angular app server. Since my VM instance is a Debian 7.0 (Wheezy), I followed this &lt;a href=&#34;https://gist.github.com/x-Code-x/2562576&#34;&gt;Gist&lt;/a&gt; to install node.&lt;/p&gt;
+
+&lt;p&gt;Be sure to check whether your installed &lt;code&gt;node&lt;/code&gt; is working by running &lt;code&gt;node -v&lt;/code&gt; before we proceed to the next step.&lt;/p&gt;
+
+&lt;p&gt;Next, &lt;code&gt;cd&lt;/code&gt; into your preferred directory and clone your git repository containing your Angular app.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git clone https://favmed.unfuddle.com/git/favmed_marathon/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Install your Angular app dependencies using &lt;code&gt;npm install&lt;/code&gt; and &lt;code&gt;bower install&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this time, we can start the server using Grunt by running &lt;code&gt;grunt serve&lt;/code&gt;, however it is recommmend to use a daemon, e.g., &lt;code&gt;forever&lt;/code&gt;, to make sure that the server runs continuously.&lt;/p&gt;
+
+&lt;p&gt;Let’s install &lt;code&gt;forever&lt;/code&gt; first: &lt;code&gt;sudo npm install forever -g&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To use &lt;code&gt;forever&lt;/code&gt;, we need to create a script that configures the port number and the folder to be served.&lt;/p&gt;
+
+&lt;p&gt;Create a file named &lt;code&gt;web.js&lt;/code&gt; as shown below in your root directory of your Angular app:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; gzippo = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;gzippo&amp;#39;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; express = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;express&amp;quot;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; logfmt = require(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;logfmt&amp;quot;&lt;/span&gt;);
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; app = express();
+
+app.use(logfmt.requestLogger());
+app.use(gzippo.staticGzip(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; + __dirname + &lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;/app&amp;quot;&lt;/span&gt;));
+
+&lt;span style=&#34;color: #0000aa&#34;&gt;var&lt;/span&gt; port = &lt;span style=&#34;color: #00aaaa&#34;&gt;Number&lt;/span&gt;(process.env.PORT || &lt;span style=&#34;color: #009999&#34;&gt;5000&lt;/span&gt;);
+app.listen(port, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;() {
+  console.log(&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;Listening on &amp;quot;&lt;/span&gt; + port);
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Before running the script, you need to install the required modules: &lt;code&gt;npm install gzippo express logfmt --save&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;forever web.js&lt;/code&gt; to serve your Angular app.&lt;/p&gt;
+
+&lt;p&gt;In your VM instance page, you will see a external IP address. You can now access your Angular app at this link with the appropriate port number. Alternatively, you can configure your VM instance’s port number to be the same as the one that you set for your Angular app server, so that you can access your app without the port number.&lt;/p&gt;
+
+&lt;p&gt;Have fun.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Draggable bar directive in AngularJS</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUN 24, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/angularjs">ANGULARJS</a>, 
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/jquery">JQUERY</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>Over the past few days, I read a ton of AngularJS tutorials on directives. This topic is indeed hard to grok but I finally hacked together a draggable bar directive for the 10kft clone.</p>
+
+<p>You can check it out <a href="http://jsfiddle.net/uohzxela/9m3Tg/">here</a> on JsFiddle. Feel free to play around with its attributes.</p>
+
+<p>I think AngularJS’s opinionated architecture and 2-way data binding is awesome for CRUD apps. But when it comes to extensive manipulation of DOM, JQuery is still king.</p>
+
+<p>This is not to say that AngularJS is totally useless when it comes to creating interactive widgets; it is useful in an architectural way.</p>
+
+<p>Without AngularJS, there will be no directives to shorten and reuse the code.</p>
+
+<p>Notice that I only used two terse lines to invoke the draggable bars:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">body</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff">draggable</span> <span style="color: #1e90ff">percent</span>=<span style="color: #aa5500">&quot;19%&quot;</span> <span style="color: #1e90ff">height</span>=<span style="color: #aa5500">&quot;30px&quot;</span> <span style="color: #1e90ff">width</span>=<span style="color: #aa5500">&quot;100%&quot;</span> <span style="color: #1e90ff">bar-color</span>=<span style="color: #aa5500">&quot;LightCoral&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+    &lt;/<span style="color: #1e90ff; font-weight: bold">br</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff">draggable</span> <span style="color: #1e90ff">percent</span>=<span style="color: #aa5500">&quot;40%&quot;</span> <span style="color: #1e90ff">height</span>=<span style="color: #aa5500">&quot;60px&quot;</span> <span style="color: #1e90ff">width</span>=<span style="color: #aa5500">&quot;60%&quot;</span> <span style="color: #1e90ff">bar-color</span>=<span style="color: #aa5500">&quot;PaleTurquoise&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">body</span>&gt;
+</pre></div>
+
+<p>Whereas if you go the non-Angular route, you have to duplicate the messy code in the directive template twice:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff">id </span>=<span style="color: #aa5500">&#39;container&#39;</span> <span style="color: #1e90ff">ng-style</span>=<span style="color: #aa5500">&quot;{&#39;width&#39;:width, &#39;border&#39;:&#39;3px solid black&#39;, &#39;overflow&#39;:&#39;hidden&#39;}&quot;</span>&gt;
+    &lt;<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff">id</span>=<span style="color: #aa5500">&#39;sidebar&#39;</span> <span style="color: #1e90ff">ng-style</span>=<span style="color: #aa5500">&quot;{&#39;width&#39;:percent,&#39;height&#39;:height, &#39;background-color&#39;:barColor, &#39;overflow-y&#39;:&#39;hidden&#39;}&quot;</span>&gt;
+          &lt;<span style="color: #1e90ff; font-weight: bold">span</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&#39;position&#39;</span> <span style="color: #1e90ff">ng-style</span>=<span style="color: #aa5500">&quot;{&#39;overflow&#39;:&#39;hidden&#39;}&quot;</span>&gt; &lt;/<span style="color: #1e90ff; font-weight: bold">span</span>&gt;
+            &lt;<span style="color: #1e90ff; font-weight: bold">div</span> <span style="color: #1e90ff">class</span>=<span style="color: #aa5500">&#39;dragbar&#39;</span> <span style="color: #1e90ff">ng-style</span>=<span style="color: #aa5500">&quot;{&#39;width&#39;:&#39;3px&#39;,&#39;height&#39;:&#39;100%&#39;, &#39;background-color&#39;:&#39;black&#39;, &#39;float&#39;:&#39;right&#39;, &#39;cursor&#39;:&#39;col-resize&#39;}&quot;</span>&gt;&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+    &lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+&lt;/<span style="color: #1e90ff; font-weight: bold">div</span>&gt;
+</pre></div>
+
+<p>In short, AngularJS directives provide a way to package code into reusable HTMl widgets, but you still have to use JQuery if your DOM manipulation is extensive.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/angular-draggable-bar\/';
+    var disqus_title = 'Draggable bar directive in AngularJS';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/angular-draggable-bar\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/codechef-sumtrian/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/uva-10920-spiral-tap/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jquery on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/jquery/index.xml</link>
+    <description>Recent content in Jquery on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/jquery/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Draggable bar directive in AngularJS</title>
+      <link>https://www.alexjiao.com/blog/angular-draggable-bar/</link>
+      <pubDate>Tue, 24 Jun 2014 09:53:50 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/angular-draggable-bar/</guid>
+      <description>&lt;p&gt;Over the past few days, I read a ton of AngularJS tutorials on directives. This topic is indeed hard to grok but I finally hacked together a draggable bar directive for the 10kft clone.&lt;/p&gt;
+
+&lt;p&gt;You can check it out &lt;a href=&#34;http://jsfiddle.net/uohzxela/9m3Tg/&#34;&gt;here&lt;/a&gt; on JsFiddle. Feel free to play around with its attributes.&lt;/p&gt;
+
+&lt;p&gt;I think AngularJS’s opinionated architecture and 2-way data binding is awesome for CRUD apps. But when it comes to extensive manipulation of DOM, JQuery is still king.&lt;/p&gt;
+
+&lt;p&gt;This is not to say that AngularJS is totally useless when it comes to creating interactive widgets; it is useful in an architectural way.&lt;/p&gt;
+
+&lt;p&gt;Without AngularJS, there will be no directives to shorten and reuse the code.&lt;/p&gt;
+
+&lt;p&gt;Notice that I only used two terse lines to invoke the draggable bars:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;draggable&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;percent&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;19%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;height&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;30px&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;width&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;100%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;bar-color&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;LightCoral&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+    &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;br&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;draggable&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;percent&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;40%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;height&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;60px&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;width&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;60%&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;bar-color&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;PaleTurquoise&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Whereas if you go the non-Angular route, you have to duplicate the messy code in the directive template twice:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;id &lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;container&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:width, &amp;#39;border&amp;#39;:&amp;#39;3px solid black&amp;#39;, &amp;#39;overflow&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;
+    &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;id&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;sidebar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:percent,&amp;#39;height&amp;#39;:height, &amp;#39;background-color&amp;#39;:barColor, &amp;#39;overflow-y&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;
+          &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;span&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;position&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;overflow&amp;#39;:&amp;#39;hidden&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt; &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;span&lt;/span&gt;&amp;gt;
+            &amp;lt;&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;class&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;#39;dragbar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #1e90ff&#34;&gt;ng-style&lt;/span&gt;=&lt;span style=&#34;color: #aa5500&#34;&gt;&amp;quot;{&amp;#39;width&amp;#39;:&amp;#39;3px&amp;#39;,&amp;#39;height&amp;#39;:&amp;#39;100%&amp;#39;, &amp;#39;background-color&amp;#39;:&amp;#39;black&amp;#39;, &amp;#39;float&amp;#39;:&amp;#39;right&amp;#39;, &amp;#39;cursor&amp;#39;:&amp;#39;col-resize&amp;#39;}&amp;quot;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+    &amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color: #1e90ff; font-weight: bold&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In short, AngularJS directives provide a way to package code into reusable HTMl widgets, but you still have to use JQuery if your DOM manipulation is extensive.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+<base href="https://www.alexjiao.com">
+
+<title>Alex Jiao</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.alexjiao.com/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.alexjiao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.alexjiao.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://www.alexjiao.com/manifest.json">
+<link rel="mask-icon" href="https://www.alexjiao.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">UVA 10920 Spiral Tap</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JUL 4, 2014 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="https://www.alexjiao.com/categories/algorithms">ALGORITHMS</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>A week gone by without tackling an algorithm problem makes Jack a dull software engineer.</p>
+
+<p>Lately, I’ve been working on an inhouse app which requires intermediate Javascript and CSS skills. Being the greenhorn I am at these technologies, I struggled and the process became a timesink. Hence I didn’t manage to set aside time for my regular algorithm coding session.</p>
+
+<p>Prior to this busy week, I encountered the <a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1861">eponymous algorithm problem</a> on UVa. Yes, I’m back on Uva OJ again. I found out that the slow response times of UVa OJ previously was due to problems with my browser cache. I am able to access the site using Incognito Mode on Chrome, since the browswer loads the site from a clean slate. There is truly no good subsitute for the problem classifier on UVa. CodeChef has its upsides – good community and support for more languages, but when it comes to finding questions by topic, it has nil support for that.</p>
+
+<p>Spiral Tap is an interesting ad-hoc problem. The premise is quite straight-forward: the numbering sequence in the grid follows a spiral pattern that originates from the center square, and given a square number, you are required to find out the coordinates of that square. The <a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1861">problem statement</a> has a diagram to illustrate the spiral-patterned grid.</p>
+
+<p>It isn’t hard to visualize the solution through the naive approach. What you can do is to construct a 2D array first. Starting from the center square, you number each square from 1 to N using the spiral pattern. Given a square number from the input, you then find the coordinates of that square (note that the coordinates specified in the question is a bit special) and output it as the answer.</p>
+
+<p>So the naive me, prior to this busy week, coded the naive solution and found out that my program sputtered and stopped upon using test cases of extremely large grids. Grids of size 10000x10000. Mind you. Upon realising that the naive solution is useless, I was quite disheartened at the prospect of finding a mathematical formula to solve the problem and decided to shelve the problem for the next week.</p>
+
+<p>Luckily I chanced upon a hint given by a kind dude on the UVa discussion forum, it was just a hint and no more (not to the extent of spoonfeeding). I couldn’t say it better, so you can check out the hint <a href="http://acm.uva.es/board/viewtopic.php?p=50676&amp;sid=03fc5df83f88ad1a3077f6abddf28fcc#p50676">here</a>.</p>
+
+<p>I managed to squeeze out some time this week to code up the solution. It wasn’t easy, because while his hint describes the solution in layman terms, I couldn’t nail down the programmatic version. The hard part is, how do you find out which of the four lines the square is in? And more importantly, how do you find the coordinates based on the square’s position along the line?</p>
+
+<p>So after quite some time thinking and doodling on paper, I managed to find a pattern. Supposed we want to find the coordinates of square number 15 in a 5x5 grid. Based on his hint, 15 falls in between 9 and 25, four lines connects square 9 and square 25. Which line contains square 15 and exactly where in the line is 15?</p>
+
+<p>Fret not. First, we enumerate all the square numbers and their coordinates between square 9 and square 25:</p>
+
+<pre><code>9 (5,5)
+
+10 (6,5)
+11 (6,4)
+12 (6,3)
+13 (6,2)
+
+14 (5,2)
+15 (4,2)
+16 (3,2)
+17 (2,2)
+
+18 (2,3)
+19 (2,4)
+20 (2,5)
+21 (2,6)
+
+22 (3,6)
+23 (4,6)
+24 (5,6)
+25 (6,6)
+</code></pre>
+
+<p>Here’s the thing. Clearly there are four lines, the squares in each line has a fixed coordinate on either the X or Y side. For the other side of the coordinates that is not fixed, it follows a incremental/decremental pattern as the square number increases.</p>
+
+<p>So the algorithm is becoming much clearer now. We need to find the square numbers that mark the start of each line segment, in this case, they are squares 10, 14, 18 and 22. It’s trivial to calculate that 15 falls between 14 and 18. Based on the pattern that the second line segment’s x-coordinate follows a decremental pattern and that it has a fixed y-coordinate of 2, we start at (5, 2) at square 14 and logically we conclude that (4, 2) is the coordinate of square 15.</p>
+
+<p>Having known the pattern, the solution is pretty much easier to visualize and program now.</p>
+
+<p>Since this is an ad-hoc problem, the solution can’t really be generalized to solve other types of 2D array problems. But what I learnt from this coding session is that finding patterns can be a viable way to generate algorithms to solve a problem. Sometimes you just have to do it the hard way, to enumerate the steps so as to glean the pattern from the details.</p>
+
+<p>My solution (AC):</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #0000aa">import</span> <span style="color: #00aaaa; text-decoration: underline">java.io.*</span>;
+
+<span style="color: #aaaaaa; font-style: italic">/**</span>
+<span style="color: #aaaaaa; font-style: italic"> * @author Alex Jiao Ziheng</span>
+<span style="color: #aaaaaa; font-style: italic"> * UVa 10920 Spiral Tap</span>
+<span style="color: #aaaaaa; font-style: italic"> *</span>
+<span style="color: #aaaaaa; font-style: italic"> */</span>
+<span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Main</span> {
+  <span style="color: #0000aa">public</span> <span style="color: #0000aa">static</span> <span style="color: #00aaaa">void</span> <span style="color: #00aa00">main</span>(String args[]) {
+      DataReader in = <span style="color: #0000aa">new</span> DataReader(System.<span style="color: #1e90ff">in</span>);
+      PrintWriter out = <span style="color: #0000aa">new</span> PrintWriter(System.<span style="color: #1e90ff">out</span>);
+      <span style="color: #00aaaa">int</span> size, pos;
+      <span style="color: #0000aa">do</span> {
+          size = in.<span style="color: #1e90ff">nextInt</span>();
+          pos = in.<span style="color: #1e90ff">nextInt</span>();
+          <span style="color: #0000aa">if</span> (pos==<span style="color: #009999">0</span> &amp;&amp; size==<span style="color: #009999">0</span>) {
+              <span style="color: #0000aa">break</span>;
+          }
+          <span style="color: #00aaaa">int</span> baseCoord = (<span style="color: #00aaaa">int</span>) Math.<span style="color: #1e90ff">ceil</span>(size/<span style="color: #009999">2.0</span>);
+          <span style="color: #00aaaa">int</span> baseSqrt = (<span style="color: #00aaaa">int</span>) Math.<span style="color: #1e90ff">sqrt</span>(pos);
+          <span style="color: #0000aa">if</span> (baseSqrt%<span style="color: #009999">2</span>==<span style="color: #009999">0</span>) {
+              baseSqrt -= <span style="color: #009999">1</span>;
+          }
+          <span style="color: #00aaaa">int</span> nextSqrt = baseSqrt + <span style="color: #009999">2</span>;
+          <span style="color: #00aaaa">int</span> nextSq = (<span style="color: #00aaaa">int</span>)Math.<span style="color: #1e90ff">pow</span>(nextSqrt,<span style="color: #009999">2</span>);
+          <span style="color: #00aaaa">int</span> baseSq = (<span style="color: #00aaaa">int</span>)Math.<span style="color: #1e90ff">pow</span>(baseSqrt,<span style="color: #009999">2</span>);
+          baseCoord += (baseSqrt-<span style="color: #009999">1</span>)/<span style="color: #009999">2</span>;
+          <span style="color: #00aaaa">int</span> maxCoord = baseCoord + <span style="color: #009999">1</span>;
+          <span style="color: #00aaaa">int</span> minCoord = baseCoord - baseSqrt;
+          <span style="color: #00aaaa">int</span> x, y, secSegMarker,thirdSegMarker, fourthSegMarker;
+          <span style="color: #00aaaa">int</span> segLength = (nextSq-baseSq)/<span style="color: #009999">4</span>;
+          secSegMarker = baseSq + segLength + <span style="color: #009999">1</span>;
+          thirdSegMarker = baseSq + <span style="color: #009999">2</span> * segLength + <span style="color: #009999">1</span>;
+          fourthSegMarker = baseSq + <span style="color: #009999">3</span> * segLength + <span style="color: #009999">1</span>;
+          
+          <span style="color: #0000aa">if</span> (pos &gt; baseSq &amp;&amp; pos &lt; secSegMarker) {
+              x = maxCoord;
+              y = (maxCoord-<span style="color: #009999">1</span>) - (pos - (baseSq + <span style="color: #009999">1</span>));
+          } <span style="color: #0000aa">else</span> <span style="color: #0000aa">if</span>(pos&gt;= secSegMarker &amp;&amp; pos &lt; thirdSegMarker) {
+              y = minCoord;
+              x = (maxCoord-<span style="color: #009999">1</span>) - (pos - secSegMarker);
+          } <span style="color: #0000aa">else</span> <span style="color: #0000aa">if</span>(pos&gt;=thirdSegMarker &amp;&amp; pos &lt; fourthSegMarker) {
+              x = minCoord;
+              y = minCoord + <span style="color: #009999">1</span> + (pos - thirdSegMarker);
+          } <span style="color: #0000aa">else</span> <span style="color: #0000aa">if</span>(pos&gt;=fourthSegMarker &amp;&amp; pos &lt;= nextSq) {
+              y = maxCoord;
+              x = minCoord + <span style="color: #009999">1</span> + (pos - fourthSegMarker);
+          } <span style="color: #0000aa">else</span> {
+              x = baseCoord;
+              y = baseCoord;
+          }    
+          out.<span style="color: #1e90ff">printf</span>(<span style="color: #aa5500">&quot;Line = %d, column = %d.\n&quot;</span>, x, y);
+      } <span style="color: #0000aa">while</span>(<span style="color: #0000aa">true</span>);
+      out.<span style="color: #1e90ff">close</span>();
+  }
+  
+  <span style="color: #0000aa">static</span> <span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">DataReader</span> {
+        <span style="color: #0000aa">private</span> InputStream in = <span style="color: #0000aa">null</span>;
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">int</span> pos, count;
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">byte</span>[] buf = <span style="color: #0000aa">new</span> <span style="color: #00aaaa">byte</span>[<span style="color: #009999">64</span> * <span style="color: #009999">1024</span>];
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aa00">DataReader</span>(InputStream in) {
+            <span style="color: #0000aa">this</span>.<span style="color: #1e90ff">in</span> = in;
+            pos = <span style="color: #009999">0</span>;
+            count = <span style="color: #009999">0</span>;
+        }
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aaaa">int</span> <span style="color: #00aa00">nextInt</span>() {
+            <span style="color: #00aaaa">int</span> c, sign = <span style="color: #009999">1</span>;
+            <span style="color: #0000aa">while</span> (Character.<span style="color: #1e90ff">isWhitespace</span>(c = read())) ;
+            <span style="color: #0000aa">if</span> (c == <span style="color: #aa5500">&#39;-&#39;</span>) {
+                sign = -<span style="color: #009999">1</span>;
+                c = read();
+            }
+            <span style="color: #00aaaa">int</span> n = c - <span style="color: #aa5500">&#39;0&#39;</span>;
+            <span style="color: #0000aa">while</span> ((c = read() - <span style="color: #aa5500">&#39;0&#39;</span>) &gt;= <span style="color: #009999">0</span>)
+                n = n * <span style="color: #009999">10</span> + c;
+            <span style="color: #0000aa">return</span> n * sign;
+        }
+
+        <span style="color: #0000aa">public</span> String <span style="color: #00aa00">next</span>() {
+            StringBuilder builder = <span style="color: #0000aa">new</span> StringBuilder();
+            <span style="color: #00aaaa">int</span> c;
+            <span style="color: #0000aa">while</span> (!Character.<span style="color: #1e90ff">isSpaceChar</span>(c = read()))
+                builder.<span style="color: #1e90ff">append</span>(c);
+            <span style="color: #0000aa">return</span> builder.<span style="color: #1e90ff">toString</span>();
+        }
+
+        <span style="color: #0000aa">public</span> String <span style="color: #00aa00">nextLine</span>() {
+            StringBuilder builder = <span style="color: #0000aa">new</span> StringBuilder();
+            <span style="color: #00aaaa">int</span> c;
+            <span style="color: #0000aa">while</span> ((c = read()) != <span style="color: #aa5500">&#39;\n&#39;</span>)
+                builder.<span style="color: #1e90ff">append</span>(c);
+            <span style="color: #0000aa">return</span> builder.<span style="color: #1e90ff">toString</span>();
+        }
+
+        <span style="color: #0000aa">public</span> <span style="color: #00aaaa">int</span> <span style="color: #00aa00">read</span>() {
+            <span style="color: #0000aa">if</span> (pos == count)
+                fillBuffer();
+            <span style="color: #0000aa">return</span> buf[pos++];
+        }
+
+        <span style="color: #0000aa">private</span> <span style="color: #00aaaa">void</span> <span style="color: #00aa00">fillBuffer</span>() {
+            <span style="color: #0000aa">try</span> {
+                count = in.<span style="color: #1e90ff">read</span>(buf, pos = <span style="color: #009999">0</span>, buf.<span style="color: #1e90ff">length</span>);
+                <span style="color: #0000aa">if</span> (count == -<span style="color: #009999">1</span>)
+                    buf[<span style="color: #009999">0</span>] = -<span style="color: #009999">1</span>;
+            } <span style="color: #0000aa">catch</span> (Exception ignore) {
+            }
+        }
+    }
+}
+</pre></div>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https-shenoybr-github-io-hugo-goa-demo';
+    var disqus_identifier = 'https:\/\/www.alexjiao.com\/blog\/uva-10920-spiral-tap\/';
+    var disqus_title = 'UVA 10920 Spiral Tap';
+    var disqus_url = 'https:\/\/www.alexjiao.com\/blog\/uva-10920-spiral-tap\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-draggable-bar/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="https://www.alexjiao.com/blog/angular-rails-image-upload/"> | next &gt;</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://www.alexjiao.com">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017. Alex Jiao Ziheng. <a href="http://creativecommons.org/licenses/by/3.0/">Some Rights Reserved</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'XYZ', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
+<script>
+    $(function(){
+        $(".typed").typed({
+            strings: ["in relentless pursuit of knowledge", "interested in programming languages"],
+            typeSpeed: 0,
+            startDelay: 1000,
+            backDelay: 2000,
+            loop: true
+        });
+    });
+</script>
+</body>
+</html>
+
+

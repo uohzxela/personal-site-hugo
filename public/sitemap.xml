@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://www.alexjiao.com/resume/</loc>
+    <lastmod>2017-01-21T19:36:40+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/about/</loc>
+    <lastmod>2017-01-21T08:54:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/angular-app-google-compute/</loc>
+    <lastmod>2014-08-16T10:26:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/angular-rails-auth/</loc>
+    <lastmod>2014-08-01T02:54:29+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/life-is-a-marathon/</loc>
+    <lastmod>2014-07-21T08:55:36+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/angular-rails-image-upload/</loc>
+    <lastmod>2014-07-13T09:03:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/uva-10920-spiral-tap/</loc>
+    <lastmod>2014-07-04T10:17:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/angular-draggable-bar/</loc>
+    <lastmod>2014-06-24T09:53:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/codechef-sumtrian/</loc>
+    <lastmod>2014-06-21T10:07:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/callback-hell-and-promises/</loc>
+    <lastmod>2014-06-14T09:59:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/active-record-associations/</loc>
+    <lastmod>2014-05-27T10:35:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/restful-journey/</loc>
+    <lastmod>2014-05-23T11:16:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/functional-ruby/</loc>
+    <lastmod>2014-05-09T11:44:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/active-record/</loc>
+    <lastmod>2014-05-27T10:35:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/</loc>
+    <lastmod>2017-01-21T19:36:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/algorithms/</loc>
+    <lastmod>2014-07-04T10:17:55+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/angularjs/</loc>
+    <lastmod>2014-08-16T10:26:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/authentication/</loc>
+    <lastmod>2014-08-01T02:54:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/blog/</loc>
+    <lastmod>2014-08-16T10:26:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/callbacks/</loc>
+    <lastmod>2014-06-14T09:59:28+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/database-schema/</loc>
+    <lastmod>2014-05-27T10:35:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/devops/</loc>
+    <lastmod>2014-08-16T10:26:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/dynamic-programming/</loc>
+    <lastmod>2014-06-21T10:07:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/functional-programming/</loc>
+    <lastmod>2014-05-09T11:44:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/google-compute-engine/</loc>
+    <lastmod>2014-08-16T10:26:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/image-upload/</loc>
+    <lastmod>2014-07-13T09:03:58+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/jquery/</loc>
+    <lastmod>2014-06-24T09:53:50+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/promises/</loc>
+    <lastmod>2014-06-14T09:59:28+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/rails/</loc>
+    <lastmod>2014-08-01T02:54:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/rest/</loc>
+    <lastmod>2014-05-23T11:16:31+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/ruby/</loc>
+    <lastmod>2014-05-09T11:44:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexjiao.com/categories/software-engineering/</loc>
+    <lastmod>2014-07-21T08:55:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

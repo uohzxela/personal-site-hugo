@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Engineering on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/software-engineering/index.xml</link>
+    <description>Recent content in Software Engineering on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Life&#39;s a marathon</title>
+      <link>https://www.alexjiao.com/blog/life-is-a-marathon/</link>
+      <pubDate>Mon, 21 Jul 2014 08:55:36 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/life-is-a-marathon/</guid>
+      <description>
+
+&lt;p&gt;Two months ago, I was a complete tech newbie. I tried to create a chat app with NodeJS, I succeeded in making it but I didn’t succeed in understanding it. Save for some half-baked web apps, I was barely literate in web programming.&lt;/p&gt;
+
+&lt;p&gt;My stint at Favorite Medium is a fulfilling one that exposed me to real-world programming. Huge databases. RESTful APIs. In-house apps. I learnt a lot and had the opportunity to work on a non-trivial in-house app named as  Marathon, a clone of 10,000ft.&lt;/p&gt;
+
+&lt;h2 id=&#34;things-i-learned-from-marathon&#34;&gt;Things I learned from Marathon&lt;/h2&gt;
+
+&lt;p&gt;They say writing a full-scale software is like writing a novel. Using that analogy, I’m very used to writing short stories, but it is very different from writing a novel. For the latter, you have to start with a plot, conceptualise the characters, flesh them out with details and weave a convincing story around them. Similarly for software, you have to start with an architecture, design the features, flesh them out with code and build a pleasant user experience around them.&lt;/p&gt;
+
+&lt;p&gt;While Marathon wouldn’t be considered a novel, it wouldn’t be considered as a short story either. I would classify it as a novella; it’s not that ambitious of a project, but it is also not trivial (at least to me).&lt;/p&gt;
+
+&lt;p&gt;Hence I’d like to document three things I learnt about Marathon.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-genius-lies-in-the-details&#34;&gt;The genius lies in the details&lt;/h3&gt;
+
+&lt;p&gt;As a product grows, more and more time will be invested in hair-splitting. Maybe you can say that software engineers are professional hair-splitters. They take a subset of a feature so miniscule, and spend a great deal of time improving it. For example, engineers at Google spend an inordinate amount of tweaking the search algorithm to shave milliseconds off the loading time. On the front-end, those pedantic engineers obsess about kerning the Google logo to make it more visually pleasing. As the casual user, you may scoff and wonder about the futility of such detail-oriented investments, given that in isolation, they make no significance whatsoever.&lt;/p&gt;
+
+&lt;p&gt;But software is a sum of its parts, a totality of its features (which is a totality of its sub-features and so on and so forth, recursion ftw). To discount the kerning of Google logo is to discount the placement of the lightning scar that so greatly characterized Harry Potter. To discount the pedantic improvements of Google’s search algorithm is to discount the numerous edits that your favorite Harry Potter books have gone through.&lt;/p&gt;
+
+&lt;p&gt;Why am I referencing Rowling’s books here? Beats me, but you get the idea.&lt;/p&gt;
+
+&lt;p&gt;Hair-splitting may carry with it a negative connotation, but at the end of the day it is the details that make a product great.&lt;/p&gt;
+
+&lt;p&gt;Marathon is not great; in fact, it is crap compared to industrial-grade apps as it is only a prototype. Split the hair like the pendant you are, don’t settle.&lt;/p&gt;
+
+&lt;h3 id=&#34;don-t-get-mired-in-petty-bugs&#34;&gt;Don’t get mired in petty bugs&lt;/h3&gt;
+
+&lt;p&gt;I’m a lazy person. Sometimes, when my work gets interrupted, I find it hard to go back to the ‘zone’ again. Or the ‘flow’ or whatever you call it. This is why I try my best to block out long periods of time for work.&lt;/p&gt;
+
+&lt;p&gt;When you are in the ‘zone’, it feels uneasy to leave something hanging. That’s the power of the ‘zone’. I have used it for great effect by working on a bug for hours. It feels good when you are in the ‘zone’; you want to revel in it forever, but it has a danger of becoming a timesink.&lt;/p&gt;
+
+&lt;p&gt;When you are debugging an inscrutable bug, time flies. In that period of time when your mind is ensnarled by buggy logic, you are essentially doing nothing except to mollify your butt-hurt ego by removing mistakes from your code. Unless of course when the code is critical to the software infrastructure, it’s a different story altogether and this is one good excuse to be in the ‘flow’.&lt;/p&gt;
+
+&lt;p&gt;What I’m talking about is those minor bugs that you can probably live with as a software developer, those that only bring about marginal benefits upon elimination yet require an inordinate amount of time to debug.&lt;/p&gt;
+
+&lt;p&gt;When you are creating a prototype, your main goal is to flesh out the features into a coherent whole instead of squashing every single bug to make the app bug-free. Marathon is a prototype and it undeniably has bugs, but they are pretty minor and don’t break the app.&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-by-doing-takes-precedence&#34;&gt;Learning by doing takes precedence&lt;/h3&gt;
+
+&lt;p&gt;Aside from being professional hair-splitters, software engineers are professional learners. They learn new technologies, apply it to a project (personal or work-related) and the cycle repeats. It makes sense to optimize this workflow, to learn how to learn. That’s pretty meta.&lt;/p&gt;
+
+&lt;p&gt;I need to learn AngularJS for Marathon. Being a theory-centric learner, I devoured a significant chunk of AngularJS text only to find out nothing really sticks.&lt;/p&gt;
+
+&lt;p&gt;The trick is to read cursorily to construct a mental model of where the essential topics lie, start building the actual app and refer to the text only when you get stuck.&lt;/p&gt;
+
+&lt;p&gt;Rather than drinking from a firehose at the start, why not just delve straight into the nitty-gritty of building the actual app and consult the documentation when you actually need it? I used to make the mistake of procuring all the necessary knowledge before I start to build the app, but it is an idealistic pursuit. Firstly, learning by reading sucks for memory retention (no wonder I’m struggling in college). Secondly, nothing ever gets done when you are busy trying to grok a non-trivial concept from the text. Lastly, you will lose motivation because nothing ever gets done.&lt;/p&gt;
+
+&lt;p&gt;By building your app incrementally and consulting the docs whenever you get stuck, it makes your learning process requirement-driven. You retain what you learnt easily because it’s learning by doing (duh). You are able to conceive tangible results with your WIP build. Your motivation will be all-time high as you have something to show after a day of work.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Building Marathon has been a fruitful journey. I can’t wait to start on my next project, hope it will be a even better experience by applying the aforementioned lessons.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

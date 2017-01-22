@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Callbacks on Alex Jiao</title>
+    <link>https://www.alexjiao.com/categories/callbacks/index.xml</link>
+    <description>Recent content in Callbacks on Alex Jiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://www.alexjiao.com/categories/callbacks/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>To hell and back with promises</title>
+      <link>https://www.alexjiao.com/blog/callback-hell-and-promises/</link>
+      <pubDate>Sat, 14 Jun 2014 09:59:28 +0800</pubDate>
+      
+      <guid>https://www.alexjiao.com/blog/callback-hell-and-promises/</guid>
+      <description>
+
+&lt;p&gt;So this week I’m self-studying AngularJS as I will be working on the front-end for a project I’m assigned to. Not much building nowadays, as I am still learning the theory of how AngularJS apps work. But I did create a sample app by following &lt;a href=&#34;http://www.thinkster.io/angularjs/r1gRPYp4kM/angularjs-tutorial-learn-to-build-modern-webapps&#34;&gt;thinkster.io’s tutorial&lt;/a&gt;. It’s not that well explained and it assumes the reader to have a basic familiarity with AngularJS concepts.&lt;/p&gt;
+
+&lt;p&gt;Prior to attempting the tutorial, I read the &lt;em&gt;O’Reilly AngularJS&lt;/em&gt; book, authored by two engineers who worked on AngularJS at Google. It is well explained but the amount of errata in code snippets is really bad to the point of hindering my learning.&lt;/p&gt;
+
+&lt;p&gt;Thankfully, there is a canonical book on AngularJS, aptly titled &lt;a href=&#34;https://www.ng-book.com/&#34;&gt;ng-book&lt;/a&gt;. I won’t gush about how excellent this book is; the author already did that for you on the homepage. Even though the author tries too hard to the extent of sounding like a snake oil salesman, he really walks the talk.&lt;/p&gt;
+
+&lt;p&gt;To truly understand AngularJS, there’s a slew of Javascript concepts to master. In this post I’ll be dissecting callbacks and promises.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;what-is-a-callback&#34;&gt;What is a callback?&lt;/h3&gt;
+
+&lt;p&gt;Simply put, it is a function that is passed to another function to be invoked at a later time.&lt;/p&gt;
+
+&lt;p&gt;Imagine we have a really slow function that blocks the code execution.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;response = sendLetterToMum();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// code onwards not executed while the above function is running&lt;/span&gt;
+doSomething(response);
+carryOnWithLife();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// rest of the code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the synchronous way of programming, you have a slow function (&lt;code&gt;sendLetterToMum()&lt;/code&gt;) hogging up the execution time while the rest of the code is not executed. As an analogy, imagine yourself sending a letter to your mother at the post office, and staying there doing nothing until the reply has arrived.&lt;/p&gt;
+
+&lt;p&gt;This is why we have asynchronous programming, what any sane person would do in this scenario is to carry on with their daily life whilst waiting for the reply.&lt;/p&gt;
+
+&lt;p&gt;In Javascript, we implement this behavior using callbacks.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sendLetterToMum(doSomething(response));
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// code onwards executed while waiting for the above function to finish&lt;/span&gt;
+carryOnWithLife();
+&lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// rest of the code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this case, &lt;code&gt;doSomething(response)&lt;/code&gt; is the callback. It is invoked at a later time when &lt;code&gt;sendLetterToMum()&lt;/code&gt; returns a response.&lt;/p&gt;
+
+&lt;p&gt;Callbacks are very important in asynchronous programming, where it is used to avoid blocking during requests made to the server.&lt;/p&gt;
+
+&lt;p&gt;But it has its drawbacks.&lt;/p&gt;
+
+&lt;h3 id=&#34;callback-hell&#34;&gt;Callback hell&lt;/h3&gt;
+
+&lt;p&gt;Code snippet demonstrating callback hell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;User.get(fromId, {
+  success: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err, user) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (err) &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err};
+      user.friends.find(toId, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err, friend) {
+          &lt;span style=&#34;color: #0000aa&#34;&gt;if&lt;/span&gt; (err) &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err};
+          user.sendMessage(friend, message, callback);
+      });
+  },
+  failure: &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+      &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; {error: err}
+  }
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, code readability for callbacks can easily spiral out of control as they become deeply nested. This is callback hell, and for each level, you have to explicitly handle errors.&lt;/p&gt;
+
+&lt;p&gt;Enter promises.&lt;/p&gt;
+
+&lt;h3 id=&#34;promise&#34;&gt;Promise&lt;/h3&gt;
+
+&lt;p&gt;Code snippet demonstrating the elegance of promises:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;User.get(fromId)
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(user) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; user.friends.find(toId);
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+})
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(friend) {
+  &lt;span style=&#34;color: #0000aa&#34;&gt;return&lt;/span&gt; user.sendMessage(friend, message);
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+})
+.then(&lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(success) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// success handling&lt;/span&gt;
+}, &lt;span style=&#34;color: #0000aa&#34;&gt;function&lt;/span&gt;(err) {
+  &lt;span style=&#34;color: #aaaaaa; font-style: italic&#34;&gt;// error handling&lt;/span&gt;
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the levels of indentations are much lesser now and the code is structured in a predictable way.&lt;/p&gt;
+
+&lt;p&gt;Promises are objects that represent value or thrown exception that is eventually returned. It acts as a proxy for the actual returned response, hence providing an abstraction that allows for a structured way of resolving returned values. As a result of a neater and more readable syntax, promises alleviate the pain of writing and reading asynchronous functions.&lt;/p&gt;
+
+&lt;p&gt;There are more to promises though, but I haven’t finished the chapter on promises in ng-book yet. All the more reason to read the book!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
