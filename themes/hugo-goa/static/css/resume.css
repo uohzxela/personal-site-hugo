@@ -1,0 +1,198 @@
+p 
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+ul
+{
+	padding-left: 20px;
+}
+header.title
+{
+	margin-top: 0;
+}
+.container
+{
+	max-width: 680px;
+}
+.resume-container
+{
+	font-family: Helvetica, Arial, sans-serif;
+	color: #333;
+}
+
+.profile-top,
+.profile-background
+{
+	padding: 20px;
+	background-color: white;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), -1px 0 0 rgba(0,0,0,0.03), 1px 0 0 rgba(0,0,0,0.03), 0 1px 0 rgba(0,0,0,0.12);
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.full-name
+{
+	font-weight: bold;
+	font-size: 26px;
+	margin: 0;
+}
+
+.headline
+{
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.demographic-info
+{
+	font-size: 13px;
+	font-weight: normal;
+	color: #66696a;
+	margin: 2px 0 10px 0;
+}
+
+.overview-summary,
+.overview-summary th,
+.overview-summary td
+{
+	border: none;
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+}
+
+.overview-summary th
+{
+	color: #999;
+	font-size: 11px;
+}
+
+.overview-summary td
+{
+	font-size: 12px;
+}
+
+
+.overview-summary ol
+{
+	list-style: none;
+	margin: 0;
+}
+
+.overview-summary li
+{
+	display: inline;
+}
+
+.background-label
+{
+    margin-top: -20px;
+    margin-bottom: 0px;
+    margin-left: -20px;
+    margin-right: 0px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #333;
+    color: #fff;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: bold;
+    padding: 7.5px 20px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    vertical-align: top;
+    word-wrap: normal;
+    position: absolute;
+}
+
+.background-section
+{
+	margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.background-section-header
+{
+    font-weight: 100;
+    color: #afb2b5;
+}
+
+.background-section-content
+{
+	font-size: 13px;
+	font-weight: normal;
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.experience-summary,
+.education-summary
+{
+	display: flex;
+}
+
+.experience-title,
+.education-institute
+{
+	font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+.experience-company,
+.education-degree
+{
+	font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    color: #434649;
+    margin: 0;
+    padding: 0;
+}
+
+.experience-date-locale,
+.education-date
+{
+	display: block;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    font-size: 12px;
+    color: #66696a;
+    font-size: 13px;
+    line-height: 23px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+.experience-logo,
+.education-logo
+{
+	margin-left: auto;
+	/*margin-right: 20px;*/
+	height: 60px;
+	width: 60px;
+}
+
+.clear-fix {
+	clear: both;
+}
+
+.experience-info,
+.education-info
+{
+	margin-right: 20px;
+}
