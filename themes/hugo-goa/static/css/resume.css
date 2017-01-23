@@ -9,7 +9,12 @@ ul
 }
 header.title
 {
-	margin-top: 0;
+	display: none;
+}
+.content
+{
+	margin: 0;
+	padding: 0;
 }
 .container
 {
@@ -19,6 +24,11 @@ header.title
 {
 	font-family: Helvetica, Arial, sans-serif;
 	color: #333;
+/*	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	        hyphens: auto;*/
+	text-align: left;
 }
 
 .profile-top,
@@ -79,6 +89,7 @@ header.title
 {
 	list-style: none;
 	margin: 0;
+	padding-left: 20px;
 }
 
 .overview-summary li
@@ -157,9 +168,9 @@ header.title
 {
 	font-size: 14px;
     font-weight: normal;
-    line-height: 14px;
     color: #434649;
     margin: 0;
+    margin-top: -3px;
     padding: 0;
 }
 
@@ -172,18 +183,19 @@ header.title
     font-size: 12px;
     color: #66696a;
     font-size: 13px;
-    line-height: 23px;
+
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
-
+.logo-container
+{
+	margin-left: auto;
+}
+.logo-container,
 .experience-logo,
 .education-logo
 {
-	margin-left: auto;
-	/*margin-right: 20px;*/
-	height: 60px;
 	width: 60px;
 }
 
@@ -195,4 +207,55 @@ header.title
 .education-info
 {
 	margin-right: 20px;
+}
+
+@media only screen and (max-width: 480px)
+{
+	.experience-logo,
+	.education-logo
+	{
+		width: 40px;
+	}
+	.experience-title,
+	.education-institute
+	{
+		font-size: 14px;
+	}
+	.experience-company,
+	.education-degree
+	{
+		font-size: 12px;
+	}
+	.experience-date-locale,
+	.education-date
+	{
+		font-size: 10px;
+	}
+	.experience-info,
+	.education-info
+	{
+		order: 2;
+	}
+	.logo-container
+	{
+		margin-left: 0;
+	    margin-top: 10px;
+	    flex-basis: 3em;
+	    flex-shrink: 0;
+	    flex-grow: 0;
+	}
+	.background-section-content
+	{
+		font-size: 11px;
+	}
+	.profile-top,
+	.profile-background
+	{
+		padding: 10px;
+	}
+	.background-label
+	{
+		margin-top: -10px;
+		margin-bottom: -10px;
+	}
 }

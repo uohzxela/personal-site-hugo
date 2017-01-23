@@ -76,10 +76,12 @@ navigation = false
 							Grab
 						</div>
 						<div class='experience-date-locale'>
-							November 2016 - January 2017 (3 months) | Singapore
+							Nov 2016 - Jan 2017 (3 months) | Singapore
 						</div>
 					</div>
-					<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAZwAAAAJDkxODZkZGNjLTA0YTgtNGM1Mi04OTgxLTEzNTMwM2RlODg4OA.png'>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAZwAAAAJDkxODZkZGNjLTA0YTgtNGM1Mi04OTgxLTEzNTMwM2RlODg4OA.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Test-driven & full stack development for Grab's driver & passenger CMS.</p>
@@ -108,10 +110,12 @@ navigation = false
 							honestbee
 						</div>
 						<div class='experience-date-locale'>
-							July 2016 - August 2016 (2 months) | Singapore
+							July 2016 - Aug 2016 (2 months) | Singapore
 						</div>
 					</div>
-					<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAaqAAAAJGU2YjdjMTQwLTA4MjItNGExNi1hNTMyLTFlNTdhNWRkNmI5NA.png'>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAaqAAAAJGU2YjdjMTQwLTA4MjItNGExNi1hNTMyLTFlNTdhNWRkNmI5NA.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Automated manual labor components using computer vision to enable better operations.</p>
@@ -137,10 +141,12 @@ navigation = false
 							2RedBeans
 						</div>
 						<div class='experience-date-locale'>
-							August 2015 - June 2016 (11 months) | San Francisco Bay Area
+							Aug 2015 - June 2016 (11 months) | San Francisco Bay Area
 						</div>
 					</div>
-					<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAATeAAAAJGMzZGE2MTQxLTQ5NjMtNDg1Yi04MWM4LTVkMjAxZmI3ZjExNw.png'>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAATeAAAAJGMzZGE2MTQxLTQ5NjMtNDg1Yi04MWM4LTVkMjAxZmI3ZjExNw.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Rebuilt the product across the full stack.</p>
@@ -175,10 +181,12 @@ navigation = false
 							Wego
 						</div>
 						<div class='experience-date-locale'>
-							January 2015 - June 2016 (6 months) | Singapore
+							Jan 2015 - June 2016 (6 months) | Singapore
 						</div>
 					</div>
-					<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAiaAAAAJDE0NWMxNWJjLTIzNDEtNGU4NC1hMGVhLTc0YjNlNTMyZmFhNA.png'>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAiaAAAAJDE0NWMxNWJjLTIzNDEtNGU4NC1hMGVhLTc0YjNlNTMyZmFhNA.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Improved Wego's devops and data infrastructure by tinkering with its distributed systems.</p>
@@ -225,7 +233,9 @@ navigation = false
 							May 2014 - Dec 2014 (8 months) | Singapore
 						</div>
 					</div>
-					<img class='experience-logo' src='https://media.licdn.com/media/p/6/005/085/21b/1c1b7f6.png'>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/media/p/6/005/085/21b/1c1b7f6.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Made internal tools and worked on a project for Samsung APAC.</p>
@@ -265,7 +275,9 @@ navigation = false
 							2012 - 2017
 						</div>
 					</div>
-					<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/008/188/2f4a58f.png'>
+					<div class='logo-container'>
+						<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/p/6/005/008/188/2f4a58f.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Specialization in Programming Languages.</p>
@@ -284,7 +296,9 @@ navigation = false
 							2015 - 2016
 						</div>
 					</div>
-					<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAjhAAAAJDI5NWY1NDgxLTJjNDAtNDE5Yy1iYWNkLTkxMDFjMTM3YmExYw.png'>
+					<div class='logo-container'>
+						<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAjhAAAAJDI5NWY1NDgxLTJjNDAtNDE5Yy1iYWNkLTkxMDFjMTM3YmExYw.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>NUS Overseas College (Silicon Valley) programme.</p>
@@ -304,7 +318,9 @@ navigation = false
 							2014 - 2014
 						</div>
 					</div>
-					<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAg_AAAAJGRkMWQzMjVlLWNmODgtNDJiZS05ZTlkLWEwMTZkYjkxOWVlYQ.png'>
+					<div class='logo-container'>
+						<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAg_AAAAJGRkMWQzMjVlLWNmODgtNDJiZS05ZTlkLWEwMTZkYjkxOWVlYQ.png'>
+					</div>
 				</div>
 				<div class='background-section-content'>
 					<p>Took 7 courses in one semester.</p>
