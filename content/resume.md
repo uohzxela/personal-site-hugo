@@ -13,6 +13,7 @@ navigation = false
 +++
 
 <body style="background-color: #DFDFDF">
+<link rel="stylesheet" href="css/resume.css">
 <div id='container'>
 <div class='resume-container'>
 	<div class='profile-top'>
@@ -85,7 +86,7 @@ navigation = false
 				</div>
 				<div class='background-section-content'>
 					<p>Test-driven & full stack development for Grab's driver & passenger CMS.</p>
-					<p>Language: JavaScript, Ruby.</p>
+					<p>Languages: JavaScript, Ruby.</p>
 					<p>Tech stack: React + Reflux, Rails, RSpec, Phabricator, TravisCI.</p>
 					<ul>
 						<li>

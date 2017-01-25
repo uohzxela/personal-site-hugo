@@ -598,7 +598,7 @@ There is one more thing though. We have to tell Angular where to load up our con
 
 This concludes my tutorial finally.
 
-To play with the auth, start the frontend and backend servers with grunt serve and rails s respectively and type any of the URLs in the address bar:
+To play with the auth, start the frontend and backend servers with `grunt serve` and `rails s` respectively and type any of the URLs in the address bar:
 
 - `/signup`
 - `/login`

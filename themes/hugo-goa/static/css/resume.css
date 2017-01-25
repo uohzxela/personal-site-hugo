@@ -212,7 +212,8 @@ header.title
 @media only screen and (max-width: 480px)
 {
 	.experience-logo,
-	.education-logo
+	.education-logo,
+	.logo-container
 	{
 		width: 40px;
 	}
@@ -225,6 +226,7 @@ header.title
 	.education-degree
 	{
 		font-size: 12px;
+		margin-top: 1px;
 	}
 	.experience-date-locale,
 	.education-date
@@ -240,15 +242,14 @@ header.title
 	{
 		margin-left: 0;
 	    margin-top: 10px;
-	    flex-basis: 3em;
-	    flex-shrink: 0;
+	    margin-right: 10px;
 	    flex-grow: 0;
 	}
 	.background-section-content
 	{
-		font-size: 11px;
+		font-size: 12px;
 	}
-	.profile-top,
+/*	.profile-top,
 	.profile-background
 	{
 		padding: 10px;
@@ -257,5 +258,5 @@ header.title
 	{
 		margin-top: -10px;
 		margin-bottom: -10px;
-	}
+	}*/
 }
