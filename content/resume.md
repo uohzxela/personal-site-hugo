@@ -58,7 +58,7 @@ navigation = false
 			</h3>
 			<div class='background-section-content'>
 				<p>Software engineer in relentless pursuit of knowledge.</p>
-				<p>As a lifelong learner of computer science, I have interests in programming language implementations and compiler optimizations.</p>
+				<p>As a lifelong learner of computer science, I have interests in programming language design and implementation.</p>
 				<p>Very familiar with Python. Familiar with Ruby, JavaScript, Java and Golang.</p>
 				<p>Also, in case you're wondering, this LinkedIn-inspired resume is hand-crafted from scratch by yours truly.</p>
 			</div>
