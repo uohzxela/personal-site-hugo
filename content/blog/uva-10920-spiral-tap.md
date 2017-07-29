@@ -67,7 +67,7 @@ My solution (AC):
 import java.io.*;
 
 /**
- * @author Alex Jiao Ziheng
+ * @author Alex Jiao
  * UVa 10920 Spiral Tap
  *
  */

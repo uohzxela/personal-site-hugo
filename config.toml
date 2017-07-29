@@ -28,7 +28,7 @@ enableRobotsTXT = true
 #	facebook = "uohzxela"
 
 [params.extra]
-#	copyright = "© 2017. Alex Jiao Ziheng. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+#	copyright = "© 2017. Alex Jiao. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
 	poweredby = false
 
 [[menu.main]]

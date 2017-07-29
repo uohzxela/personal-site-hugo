@@ -17,7 +17,7 @@ navigation = false
 <div id='container'>
 <div class='resume-container'>
 	<div class='profile-top'>
-		<h1 class='full-name'>Alex Jiao Ziheng</h1>
+		<h1 class='full-name'>Alex Jiao</h1>
 		<p class='headline'>Software Engineer</p>
 		<p class='demographic-info'>Singapore | Computer Software</p>
 		<table class="overview-summary">
@@ -59,7 +59,7 @@ navigation = false
 			<div class='background-section-content'>
 				<p>Software engineer in relentless pursuit of knowledge.</p>
 				<p>As a lifelong learner of computer science, I have interests in programming language design and implementation.</p>
-				<p>Very familiar with Python. Familiar with Ruby, JavaScript, Java and Golang.</p>
+				<p>Very familiar with Python. Familiar with Elixir, Erlang, Ruby, JavaScript, Java, Golang.</p>
 				<p>Also, in case you're wondering, this LinkedIn-inspired resume is hand-crafted from scratch by yours truly.</p>
 			</div>
 		</div>
@@ -111,7 +111,7 @@ navigation = false
 							honestbee
 						</div>
 						<div class='experience-date-locale'>
-							July 2016 - Aug 2016 (2 months) | Singapore
+							July 2016 - Sep 2016 (3 months) | Singapore
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -320,7 +320,7 @@ navigation = false
 						</div>
 					</div>
 					<div class='logo-container'>
-						<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAg_AAAAJGRkMWQzMjVlLWNmODgtNDJiZS05ZTlkLWEwMTZkYjkxOWVlYQ.png'>
+						<img class='education-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAsSAAAAJGUyNmU5MDczLWRmMTMtNDI3Yy05ODBlLTU0YjY4OTBjNDY5Nw.png'>
 					</div>
 				</div>
 				<div class='background-section-content'>

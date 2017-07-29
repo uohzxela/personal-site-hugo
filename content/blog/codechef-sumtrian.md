@@ -43,7 +43,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 
 /**
- * @author Alex Jiao Ziheng
+ * @author Alex Jiao
  *
  */
 public class SUMTRIAN {
