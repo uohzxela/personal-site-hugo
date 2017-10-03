@@ -59,7 +59,7 @@ navigation = false
 			<div class='background-section-content'>
 				<p>Software engineer in relentless pursuit of knowledge.</p>
 				<p>As a lifelong learner of computer science, I have interests in programming language design and implementation.</p>
-				<p>Very familiar with Python. Familiar with Elixir, Erlang, Ruby, JavaScript, Java, Golang.</p>
+				<p>Very familiar with Python. Familiar with Elixir, Erlang, Ruby, JavaScript, Java, Golang, C.</p>
 				<p>Also, in case you're wondering, this LinkedIn-inspired resume is hand-crafted from scratch by yours truly.</p>
 			</div>
 		</div>
@@ -67,6 +67,49 @@ navigation = false
 			<h3 class='background-section-header'>
 				Experience
 			</h3>
+			<div class='experience-container'>
+				<div class='experience-summary'>
+					<div class='experience-info'>
+						<div class='experience-title'>
+							Full Stack Engineer
+						</div>
+						<div class='experience-company'>
+							Viki
+						</div>
+						<div class='experience-date-locale'>
+							June 2017 - Present | Singapore
+						</div>
+					</div>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAxbAAAAJDgzNTE1MmZhLTY0MjQtNDkxOS1hZGE1LTNkNjY2MmJiNTQwNQ.png'>
+					</div>
+				</div>
+				<div class='background-section-content'>
+					<p>Working on Viki's subtitling tools and platform.</p>
+					<p>Languages: JavaScript, Ruby.</p>
+					<p>Tech stack: Backbone.js, Docker, Drone, Graylog, Rails, RabbitMQ, Redis, PostgreSQL.</p>
+					<ul>
+						<li>
+							Developed features across the full stack to improve the subtitling workflow.
+						</li>
+						<li>
+							Refactored legacy code according to [Clean Code principles](https://github.com/uohzxela/clean-code-ruby).
+						</li>
+						<li>
+							Conducted performance profiling and optimization of the subtitling tools to fix obscure memory leaks in older browsers.
+						</li>
+						<li>
+							Improved telemetry by centralizing logging with Elasticsearch and introducing monitoring with Graylog.
+						</li>
+						<li>
+							Performed root cause analysis using Graylog to diagnose and fix internal server errors, reducing them by 90%.
+						</li>
+						<li>
+							Dockerized the local development environment, reducing the set-up time from days to minutes.
+						</li>
+					</ul>
+				</div>
+			</div>
 			<div class='experience-container'>
 				<div class='experience-summary'>
 					<div class='experience-info'>
@@ -158,7 +201,7 @@ navigation = false
 							Rebuilt various parts of the product with HTML5, CSS3, ES6 using React and Redux.
 						</li>
 						<li>
-							Built & shipped the entire [chat SPA](http://www.2redbeans.com/en/app/chat) using AJAX & socket.io to allow real-time updates, with responsive design across desktop and mobile platforms, shaving off response times by 80%.
+							Built & shipped the entire [chat SPA](http://www.2redbeans.com/en/app/chat) using socket.io to allow real-time updates, with responsive design across desktop and mobile platforms, shaving off response times by 80%.
 						</li>
 						<li>
 							Rewrote legacy Rails API for new chat SPA to handle the shift of business logic to front-end, shrinking Rails codebase by 40%.
