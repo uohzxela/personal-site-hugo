@@ -17,7 +17,7 @@ enableRobotsTXT = true
   author = "Alex Jiao"
   intro = "Software Engineer"
   description = "In relentless pursuit of knowledge."
-  authorimage = "myphoto.png"
+  authorimage = "myphoto_wedding.jpg"
   dateformat = "Jan 2, 2006"
   showcomments = true
 

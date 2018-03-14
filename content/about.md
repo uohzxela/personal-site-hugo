@@ -11,7 +11,7 @@ draft = false
 navigation = false
 +++
 
-I'm Alex, a CS student at National University of Singapore. I have experience working across the full web development stack. Being a generalist, I do not tie myself to a single platform or programming language. My academic interest lies in programming language design and implementation. Lately, I'm trying to deep dive into this area, and it has been fascinating so far.
+I'm Alex. I have experience working across the full web development stack. Being a generalist, I do not tie myself to a single platform or programming language. My academic interest lies in programming language design and implementation. Lately, I'm trying to deep dive into this area, and it has been fascinating so far.
 
 I was born in Dalian, which is a coastal city in Liaoning, China, and have spent my formative years in Beijing before immigrating to Singapore. Now, I consider myself more or less a Singaporean, save for a bit of Beijing accent. I relish eating our local fare, and I think <i>bak chor mee</i> is the best thing ever since sliced bread.
 

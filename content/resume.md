@@ -28,10 +28,10 @@ navigation = false
 					</th>
 					<td>
 						<ol>
+							<li>Viki,</li>
 							<li>Grab,</li>
 							<li>honestbee,</li>
-							<li>2RedBeans,</li>
-							<li>Wego</li>
+							<li>2RedBeans</li>
 						</ol>
 					</td>
 				</tr>
@@ -58,7 +58,7 @@ navigation = false
 			</h3>
 			<div class='background-section-content'>
 				<p>Software engineer in relentless pursuit of knowledge.</p>
-				<p>As a lifelong learner of computer science, I have interests in programming language design and implementation.</p>
+				<p>As a lifelong learner of computer science, I have interests in programming languages, distributed systems and operating systems.</p>
 				<p>Very familiar with Python. Familiar with Elixir, Erlang, Ruby, JavaScript, Java, Golang, C.</p>
 				<p>Also, in case you're wondering, this LinkedIn-inspired resume is hand-crafted from scratch by yours truly.</p>
 			</div>
@@ -71,13 +71,41 @@ navigation = false
 				<div class='experience-summary'>
 					<div class='experience-info'>
 						<div class='experience-title'>
+							DevOps Engineer
+						</div>
+						<div class='experience-company'>
+							Wego
+						</div>
+						<div class='experience-date-locale'>
+							Dec 2017 - Present | Singapore
+						</div>
+					</div>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAiaAAAAJDE0NWMxNWJjLTIzNDEtNGU4NC1hMGVhLTc0YjNlNTMyZmFhNA.png'>
+					</div>
+				</div>
+				<div class='background-section-content'>
+					<p>Making Wego's infrastructure more awesome.</p>
+					<p>Tech stack: AWS, Ansible, Consul, Docker, Jenkins, Kong, Packer, Terraform.</p>
+					<ul>
+						<li>Maintaining and optimizing deployment pipelines.</li>
+						<li>Leading Immutable Infrastructure efforts.</li>
+						<li>Leading Infrastructure-as-Code efforts.</li>
+						<li>Site reliability engineering and developer tooling.</li>
+					</ul>
+				</div>
+			</div>
+			<div class='experience-container'>
+				<div class='experience-summary'>
+					<div class='experience-info'>
+						<div class='experience-title'>
 							Full Stack Engineer
 						</div>
 						<div class='experience-company'>
 							Viki
 						</div>
 						<div class='experience-date-locale'>
-							June 2017 - Present | Singapore
+							Jun 2017 - Nov 2017 (6 months) | Singapore
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -85,7 +113,7 @@ navigation = false
 					</div>
 				</div>
 				<div class='background-section-content'>
-					<p>Working on Viki's subtitling tools and platform.</p>
+					<p>Worked on Viki's subtitling tools and platform.</p>
 					<p>Languages: JavaScript, Ruby.</p>
 					<p>Tech stack: Backbone.js, Docker, Drone, Graylog, Rails, RabbitMQ, Redis, PostgreSQL.</p>
 					<ul>
@@ -94,6 +122,9 @@ navigation = false
 						</li>
 						<li>
 							Refactored legacy code according to [Clean Code principles](https://github.com/uohzxela/clean-code-ruby).
+						</li>
+						<li>
+							Eliminated N+1 database queries for highly-trafficked web pages.
 						</li>
 						<li>
 							Conducted performance profiling and optimization of the subtitling tools to fix obscure memory leaks in older browsers.
@@ -114,13 +145,37 @@ navigation = false
 				<div class='experience-summary'>
 					<div class='experience-info'>
 						<div class='experience-title'>
-							Software Engineer
+							Open-source Contributor
+						</div>
+						<div class='experience-company'>
+							BEAM Community (under Google Summer of Code)
+						</div>
+						<div class='experience-date-locale'>
+							Jun 2017 - Aug 2017 (3 months) | Singapore
+						</div>
+					</div>
+					<div class='logo-container'>
+						<img class='experience-logo' src='https://pbs.twimg.com/profile_images/683949209050046464/-MWyJCb1_400x400.png'>
+					</div>
+				</div>
+				<div class='background-section-content'>
+					<p>Developed a code formatter for Elixir language. This project also involves open-source contributions to Elixir tokenizer and parser (written in Erlang) to make the abstract syntax tree more amenable for code formatting. </p>
+					<p>Mentors: Josè Valim and Andrea Leopardi.</p>
+					<p>Languages: Elixir, Erlang.</p>
+					<a href=https://summerofcode.withgoogle.com/archive/2017/projects/6463694657552384/>Project Link</a>
+				</div>
+			</div>
+			<div class='experience-container'>
+				<div class='experience-summary'>
+					<div class='experience-info'>
+						<div class='experience-title'>
+							Software Engineer (Intern)
 						</div>
 						<div class='experience-company'>
 							Grab
 						</div>
 						<div class='experience-date-locale'>
-							Nov 2016 - Jan 2017 (3 months) | Singapore
+							Dec 2016 - Feb 2017 (3 months) | Singapore
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -148,13 +203,13 @@ navigation = false
 				<div class='experience-summary'>
 					<div class='experience-info'>
 						<div class='experience-title'>
-							Software Engineer
+							Software Engineer (Intern)
 						</div>
 						<div class='experience-company'>
 							honestbee
 						</div>
 						<div class='experience-date-locale'>
-							July 2016 - Sep 2016 (3 months) | Singapore
+							Jul 2016 - Sep 2016 (3 months) | Singapore
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -179,13 +234,13 @@ navigation = false
 				<div class='experience-summary'>
 					<div class='experience-info'>
 						<div class='experience-title'>
-							Software Engineer
+							Software Engineer (Co-Op)
 						</div>
 						<div class='experience-company'>
 							2RedBeans
 						</div>
 						<div class='experience-date-locale'>
-							Aug 2015 - June 2016 (11 months) | San Francisco Bay Area
+							Aug 2015 - Jul 2016 (1 year) | San Francisco Bay Area
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -207,6 +262,8 @@ navigation = false
 							Rewrote legacy Rails API for new chat SPA to handle the shift of business logic to front-end, shrinking Rails codebase by 40%.
 						</li>
 						<li>
+							Restructured CSS code using best practices such as BEM methodology.
+						<li>
 							Developed features for iOS app using Swift and Xcode.
 						</li>
 						<li>
@@ -219,13 +276,13 @@ navigation = false
 				<div class='experience-summary'>
 					<div class='experience-info'>
 						<div class='experience-title'>
-							DevOps Engineer
+							DevOps Engineer (Co-Op)
 						</div>
 						<div class='experience-company'>
 							Wego
 						</div>
 						<div class='experience-date-locale'>
-							Jan 2015 - June 2016 (6 months) | Singapore
+							Jan 2015 - Jun 2016 (6 months) | Singapore
 						</div>
 					</div>
 					<div class='logo-container'>
@@ -233,7 +290,7 @@ navigation = false
 					</div>
 				</div>
 				<div class='background-section-content'>
-					<p>Improved Wego's devops and data infrastructure by tinkering with its distributed systems.</p>
+					<p>Improved Wego's infrastructure by tinkering with its distributed systems.</p>
 					<p>Languages: Bash, Golang, Ruby.</p>
 					<p>Tech stack: AWS EC2, Chef, Consul, Docker, HAProxy, Heka, Jenkins, Kafka, Marathon, Mesos, Zookeeper.</p>
 					<ul>
