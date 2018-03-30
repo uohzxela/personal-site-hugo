@@ -335,7 +335,7 @@ navigation = false
 						</div>
 					</div>
 					<div class='logo-container'>
-						<img class='experience-logo' src='https://media.licdn.com/media/p/6/005/085/21b/1c1b7f6.png'>
+						<img class='experience-logo' src='http://www.favoritemedium.net/images/fm_logo_full.png'>
 					</div>
 				</div>
 				<div class='background-section-content'>
